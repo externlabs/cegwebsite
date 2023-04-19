@@ -1,0 +1,1 @@
+[08-Mar-2021 14:22:29 UTC] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 132136960 bytes) in /home/qcojuqqf/public_html/Digifever.in/application/views/frontend/workwith.php on line 174

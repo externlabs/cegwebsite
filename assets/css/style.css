@@ -1,0 +1,985 @@
+@font-face {
+    font-family: 'Avenir LT Std';
+    src: url('../fonts/AvenirLTStd-Book.eot');
+    src: url('../fonts/AvenirLTStd-Book.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/AvenirLTStd-Book.woff2') format('woff2'),
+        url('../fonts/AvenirLTStd-Book.woff') format('woff'),
+        url('../fonts/AvenirLTStd-Book.ttf') format('truetype'),
+        url('../fonts/AvenirLTStd-Book.svg#AvenirLTStd-Book') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Avenir LT Pro';
+    src: url('../fonts/AvenirLTPro-Light.eot');
+    src: url('../fonts/AvenirLTPro-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/AvenirLTPro-Light.woff2') format('woff2'),
+        url('../fonts/AvenirLTPro-Light.woff') format('woff'),
+        url('../fonts/AvenirLTPro-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Avenir LT Std';
+    src: url('../fonts/AvenirLTStd-Medium.eot');
+    src: url('../fonts/AvenirLTStd-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/AvenirLTStd-Medium.woff2') format('woff2'),
+        url('../fonts/AvenirLTStd-Medium.woff') format('woff'),
+        url('../fonts/AvenirLTStd-Medium.ttf') format('truetype'),
+        url('../fonts/AvenirLTStd-Medium.svg#AvenirLTStd-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Avenir LT Std';
+    src: url('../fonts/AvenirLTStd-Heavy.eot');
+    src: url('../fonts/AvenirLTStd-Heavy.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/AvenirLTStd-Heavy.woff2') format('woff2'),
+        url('../fonts/AvenirLTStd-Heavy.woff') format('woff'),
+        url('../fonts/AvenirLTStd-Heavy.ttf') format('truetype'),
+        url('../fonts/AvenirLTStd-Heavy.svg#AvenirLTStd-Heavy') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Avenir LT Std';
+    font-weight: 400;
+    line-height: normal;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul,
+li,
+ol {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container-box {
+    padding: 0 15px;
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+
+/* ======================= Main css  ============================= */
+
+
+/* modal Start  */
+ .modal-open {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9;
+    overflow: hidden;
+}
+
+#myModal {
+    background: rgba(0, 0, 0, 0.75);
+    display: none;
+}
+.modal-open #myModal  { 
+    display: block;
+}
+
+.modal-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin:  0 auto;
+    width: 80%;
+    
+}
+
+.modal-inner .modal-body {
+    margin-bottom: 0;    
+    width: 50%;
+    max-width: 700px;
+    margin: auto;
+    padding: 15px;
+    background: #fff;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0 0 10px #000;
+}
+
+.modal-inner .modal-closebtn {
+    border-radius: 50%;
+    border: none;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    z-index: 1;
+    background-color: #fff;
+}
+
+.modal-inner .modal-closebtn i {
+    color: #555;
+    font-size: 25px;
+}
+.modal-inner .modal-body figure{
+    width: 100%;
+    height: 100%;
+}  
+
+/* modal end */
+
+.topbar {
+    background-color: #BF8040;
+    padding: 8px 15px;
+}
+
+.topbar .toggle-btn {
+    display: none;
+}
+
+.topbar-list {
+    display: flex;
+    justify-content: end;
+}
+
+.topbar-list li {
+    padding: 0 8px;
+}
+
+.topbar-list li+li {
+    border-left: 2px solid #fff;
+}
+
+.topbar-list li a {
+    color: #fff;
+    font-size: 14px;
+}
+
+.topbar-list button.box-btn {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    vertical-align: sub;
+    border: none;
+}
+
+.topbar-list .box-btn:first-child {
+    background-color: #0099E4;
+}
+
+.topbar-list .box-btn:nth-child(2) {
+    background-color: #fff;
+}
+
+.topbar-list .box-btn:last-child {
+    background-color: #DE3030;
+}
+
+.font-btn {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+}
+
+.logo-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+}
+.logo-bar > .left-part > a { 
+    display: inline-block;
+    margin-right: 17px;
+}
+
+
+.menu-bar .menu-close {
+    border: none;
+    background: none;
+    display: none;
+}
+
+.menu-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 50px;
+    background-color: #BF8040;
+}
+
+.menu-list li a,
+.menu-list li  {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+}
+.menu-list li { 
+    padding: 8px 0;
+}
+.menu-list>li>a i {
+    font-size: 12px;
+}
+
+.menu-list li.dropdown a {
+    padding-bottom: 8px;
+}
+
+.menu-list .dropdown:hover .dropdown-menu {
+    transition: all .3s;
+    background-color: #BF8040;
+    border-radius: 0;
+    margin-top: 8px;
+    border: none;
+    width: 100%;
+    min-width: 140px;
+    outline: none;
+    box-shadow: 0 0 5px #321c062b;
+    display: block;
+    transition: all .3s linear;
+}
+
+.menu-list .dropdown .dropdown-menu a {
+    color: #fff;
+    font-size: 14px;
+    display: block;
+    padding: 5px 15px;
+    transition: all .3s linear;
+}
+
+.menu-list .dropdown .dropdown-menu a.active,
+.menu-list .dropdown .dropdown-menu a:hover {
+    background-color: #fff;
+    color: #BF8040;
+    transition: all .3s linear;
+}
+
+.homebanner {
+    height: 600px;
+     background: url(../images/banner.png) top center no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.homebanner > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.homebanner .info-list {
+    position:absolute;
+    right: 30px;
+    bottom: 30px;
+    width: 400px;
+}
+
+.info-list li {
+    background-color: #fff;
+    display: flex;  
+    border-radius: 4px; 
+}
+
+.info-list li + li {
+    margin-top: 25px;
+}
+
+.info-list li img {
+    width: 120px;
+    border-radius: 4px 0 0 4px;
+}
+
+.info-list li .text-box {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px 5px;
+    width: 100%;
+}
+
+.info-list li h2 {
+    font-size: 20px;
+    color: #000;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.info-list li p {
+    font-size: 16px;
+    margin-bottom: 0;
+    color: #000;
+    font-weight: 400;
+}
+
+.aboutinfo-section { 
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+.aboutinfo-part {
+    margin: 25px 0;
+    display: flex;
+}
+
+.aboutinfo-part > li + li {
+    margin-left: 15px;
+}
+
+.aboutinfo-part >  li:first-child {
+    width: 25%;
+    background: #BF8040;
+}
+
+.aboutinfo-part li > .info-list { 
+    padding: 10px;
+}
+.aboutinfo-part li > .info-list img {
+    width: 100px;
+}
+.aboutinfo-part li > .info-list h2 {
+    font-size: 18px;
+    color: #000;
+}
+
+.aboutceg-text{
+    color: white;
+    height: 443px;
+    overflow-y: auto;
+}
+.aboutceg-text li{
+    list-style-type: disc;
+}
+.aboutinfo-part .aboutceg-text {
+    padding: 25px 25px 5px;
+    background: #BF8040;
+    width: 35% ;
+}
+
+.aboutinfo-part .aboutceg-text h2 { 
+    font-size: 30px;
+    font-weight: 600;
+    padding:0 0 15px;
+    color: #fff;
+    margin-bottom: 0;
+}
+
+.aboutinfo-part .aboutceg-text p { 
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.3;
+}
+
+.aboutinfo-part .aboutceg-text .btn {
+    color: #fff;
+    font-size: 18px;
+    padding: 0;
+    border: none;
+    font-weight: 600;
+}
+
+.aboutinfo-part .aboutceg-img {
+    background: #BF8040;
+        padding:0;    
+        width: 20%; 
+}   
+.aboutinfo-part .aboutceg-img img { 
+    width: 100%;
+    height: 100%;
+}
+.aboutinfo-part .newss-part  {
+    background: rgba(191, 128, 64, 0.1);
+}
+.aboutinfo-part .news-part {
+    background: rgba(191, 128, 64, 0.1);
+    width: 25%;
+}
+
+.aboutinfo-part .news-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.aboutinfo-part button{
+    background-color: #BF8040;
+    padding: 10px 15px;
+    border: 1px solid #BF8040;
+    border-radius: 4px;
+    float: right;
+    color: white;
+}
+
+
+.aboutinfo-part .news-part marquee {
+    width: 100%;
+    /* height: 200px; */
+    height: 220px;
+}
+
+.aboutinfo-part .news-part h3 {
+    font-size: 30px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.aboutinfo-part .news-part ul li a {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    color: #000;
+    display: block;
+    border-top: 1px solid #000;
+    padding: 15px 5px 15px 15px
+}
+
+
+.campus-page ul li {
+    margin-left: 20px;
+    list-style: disc;
+    margin-top: 5px;
+}
+
+.campus-page th:first-child,
+.campus-page td:first-child{
+    width: 100px;
+}
+
+.campus-page th:nth-child(2),
+.campus-page td:nth-child(2){
+    width: 200px;
+}
+
+.campus-page th:nth-child(3),
+.campus-page td:nth-child(3){
+    width: 100px;
+}
+
+.campus-page th:nth-child(4),
+.campus-page td:nth-child(4){
+    width: 200px;
+}
+.campus-page th:last-child,
+.campus-page td:last-child{
+    width: 200px;
+}
+
+/* =============================================== */
+/*  */
+
+
+
+footer {
+    margin: 0;
+    padding:45px 0 30px ;
+    background: #BF8040;
+}
+footer .container-box h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.footer-row  li p {
+    color: #fff;
+    margin-bottom: 2px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.footer-row  li p a {
+    color: #fff;
+}
+
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+}
+.footer-row > li {
+ 
+}
+.footer-row > li:first-child{
+       width: 380px;
+}
+.footer-row > li:nth-child(2){
+     width: 250px;
+     padding:0 10px;
+}
+
+.footer-row > li:nth-child(2) ul li{ 
+    margin-bottom: 5px;
+}
+
+.footer-row > li:nth-child(3){
+     width: 170px;
+}
+.footer-row > li:nth-child(3) ul li::marker {
+    color: #fff;
+    background-color: #fff;
+}
+.footer-row > li:nth-child(3) ul li {
+    margin-bottom: 5px;
+    list-style: disc;
+}
+
+.footer-row > li:last-child{
+     width: 300px;
+     padding:25px  10px 0;
+}
+
+.footer-row  li  a{ 
+    color: #fff;
+    font-weight: 400;
+    text-decoration: underline;
+    color: #fff;
+}
+
+.internship-wrapper{
+    margin: 30px;
+    display: flex;
+    flex: 1 0 33%;
+    flex-wrap: wrap;
+}
+
+.internship-container{
+    padding: 20px;
+    border: 1px solid #BF8040;
+    border-radius: 4px;
+    margin: 20px;
+    width: 30%;
+}
+
+.duration-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+.duration-label{
+    color: #BF8040;
+}
+
+.enroll-button { 
+    background-color: #BF8040;
+    padding: 10px 15px;
+    border: 1px solid #BF8040;
+    border-radius: 4px;
+    margin-top: 25px;
+    float: right;
+    color: white;
+}
+
+.internship-title{
+    font-size: 30px;
+}
+
+.campany-tabbar .form-group, 
+.student-tabbar .form-group   {
+    margin-bottom: 16px;
+    
+}
+.campany-tabbar label,
+.student-tabbar label{
+    font-weight: 500;
+}
+.campany-tabbar .form-control,
+.student-tabbar .form-control {
+    color: #000;
+    border: 1px solid #000;
+}
+
+
+
+/****** Responsive css  *****/
+
+
+
+@media(max-width:1199px) {
+   
+    .menu-list li a, .menu-list li {
+        font-size: 13px;
+    }
+
+    .menu-list .dropdown .dropdown-menu a {
+        font-size: 14px;
+    }
+    .aboutinfo-part {
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .aboutinfo-part > li:first-child {
+        width: 49%;
+     }
+     .aboutinfo-part .aboutceg-text {
+        padding: 15px 15px 5px 30px;
+        background: #BF8040;
+        width: 49%;
+    }
+    .aboutinfo-part > li + li {
+        margin-left: 0px;
+    }
+    
+    .aboutinfo-part .aboutceg-img {
+        width: 49%;
+        margin-top: 15px;
+    }
+    .aboutinfo-part .news-part {
+        width: 49%;
+        margin-top: 15px;
+    }
+    .aboutinfo-part .news-part marquee {
+        height: 430px;
+    }
+    .footer-row > li:first-child {
+        width: 300px;
+    }
+    
+    .footer-row > li:nth-child(2) {
+    width: 230px;
+    padding: 0 5px;
+}
+.footer-row > li:nth-child(3) {
+    width: 90px;
+}
+
+
+}
+
+
+@media(max-width:991px) {
+    .aboutceg-text h2 {
+        font-size: 25px;
+    }
+
+    .aboutceg-text p {
+        font-size: 14px;
+    }
+
+    .news-box h2 {
+        font-size: 25px;
+    }
+
+    .aboutceg-text .btn {
+        font-size: 16px;
+    }
+    .footer-row {
+        flex-wrap: wrap;
+    }
+    .footer-row > li:first-child,
+    .footer-row > li:nth-child(2) {
+        width: 49%;
+    }
+    .footer-row > li:nth-child(3){
+        padding-left: 25px;
+        padding-top: 25px;
+        width: 49%;
+    }
+     .footer-row > li:last-child {
+        padding-top: 25px;
+        width: 49%;
+     }
+    
+}
+
+@media(max-width:767.5px) {
+    .topbar-list {
+        flex-wrap: wrap;
+    }
+
+    .topbar .toggle-btn {
+        position: absolute;
+        display: block;
+        top: 5px;
+        left: 10px;
+        border: none;
+        background: none;
+        font-size: 25px;
+    }
+
+    .topbar .toggle-btn i {
+        color: #fff;
+    }
+
+    .topbar {
+        padding-left: 50px;
+    }
+
+    .topbar-list li {
+        padding: 0 4px;
+    }
+
+    .topbar-list li a,
+    .font-btn {
+        font-size: 12px;
+    }
+
+    .menu-bar {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9;
+        height: 100vh;
+        overflow: auto;
+        background-color: #BF8040;
+    }
+
+    .menuShow .menu-bar {
+        display: block;
+    }
+
+    .menuShow .menu-bar .menu-close {
+        border: none;
+        background: none;
+        display: block;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 9;
+    }
+
+    .menu-bar .menu-list {
+        flex-wrap: wrap;
+        margin-top: 40px;
+    }
+
+    .menu-bar .menu-close i {
+        color: #fff;
+        font-size: 25px;
+    }
+
+    .menu-bar .menu-list>li {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .menu-list .dropdown .dropdown-menu {
+        position: relative;
+    }
+
+    .menu-bar .menu-list li i {
+        font-size: 12px;
+    }
+
+    .logo-bar {
+        padding: 15px;
+    }
+
+    .aboutceg-text h2 {
+        font-size: 25px;
+    }
+    .logo-bar .left-part {
+        width: 65%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .logo-bar .left-part > img {
+            width: 60px;
+    }
+    .logo-bar > .left-part > a {
+        margin-right: 10px;
+    }
+
+    .aboutceg-section .container-box {
+        flex-wrap: wrap;
+    }
+
+    .aboutceg-text {
+        width: 100%;
+        padding: 15px 0 40px;
+    }
+
+    .ceginfo-section ul li h2 {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    .ceginfo-section ul li img {
+        width: 140px;
+    }
+
+    .ceginfo-section ul li p {
+        font-size: 14px;
+    }
+
+    .aboutceg-text p {
+        font-size: 16px;
+        margin: 15px 0;
+    }
+
+    .news-section .container-box {
+        flex-wrap: wrap;
+    }
+
+    .news-section .left-part {
+        width: 100%;
+    }
+
+    .news-section .right-part {
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    .aboutceg-section figure {
+        position: static;
+        width: 100%;
+        height: 100%;
+    }
+
+    .banner-section {
+        flex-wrap: wrap;
+        height: auto;
+    }
+
+    .banner-section .left-part {
+        width: 100%;
+    }
+
+    .banner-section .right-part {
+        width: 100%;
+        height: 100%;
+    }
+
+    .banner-section .right-part marquee {
+        width: 100%;
+        height: 300px;
+    }
+  
+
+}
+
+
+@media(max-width:579.5px) {
+    .topbar-list {
+        flex-wrap: wrap;
+    }
+
+    .logo-bar .right-part img {
+        max-width: 80px;
+    }
+
+
+    .news-section ul li img {
+        width: 90px;
+    }
+
+    .news-section ul li .text-box {
+        width: calc(100% - 90px);
+        padding-left: 10px;
+    }
+
+    .news-section ul li .text-box h2 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .news-slider h3 {
+        font-size: 16px;
+    }
+
+    .ceginfo-section ul {
+        flex-wrap: wrap;
+    }
+
+    .ceginfo-section ul li {
+        width: 100%;
+    }
+
+    .ceginfo-section ul li+li {
+        margin-top: 15px;
+    }
+    .homebanner {
+        height: auto;
+    }
+    .homebanner .info-list {
+        position: static;
+        width: 100%;
+    }
+    .homebanner .info-list {
+        padding: 10px;
+    }
+    .info-list li img {
+        width: 90px;
+    }    
+    
+    .homebanner .info-list {
+        background-color: #BF8040;
+    }
+    .homebanner .info-list h2,
+    .aboutinfo-part li > .info-list h2 {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+    .aboutinfo-part > li:first-child {
+        width: 100%;
+        
+    }
+    .aboutinfo-part .aboutceg-text {
+        width: 100%;
+        margin-top: 15px;
+    }
+    .aboutinfo-part .aboutceg-img {
+        width: 100%;
+    }
+    .aboutinfo-part .news-part {
+        width: 100%;
+    }
+
+    .aboutinfo-part .aboutceg-text h2 {
+        font-size: 25px;
+        padding: 0px; 
+    }
+
+    .logo-bar .left-part > img {
+        width: 40px;
+    }
+    .logo-bar {
+        padding: 15px 5px;
+    }
+
+    .footer-row > li:first-child,
+    .footer-row > li:nth-child(2),
+    .footer-row > li:nth-child(3), 
+    .footer-row > li:last-child {
+        width: 100%;
+    }
+    .footer-row > li:nth-child(2),
+    .footer-row > li:nth-child(3),
+    .footer-row > li:last-child {
+            padding-top: 15px;
+    }
+     .footer-row > li:last-child {
+        padding-left: 0;
+     }
+     footer .container-box h2 { 
+        font-size: 20px;
+        margin-bottom: 10px;
+     }
+}
