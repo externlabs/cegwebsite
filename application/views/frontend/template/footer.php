@@ -43,8 +43,7 @@
 </body>
 
 <script src="<?php echo base_url()?>assets/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script>
+   ></script>
 <script src="<?php echo base_url()?>assets/js/jquery.js"></script>
 <script src="<?php echo base_url()?>assets/js/owl.carousel.min.js"></script>
 <script src="<?php echo base_url()?>assets/js/custom.js"></script>

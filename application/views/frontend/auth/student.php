@@ -1,6 +1,5 @@
 
-<script src="<?php echo base_url('admin/assets/js/jquery/jquery.min.js')?>"></script>
-<script src="<?php echo base_url('admin/assets/js/jquery/jquery-3.6.0.min.js')?>"></script>
+
 
 <div class="container mt-5 mt-5">
     <div class="row justify-content-center">
@@ -153,7 +152,8 @@
     </div>
 </div>
 
-
+<script src="<?php echo base_url('admin/assets/js/jquery/jquery.min.js')?>"></script>
+<script src="<?php echo base_url('admin/assets/js/jquery/jquery-3.6.0.min.js')?>"></script>
 
 <script>
     $(document).ready(function() {

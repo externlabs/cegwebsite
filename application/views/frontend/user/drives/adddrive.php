@@ -1,9 +1,14 @@
 
 
-<link rel="stylesheet" href="<?php echo base_url()?>//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="<?php echo base_url()?>https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <script src="<?php echo base_url()?>https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="<?php echo base_url()?>https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<!-- <link rel="stylesheet" href="<?php echo base_url()?>admin/assets/css/jquery-ui.css">
+
+<script src="<?php echo base_url()?>admin/assets/js/jquery/jquery-1.12.4.js"></script>
+<script src="<?php echo base_url()?>admin/assets/js/jquery/jquery-ui.js"></script> -->
 
 
 <div class="container mt-md-5 mt-3">
