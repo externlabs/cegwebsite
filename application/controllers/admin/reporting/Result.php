@@ -8,11 +8,11 @@ class Result extends CI_controller
     if (!$this->session->userdata('vendorAuth')) {
       redirect('admin/login');
     }
-    $this->load->model('frontend/Studentmodel');
+    $this->load->model('frontend/Drivemodel');
   }
 
   public function index(){
-    $data['student_details']=$this->Studentmodel->fetch_data();
+    $data['drive_details']=$this->Drivemodel->fetch_drive();
     $this->load->view('admin/template/header');
     $this->load->view('admin/template/sidebar');
     $this->load->view('admin/template/topbar');

@@ -50,8 +50,10 @@
                 <li><button type="button" class="box-btn"></button> <button type="button" class="box-btn"></button>
                     <button type="button" class="box-btn"></button>
                 </li>
-                <li><button type="button" class="font-btn">A+</button> <button type="button" class="font-btn">A</button>
-                    <button type="button" class="font-btn">A-</button>
+                <li>
+                    <button type="button" class="font-btn font-btn-increase">A+</button> 
+                    <button type="button" class="font-btn font-btn-default">A</button>
+                    <button type="button" class="font-btn font-btn-decrease">A-</button>
                 </li>
                 <li><a href="#">Website Updated: 06 Feb 2023</a></li>
             </ul>

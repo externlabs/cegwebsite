@@ -7,7 +7,18 @@ $(document).ready(function(){
         $("body").removeClass('menuShow');
     });
 
+    
+    $(".font-btn.font-btn-increase").click(function(){
+        $("body *").css('font-size','+=1');
+    });
 
+    $(".font-btn.font-btn-decrease").click(function(){
+        $("body *").css('font-size','-=1');
+    });
+
+    $(".font-btn.font-btn-default").click(function(){
+        $("body *").css('font-size','=1');
+    });
 
     $(window).on('load', function() {
         $(".home-page").addClass('modal-open');

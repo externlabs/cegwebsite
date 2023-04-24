@@ -136,18 +136,18 @@ $parts = basename($url);
           </div>
         </li>
 
-        <!-- <li class="nav-item ">
+        <li class="nav-item ">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#reporting" aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
             <span>Reporting</span>
           </a>
           <div id="reporting" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="py-2 collapse-inner rounded">
-              <a class="collapse-item " href="<?php echo base_url(); ?>admin/reporting/result" style="font-size:1.3rem; ">Result</a>
+              <a class="collapse-item " href="<?php echo base_url(); ?>admin/reporting/result" style="font-size:1.3rem; ">Ongoin Drives</a>
               <div class="collapse-divider"></div>
             </div>
           </div>
-        </li> -->
+        </li>
 
         <li class="nav-item ">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#training" aria-expanded="true" aria-controls="collapsePages">
