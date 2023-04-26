@@ -108,21 +108,19 @@
                         </div>
                         <div class="form-group">
                             <label class="pincode">Pincode <span style="color:red;">*</span></label>
-                            <input type="number" name="pincode" class="num"  id="pincode" placeholder="Enter Pincode" onkeyup="fetchPincode()" required maxlength="6" minlength="6">
+                            <input type="number" name="pincode" class="num"   placeholder="Enter Pincode" required maxlength="6" minlength="6">
                             <p id="errorMsg" style="color:red; font-style:italic;font-size:10px;"></p>
                         </div>
                         <div class="form-group">
                             <label class="form-label">City / Village / B.O <span style="color:red;">*</span></label>
-                            <select name="city" id="cityinput" required>
-                                <option value="">Select An Option</option>
-                            </select>
+                            <input type="text" name="city"   placeholder="Enter City / Village / B.O" value="" required>
                         </div>
                         <div class="form-group">
                             <label class="form-label">District <span style="color:red;">*</span></label>
-                            <input type="text" name="district" id="district" readonly placeholder="Enter District" value="" required>
+                            <input type="text" name="district"   placeholder="Enter District" value="" required>
 
                             <label class="form-label">State <span style="color:red;">*</span></label>
-                            <input type="text" name="state" id="state" readonly placeholder="Enter State" value="" required>
+                            <input type="text" name="state"  placeholder="Enter State" value="" required>
                         </div>
                         
                         <div class="form-group">

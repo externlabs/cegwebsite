@@ -296,7 +296,7 @@ img {
 
 .homebanner .info-list {
     position:absolute;
-    right: 30px;
+    left: 30px;
     bottom: 30px;
     width: 400px;
 }

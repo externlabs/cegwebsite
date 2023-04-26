@@ -89,18 +89,16 @@
                 </li>
                 <li class="dropdown">Admissions <i class="fa-solid fa-angle-down"></i>
                     <ul class="dropdown-menu">
-                        <li><a href="#">REAP-2023</a></li>
-                        <li><a href="#" class="active">BARCH-2023</a></li>
-                        <li><a href="#">RMCAAP-2023</a></li>
-                        <li><a href="#">RMAP-2023</a></li>
+                        <li><a href="#" class="active">B.E / B.TECH -2023</a></li>
+                        <li><a href="#" >B.ARCH-2023</a></li>
+                        <li><a href="#">MCA-2023</a></li>
+                        <li><a href="#">MBA-2023</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">Learners Resources <i class="fa-solid fa-angle-down"></i>
+                <li class="dropdown">E-Governance <i class="fa-solid fa-angle-down"></i>
                     <ul class="dropdown-menu">
-                        <li><a href="#">REAP-2023</a></li>
-                        <li><a href="#" class="active">BARCH-2023</a></li>
-                        <li><a href="#">RMCAAP-2023</a></li>
-                        <li><a href="#">RMAP-2023</a></li>
+                        <li><a href="#" class="active">Learning Resources</a></li>
+                        <li><a href="#" >E-Forms</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">Circular and News <i class="fa-solid fa-angle-down"></i>

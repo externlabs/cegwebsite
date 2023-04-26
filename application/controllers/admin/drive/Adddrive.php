@@ -31,13 +31,14 @@ class Adddrive extends CI_controller
         $this->form_validation->set_rules('job_desc', 'number', 'required');
         $this->form_validation->set_rules('drive_method', 'Name', 'required');
         $this->form_validation->set_rules('drive_date', 'Email', 'required');
-        $this->form_validation->set_rules('end_date', 'number', 'required');
+        $this->form_validation->set_rules('last_date', 'number', 'required');
         $this->form_validation->set_rules('start_date', 'Name', 'required');
         $this->form_validation->set_rules('salary', 'Email', 'required');
         $this->form_validation->set_rules('department', 'number', 'required');
         $this->form_validation->set_rules('benefits', 'Name', 'required');
         $this->form_validation->set_rules('selection_process', 'Email', 'required');
         $this->form_validation->set_rules('company_id', 'number', 'required');
+
 
         if ($this->form_validation->run()) {
             
