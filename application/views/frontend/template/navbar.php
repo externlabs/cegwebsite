@@ -101,13 +101,8 @@
                         <li><a href="#" >E-Forms</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">Circular and News <i class="fa-solid fa-angle-down"></i>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">REAP-2023</a></li>
-                        <li><a href="#" class="active">BARCH-2023</a></li>
-                        <li><a href="#">RMCAAP-2023</a></li>
-                        <li><a href="#">RMAP-2023</a></li>
-                    </ul>
+                <li >
+                    <a href="#">Circular and News</a>
                 </li> 
                 <li><a href="<?php echo base_url()?>">Contact us</a></li>
                 <?php echo $login?>
