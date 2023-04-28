@@ -23,7 +23,7 @@
                 <img src="<?php echo base_url()?>assets/image/img3.png" alt="img"
                     style="padding: 10px; background-color: #e0e5ee; border-radius: 4px 0 0 4px;">
                 <div class="text-box">
-                    <h2> Hon'ble MinisterTechnical Education</h2>
+                    <h2> Hon'ble Minister Technical Education</h2>
                     <p>Dr. Subhash Garg </p>
                 </div>
             </li>
