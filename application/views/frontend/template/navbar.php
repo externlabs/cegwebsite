@@ -47,8 +47,10 @@
             <ul class="topbar-list">
                 <li><a href="#">Skip to Main Content</a></li>
                 <li><a href="#">Screen Reader Access</a></li>
-                <li><button type="button" class="box-btn"></button> <button type="button" class="box-btn"></button>
-                    <button type="button" class="box-btn"></button>
+                <li>
+                    <button type="button " class="box-btn skybg-btn"></button> 
+                    <button type="button " class="box-btn browenbg-btn"></button>
+                    <button type="button" class="box-btn redbg-btn"></button>
                 </li>
                 <li>
                     <button type="button" class="font-btn font-btn-increase">A+</button> 
@@ -89,6 +91,7 @@
                 </li>
                 <li class="dropdown">Admissions <i class="fa-solid fa-angle-down"></i>
                     <ul class="dropdown-menu">
+                        <!-- <li><a href="<?php echo base_url()?>comingsoon">Coming Soon</a></li>     -->
                         <li><a href="<?php echo base_url()?>btech" class="active">B.E / B.TECH -2023</a></li>
                         <li><a href="<?php echo base_url()?>barch" >B.ARCH-2023</a></li>
                         <li><a href="<?php echo base_url()?>mca">MCA-2023</a></li>
@@ -104,7 +107,7 @@
                 <li >
                     <a href="#">Circular and News</a>
                 </li> 
-                <li><a href="<?php echo base_url()?>">Contact us</a></li>
+                <li><a href="<?php echo base_url()?>contact">Contact Us</a></li>
                 <?php echo $login?>
             </ul>
         </div>

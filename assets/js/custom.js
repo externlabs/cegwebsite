@@ -26,11 +26,27 @@ $(document).ready(function(){
 
     $(".modal-closebtn").click(function(){
         $(".home-page").removeClass('modal-open');
-        
-
     });
 
-    $('#pendingdrive').DataTable();
+    
+    $(".skybg-btn").click(function(){
+        $("body").addClass("skybg-body");
+        $("body").removeClass("browenbg-body");
+        $("body").removeClass("redbg-body");
+    });
+    $(".browenbg-btn").click(function(){
+        $("body").addClass("browenbg-body");
+        $("body").removeClass("skybg-body");
+        $("body").removeClass("redbg-body");
+    });
+    $(".redbg-btn").click(function(){
+        $("body").addClass("redbg-body");
+        $("body").removeClass("browenbg-body");
+        $("body").removeClass("skybg-body");
+    });
+
+
+    // $('#pendingdrive').DataTable();
       
 
     

@@ -182,8 +182,9 @@ img {
     width: 14px;
     height: 14px;
     display: inline-block;
-    vertical-align: sub;
-    border: none;
+    /* vertical-align: sub; */
+    border: 1px solid #fff;
+
 }
 
 .topbar-list .box-btn:first-child {
@@ -191,7 +192,7 @@ img {
 }
 
 .topbar-list .box-btn:nth-child(2) {
-    background-color: #fff;
+    background-color: #bf8040;
 }
 
 .topbar-list .box-btn:last-child {
@@ -617,6 +618,193 @@ footer .container-box h2 {
 }
 
 
+/* ----------------------- skybg-body change------------------------------   */
+
+
+.skybg-body .topbar,
+.skybg-body .menu-list,
+.skybg-body .aboutinfo-part > li:first-child,
+.skybg-body .aboutinfo-part .aboutceg-text,
+.skybg-body .aboutinfo-part .aboutceg-img,
+.skybg-body .aboutinfo-part .news-part,
+.skybg-body .aboutinfo-part button,
+.skybg-body footer,
+.skybg-body .menu-list .dropdown:hover .dropdown-menu
+ {
+    background-color: #0099e4;
+}
+
+.skybg-body .aboutinfo-part button  {
+    border-color: #fff;
+    color: #000;
+    background-color: #fff;
+    box-shadow:  0 0 10px #fff;
+}
+.skybg-body .menu-list .dropdown .dropdown-menu a.active, 
+.skybg-body .menu-list .dropdown .dropdown-menu a:hover {
+    color: #0099e4;
+}
+
+
+.skybg-body .contact-list ul,
+.skybg-body .contactinfo-sec h3::after,
+.skybg-body .contactinfo-sec .btn {
+    background-color: #0099e4;
+}
+.skybg-body .contactinfo-sec h3 {
+    color: #0099e4;
+}
+
+/* ----------------------- browenbg-body change------------------------------   */
+
+.browenbg-body .topbar,
+.browenbg-body .menu-list,
+.browenbg-body .aboutinfo-part > li:first-child,
+.browenbg-body .aboutinfo-part .aboutceg-text,
+.browenbg-body .aboutinfo-part .aboutceg-img,
+.browenbg-body .aboutinfo-part .news-part,
+.browenbg-body .aboutinfo-part button,
+.browenbg-body footer,
+.browenbg-body .menu-list .dropdown:hover .dropdown-menu {
+    background-color: #BF8040;
+}
+
+.browenbg-body .aboutinfo-part button  {
+    border-color: #fff;
+    color: #000;
+    background-color: #fff;
+    box-shadow:  0 0 10px #fff;
+}
+.browenbg-body .menu-list .dropdown .dropdown-menu a.active, 
+.browenbg-body .menu-list .dropdown .dropdown-menu a:hover {
+    color: #BF8040;
+}
+
+.browenbg-body .contact-list ul,
+.browenbg-body .contactinfo-sec h3::after,
+.browenbg-body .contactinfo-sec .btn {
+    background-color: #BF8040;
+}
+.browenbg-body .contactinfo-sec h3 {
+    color: #BF8040;
+}
+
+
+/* ----------------------- redbg-body change------------------------------   */
+
+.redbg-body .topbar,
+.redbg-body .menu-list,
+.redbg-body .aboutinfo-part > li:first-child,
+.redbg-body .aboutinfo-part .aboutceg-text,
+.redbg-body .aboutinfo-part .aboutceg-img,
+.redbg-body .aboutinfo-part .news-part,
+.redbg-body .aboutinfo-part button,
+.redbg-body footer,
+.redbg-body .menu-list .dropdown:hover .dropdown-menu {
+    background-color: #de3030;
+}
+
+.redbg-body .aboutinfo-part button  {
+    background-color: #fff;
+    color: #000;
+    box-shadow:  0 0 10px #fff;
+}
+.redbg-body .menu-list .dropdown .dropdown-menu a.active, 
+.redbg-body .menu-list .dropdown .dropdown-menu a:hover {
+    color: #de3030;
+}
+
+.redbg-body .contact-list ul,
+.redbg-body .contactinfo-sec h3::after,
+.redbg-body .contactinfo-sec .btn {
+    background-color: #de3030;
+}
+.redbg-body .contactinfo-sec h3 {
+    color: #de3030;
+}
+/* ========================= contact page  ================================= */
+
+.contactinfo-sec {
+    margin: 100px 0; 
+}
+.contactinfo-sec form {
+    margin-top: 45px;
+}
+
+.contactinfo-sec h3 {
+    font-size: 35px;
+    margin: 0;
+    font-weight: 700;
+    position: relative;
+    color: #BF8040;
+}
+
+.contactinfo-sec h3::after{
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    background-color: #BF8040;
+    height: 2px;
+}
+
+
+.contactinfo-sec .form-control { 
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #5b5050; 
+    box-shadow: none;
+    margin-bottom: 35px;
+    color: #5b5050;
+}
+
+.contactinfo-sec .btn { 
+    margin-top: 20px;
+    padding: 10px 35px;  
+    background-color: #BF8040; 
+    color: #fff;
+    border-radius: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+.contact-list ul {
+    display: flex;
+    justify-content: space-between;
+    padding:30px 10px;
+    background-color: #BF8040;
+}
+
+.contact-list ul li {
+    display: flex;
+}
+
+.contact-list ul li + li {
+    padding-left: 10px;
+}
+
+.contact-list ul li p,
+.contact-list ul li a{
+    width: calc(100% - 15px);
+    margin-bottom: 0;
+}
+
+.contact-list a,
+.contact-list p {   
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.contact-list li i{
+    font-size: 15px;
+    width:25px ;
+    color: #fff;
+}
+
+
 
 /****** Responsive css  *****/
 
@@ -705,6 +893,17 @@ footer .container-box h2 {
      .footer-row > li:last-child {
         padding-top: 25px;
         width: 49%;
+     }
+     .contactinfo-sec h3 {
+        font-size: 25px;        
+     }
+
+     .contactinfo-sec h3:after{
+        width: 130px;
+     }
+     .contactinfo-sec .btn {
+        margin-top: 0px;
+        margin-bottom: 25px;
      }
     
 }
@@ -875,7 +1074,16 @@ footer .container-box h2 {
         width: 100%;
         height: 300px;
     }
-  
+    
+    .contact-list { 
+        margin-top: 15px;
+    }
+    .contactinfo-sec .form-control {
+        margin-bottom: 25px;
+    }
+    .contactinfo-sec form {
+        margin-top: 25px;
+    }
 
 }
 
