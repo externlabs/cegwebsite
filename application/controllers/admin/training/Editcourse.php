@@ -83,8 +83,8 @@ public function update_course(){
         'course_type' => $this->input->post('course_type'),
         'course_amount' => $this->input->post('course_amount'),
         'form_amount' => $this->input->post('form_amount'), 
-        'start_date' => $this->input->post('start_date'),
-        'end_date' => $this->input->post('end_date'),
+        // 'start_date' => $this->input->post('start_date'),
+        // 'end_date' => $this->input->post('end_date'),
         // 'course_status' => 1,
     );
       $id = $this->input->post('course_id');

@@ -52,6 +52,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'home';
 $route['regular-training'] = 'frontend/regular_training';
 $route['alltraining'] = 'frontend/alltraining';
+
+$route['mba'] = 'frontend/mba';
+$route['mca'] = 'frontend/mca';
+$route['btech'] = 'frontend/btech';
+$route['barch'] = 'frontend/barch';
+
+
 $route['upcoming-drives'] = 'frontend/upcoming_drive';
 $route['auth/company'] = 'frontend/auth/company';
 

@@ -127,7 +127,7 @@ $parts = basename($url);
           <div id="drive" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="py-2 collapse-inner rounded">
               <a class="collapse-item " href="<?php echo base_url(); ?>admin/drive/driverequest" style="font-size:1.3rem; ">New Drive Request</a>
-              <a class="collapse-item " href="<?php echo base_url(); ?>admin/drive/upcommingdrive" style="font-size:1.3rem; ">Upcomming Drive</a>
+              <a class="collapse-item " href="<?php echo base_url(); ?>admin/drive/upcommingdrive" style="font-size:1.3rem; ">Upcoming Drive</a>
               <a class="collapse-item " href="<?php echo base_url(); ?>admin/drive/completedrive" style="font-size:1.3rem; ">Complete Drive</a>
               <a class="collapse-item " href="<?php echo base_url(); ?>admin/drive/canceldrive" style="font-size:1.3rem; ">Cancel Drive</a>
               <a class="collapse-item " href="<?php echo base_url(); ?>admin/drive/adddrive" style="font-size:1.3rem; ">Add drive</a>

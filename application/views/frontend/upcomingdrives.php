@@ -10,7 +10,7 @@
   <h2 class="text-center ">Apply for Upcoming Campus</h2>
   <table class="table table-bordered mt-3">
     <tr>
-      <th>Sr. no.</th>
+      <!-- <th>Sr. no.</th> -->
       <th>Company name</th>
       <th>Designation</th>
       <th>Vanue</th>
@@ -26,7 +26,7 @@
       if($drive['start_date'] <= date("Y-m-d")  && $drive['last_date'] >= date("Y-m-d")){
       ?>
     <tr>
-      <td><?php echo $i;?></td>
+      <!-- <td><?php echo $i;?></td> -->
       <?php foreach($company_data as $company){ if($drive['company_id'] == $company['company_id']){?>
       <td><?php echo $company['company_name']?></td>
       <?php }}?>

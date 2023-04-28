@@ -89,10 +89,10 @@
                 </li>
                 <li class="dropdown">Admissions <i class="fa-solid fa-angle-down"></i>
                     <ul class="dropdown-menu">
-                        <li><a href="#" class="active">B.E / B.TECH -2023</a></li>
-                        <li><a href="#" >B.ARCH-2023</a></li>
-                        <li><a href="#">MCA-2023</a></li>
-                        <li><a href="#">MBA-2023</a></li>
+                        <li><a href="<?php echo base_url()?>btech" class="active">B.E / B.TECH -2023</a></li>
+                        <li><a href="<?php echo base_url()?>barch" >B.ARCH-2023</a></li>
+                        <li><a href="<?php echo base_url()?>mca">MCA-2023</a></li>
+                        <li><a href="<?php echo base_url()?>mba">MBA-2023</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">e-Governance <i class="fa-solid fa-angle-down"></i>

@@ -109,7 +109,7 @@
                         <input type="email" name="email" placeholder="Enter Company Email" maxlength="50" value="<?php echo $value['company_email']?>" required readonly>
 
                         <label class="form-label">Landline No. <span style="color:red;">*</span></label>
-                        <input type="number" name="landline" class="num" maxlength="12" placeholder="Enter Company Number"  value="<?php echo $value['company_number']?>"required>
+                        <input type="number" name="landline" class="num" maxlength="12" placeholder="Enter Company Number"  value="<?php echo $value['company_landline']?>"required>
 
                         <label class="form-label">Mobile No. <span style="color:red;">*</span></label>
                         <input type="number" name="number" maxlength="10" class="num" placeholder="Enter Company Number"  value="<?php echo $value['company_number']?>"required>
@@ -118,21 +118,21 @@
                         <input type="text" name="address" maxlength="255" placeholder="Enter Company Address" value="<?php echo $value['company_address']?>" required>
 
                         <label class="form-label">Pincode <span style="color:red;">*</span></label>
-                        <input type="text" name="pincode" placeholder="Enter Pincode"  class="num" onkeyup="fetchPincode()" id="pincode" value="<?php echo $value['pincode']?>" required maxlength="6" minlength="6">
+                        <input type="text" name="pincode" placeholder="Enter Pincode"  class="num"  id="pincode" value="<?php echo $value['pincode']?>" required maxlength="6" minlength="6">
                         <p id="errorMsg" style="color:red; font-style:italic;font-size:10px;"></p>
 
-                        <!-- <label class="form-label">City <span style="color:red;">*</span></label>
-                        <input type="text" name="city" placeholder="Enter City" value="<?php echo $value['company_city']?>" required> -->
                         <label class="form-label">City / Village / B.O <span style="color:red;">*</span></label>
+                        <input type="text" name="city" placeholder="Enter City / Village / B.O" value="<?php echo $value['company_city']?>" required> 
+                        <!-- <label class="form-label">City / Village / B.O <span style="color:red;">*</span></label>
                         <select name="city" id="cityinput" required>
                             <option value="">Select An Option</option>
-                        </select>
+                        </select> -->
 
                         <label class="form-label">District <span style="color:red;">*</span></label>
-                        <input type="text" name="district" id="district" readonly placeholder="Enter District" value="<?php echo $value['district']?>" required>
+                        <input type="text" name="district" id="district"  placeholder="Enter District" value="<?php echo $value['district']?>" required>
 
                         <label class="form-label">State <span style="color:red;">*</span></label>
-                        <input type="text" name="state" id="state" readonly placeholder="Enter State" value="<?php echo $value['state']?>" required>
+                        <input type="text" name="state" id="state"  placeholder="Enter State" value="<?php echo $value['state']?>" required>
 
                         <label class="form-label">Country <span style="color:red;">*</span></label>
                         <input type="text" name="country" placeholder="Enter Country" value="<?php echo $value['country']?>" required>
