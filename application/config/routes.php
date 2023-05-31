@@ -75,6 +75,7 @@ $route['user/my-profile'] = 'frontend/user/myprofile';
 $route['user/edit-profile'] = 'frontend/user/editprofile';
 $route['user/forgetpassword'] = 'frontend/user/forgetpassword';
 $route['contact'] = 'frontend/contact';
+$route['billdesk'] = 'frontend/billdesk';
 
 
 

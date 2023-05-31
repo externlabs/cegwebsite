@@ -123,36 +123,15 @@
                     <h3>Latest News</h3>
                     <button>Know More</button>
                 </div>
-                <marquee direction="up" scrolldelay="10">
+                <marquee onMouseOver="this.stop()" onMouseOut="this.start()" direction="up" scrolldelay="10">
                     <ul>
-                        <li> <a href="#"> Result of Campus Drive Organized at Centre for Electronics Governance </a>
-                        </li>
-                        <li> <a href="#"> Result of Campus Drive Organized at Centre for Electronics Governance </a>
-                        </li>
-                        <li> <a href="#"> Result of Campus Drive Organized at Centre for Electronics Governance </a>
-                        </li>
-                        <li> <a href="#"> Result of Campus Drive Organized at Centre for Electronics Governance </a>
-                        </li>
-                        <li> <a href="#"> Result of Campus Drive Organized at Centre for Electronics Governance </a>
-                        </li>
-                        <li> <a href="#"> Result of Campus Drive Organized at Centre for Electronics Governance </a>
-                        </li>
-                        <li> <a href="#"> Result of Campus Drive Organized at Centre for Electronics Governance </a>
-                        </li>
-                        <li> <a href="#"> Result of Campus Drive Organized at Centre for Electronics Governance </a>
-                        </li>
-                        <li> <a href="#"> Result of Campus Drive Organized at Centre for Electronics Governance </a>
-                        </li>
-                        <li> <a href="#"> Result of Campus Drive Organized at Centre for Electronics Governance </a>
-                        </li>
-                        <li> <a href="#"> Result of Campus Drive Organized at Centre for Electronics Governance </a>
-                        </li>
-                        <li> <a href="#"> Result of Campus Drive Organized at Centre for Electronics Governance </a>
-                        </li>
-                        <li> <a href="#"> Result of Campus Drive Organized at Centre for Electronics Governance </a>
-                        </li>
-                        <li> <a href="#"> Result of Campus Drive Organized at Centre for Electronics Governance </a>
-                        </li>
+                    <?php
+                    foreach($news_details as $value){
+                    ?>
+                    <li> <a href="<?php echo $value['link']?>"><?php echo $value['title']?></a></li>
+
+                    <?php } ?>
+                        
                     </ul>
                 </marquee>
             </li>

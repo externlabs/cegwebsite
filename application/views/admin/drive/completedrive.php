@@ -1,9 +1,14 @@
 <link href="<?php echo base_url(); ?>admin/assets/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url(); ?>admin/assets/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url(); ?>admin/assets/css/core.css" rel="stylesheet" type="text/css" />
 
 <script src="<?php echo base_url(); ?>admin/assets/js/jquery.dataTables.min.js"></script>
 
-
+<script src="<?php echo base_url(); ?>admin/assets/js/dataTables.buttons.min.js"></script>
+<script src="<?php echo base_url(); ?>admin/assets/js/jszip.min.js"></script>
+<script src="<?php echo base_url(); ?>admin/assets/js/pdfmake.min.js"></script>
+<script src="<?php echo base_url(); ?>admin/assets/js/vfs_fonts.js"></script>
+<script src="<?php echo base_url(); ?>admin/assets/js/buttons.html5.min.js"></script>
 <style type="text/css">
   a.edit {
     display: none;
@@ -137,17 +142,13 @@
 
 
 
-
-<!--Delete-->
-
-<!--Delete-->
-
-
-
-
 <script>
   $(document).ready(function() {
     $('#lowinventory').DataTable({
+      dom: 'Bfrtip',
+      buttons: [
+            'csv', 'excel', 'pdf'
+        ]
      
     });
 

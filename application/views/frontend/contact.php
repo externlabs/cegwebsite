@@ -6,12 +6,20 @@
 </section>
 
 
+
 <section class=" contactinfo-sec">
     <div class="container">
+    <?php
+    if ($this->session->flashdata('success')) {
+      echo '<div class="alert alert-success">' . $this->session->flashdata('success') . '</div>';
+    } else if ($this->session->flashdata('error')) {
+      echo '<div class="alert alert-danger">' . $this->session->flashdata('error') . '</div>';
+    }
+?>
         <div class="row">
             <div class="col-md-6">
                 <h3> Get In Tuch </h3>
-                <form id="contact-form" class="contact-form" name="contact-form" action="mail.php" method="POST">
+                <form action="<?php echo base_url()?>frontend/contact/insert" method="post">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="md-form ">                                
@@ -34,7 +42,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="md-form ">
-                                <input type="text" id="phoneNo" name="subject" class="form-control"
+                                <input type="text" id="phoneNo" name="number" class="form-control"
                                     placeholder="Mob No">
 
                             </div>
@@ -43,7 +51,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="md-form">
-                                <textarea type="text" id="message" name="message" cols="8" rows="5"
+                                <textarea type="text" id="message" name="msg" cols="8" rows="5"
                                     class="form-control md-textarea" placeholder="Message"></textarea>
 
                             </div>
@@ -51,12 +59,12 @@
                         </div>
                     </div>
 
-
-                </form>
-
                 <div>
-                    <a class="btn" onclick="document.getElementById('contact-form').submit();">Send</a>
+                    <button class="btn btn-primary py-3 px-5" type="submit" id="sendMessageButton">Send Message</button>
                 </div>
+
+                
+                </form>
                 <div class="status"></div>
             </div>
             <div class="col-md-6 ">

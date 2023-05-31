@@ -112,10 +112,8 @@
 <script>
   $(document).ready(function() {
     $('#lowinventory').DataTable( {
-        // "ajax": "<?php echo base_url(); ?>admin/company/allpoc/addinventory_api"
     } );
    
-
     $(document).on('click','.delete_sliders',function(){
 
      $('.deletesliderId').val($(this).attr('data-id'));

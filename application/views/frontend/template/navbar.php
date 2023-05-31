@@ -107,7 +107,9 @@
                 <li >
                     <a href="#">Circular and News</a>
                 </li> 
+                <!-- <li><a href="<?php echo base_url()?>billdesk">Payment</a></li> -->
                 <li><a href="<?php echo base_url()?>contact">Contact Us</a></li>
+                
                 <?php echo $login?>
             </ul>
         </div>
