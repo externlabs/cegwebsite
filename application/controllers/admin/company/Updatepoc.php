@@ -25,35 +25,35 @@ class Updatepoc extends CI_controller
     public function update(){
 
         $this->load->model('admin/Companymodel');
-        $this->form_validation->set_rules('company_id', 'Name', 'required');
         $this->form_validation->set_rules('name', 'Email', 'required');
         $this->form_validation->set_rules('designation', 'number', 'required');
         $this->form_validation->set_rules('phone', 'Subject', 'required');
-        // $this->form_validation->set_rules('alternate_no', 'Message', 'required');
         $this->form_validation->set_rules('email', 'Message', 'required');
         $this->form_validation->set_rules('poc_id', 'Message', 'required');
+
+        $datas = array(
+            'poc_name' => $this->input->post('name'),
+            'designation' => $this->input->post('designation'),
+            'phone'=> $this->input->post('phone'),
+            'alternate_no'=> $this->input->post('alternate_no'),
+            'poc_email' => $this->input->post('email'),
+        );
         
+           
         if ($this->form_validation->run()) {
-            $datas = array(
-                'company_id' => $this->input->post('company_id'),
-                'poc_name' => $this->input->post('name'),
-                'designation' => $this->input->post('designation'),
-                'phone'=> $this->input->post('phone'),
-                'alternate_no'=> $this->input->post('alternate_no'),
-                'poc_email' => $this->input->post('email'),
-            );
+            
             $id = $this->input->post('poc_id');
     
             if ($this->Companymodel->update_poc($datas, $id)) {
                 $this->session->set_flashdata('error', 'Error In Submission');
-                redirect(base_url() . 'admin/company/updatepoc');
+                redirect(base_url() . 'admin/company/allpoc');
             } else {
                 $this->session->set_flashdata('success', 'Poc Updated Successfully!');
                 redirect(base_url() . 'admin/company/allpoc');
             }
         } else {
             $this->session->set_flashdata('error', 'Please Fill All The Fields!');
-            redirect(base_url() . 'admin/company/updatepoc');
+            redirect(base_url() . 'admin/company/allpoc');
         }
 
 

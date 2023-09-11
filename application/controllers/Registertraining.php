@@ -8,9 +8,14 @@ class Registertraining extends CI_controller
    
    
      public function makepayment(){
-        
-        $merchantID = "1000112";
-        $key = "A7C9F96EEE0602A61F184F4F1B92F0566B9E61D98059729EAD3229F882E81C3A";
+        $website_data = $this->db->get('websetting')->result_array();
+
+        foreach($website_data as $webData){
+            $merchantID = $webData['merchant_id'];
+            $merchantKey = $webData['merchant_key'];
+            $paymentURL = $webData['payment_url'];
+        }
+
         $operationMode = "DOM";
         $merchantCountry = "IN";
         $merchantCurrency = "INR";
@@ -23,14 +28,12 @@ class Registertraining extends CI_controller
         $payMode = "NB";
         $accessMedium = "ONLINE";
         $transactionSource = "ONLINE";
-        $merchantOrderNo = "12Testorder";
-
-        $paymentURL="https://test.sbiepay.sbi/secure/AggregatorHostedListener";
+        $merchantOrderNo = "14Testorder";
 
         $requestParameter  = "$merchantID|$operationMode|$merchantCountry|$merchantCurrency|$amount|$otherDetails|$SuccessUrl|$failUrl|$aggregatorId|$merchantOrderNo|$merchantCustomerId|$payMode|$accessMedium|$transactionSource";
 
         echo '<b>Requestparameter:-</b> '.$requestParameter.'<br/><br/>';
-        $EncryptTrans = $this->encrypt($requestParameter,$key);
+        $EncryptTrans = $this->encrypt($requestParameter,$merchantKey);
         echo '<b>Encrypted EncryptTrans:-</b>'.$EncryptTrans.'<br/><br/>';
 
         echo '<form name="ecomStatus" method="post" action="'.$paymentURL.'">

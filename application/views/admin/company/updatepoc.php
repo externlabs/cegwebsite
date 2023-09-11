@@ -99,13 +99,13 @@
                 <div class="col-md-12">
                     <?php  foreach($poc_data as $value){?>
                     <div class="box">
-                        <label for="browser" class="form-label">Select Company <span style="color:red;">*</span></label>
-                        <select name="company_id" id="" disabled>
+                        <!-- <label for="browser" class="form-label">Select Company <span style="color:red;">*</span></label>
+                        <select name="company_id" id="" readonly>
                             <option value="">Please Select Company</option>
                             <?php foreach($company_list as $comapny){?>
                                 <option value="<?php echo $comapny['company_id']?>" <?php if($value['company_id'] == $comapny['company_id']){ echo "selected";}else{echo '';}?>><?php echo $comapny['company_name']?></option>
                             <?php }?>
-                        </select>
+                        </select> -->
                         <label class="form-label">Name of contact person <span style="color:red;">*</span></label>
                         <input type="text" name="name" maxlength="50" placeholder="Enter Full Name" required value="<?php echo $value['poc_name']?>">
                         <label class="form-label">Designation <span style="color:red;">*</span></label>
@@ -116,7 +116,7 @@
                         <input type="number" name="alternate_no" class="num" maxlength="10" placeholder="Enter Alternate Mobile No." value="<?php echo $value['alternate_no']?>">
                         <label class="form-label">Email <span style="color:red;">*</span></label>
                         <input type="email" name="email" maxlength="50" placeholder="Enter Email" required value="<?php echo $value['poc_email']?>" readonly>
-                        <input type="hidden" name="poc_id" value="<?php echo $value['poc_id']?>" required>
+                        <input type="" name="poc_id" value="<?php echo $value['poc_id']?>" required>
                         <button name="formSubmit">Update Poc</button>
                     </div>
                     <?php }?>

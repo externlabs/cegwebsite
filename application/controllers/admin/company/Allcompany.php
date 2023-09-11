@@ -71,9 +71,19 @@ class Allcompany extends CI_controller
     }
   
     public function deletepost(){ 
+        
         if($this->input->post('deletesliderId')){
             $this->form_validation->set_rules('deletesliderId','text','required');
             if($this->form_validation->run() == true){
+                $postId = $this->input->post('deletesliderId');
+                
+                $check_poc = $this->db->where('company_id',$postId)->get('company_poc')->result_array();
+
+                if(count($check_poc)>0){
+                    $this->session->set_flashdata('error','Company Have Active poc. Please delete poc first!');
+                    redirect(base_url()."admin/company/allcompany");
+                }
+                
                 $getDeleteStatus = $this->Companymodel->delete_company($this->input->post('deletesliderId'));
                 if($getDeleteStatus['message'] == 'yes'){
                     $this->session->set_flashdata('success','Company  deleted successfully');
