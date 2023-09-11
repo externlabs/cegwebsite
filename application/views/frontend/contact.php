@@ -5,7 +5,7 @@
     <img src="<?php echo base_url()?>assets/image/contact.png" alt="" class="w-100" />
 </section>
 
-
+<?php $website_data = $this->db->get('websetting')->result_array();?>
 
 <section class=" contactinfo-sec">
     <div class="container">
@@ -69,19 +69,21 @@
             <div class="col-md-6 ">
                 <div class="contact-list">
                     <ul class="">
+                        <?php foreach($website_data as $data){?>
                         <li>
                             <span><i class="fas fa-phone  fa-2x"></i></span>
-                             <a href="tel:0123456789">    0141 270 23449</a>
+                             <a href="tel:<?php echo $data['contact']?>"> <?php echo $data['contact']?></a>
                         </li>
 
                         <li>
                             <span><i class="fas fa-envelope fa-2x"></i> </span> 
-                             <a href="mailto:contact@mdbootstrap.com">    contact@mdbootstrap.com </a>
+                             <a href="mailto:<?php echo $data['email']?>">  <?php echo $data['email']?> </a>
                         </li>
                         <li>
                              <span><i class="fas fa-map-marker-alt fa-2x"></i></span>
-                             <p> San Francisco, CA 94126, USA</p>
+                             <p> <?php echo $data['address']?></p>
                         </li>
+                        <?php }?>
                     </ul>
 
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1779.416645210497!2d75.8135674983948!3d26.877037199999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db5d33aaaaaab%3A0xdabd50c1c19c1aed!2sCentre%20For%20Electronic%20Governance!5e0!3m2!1sen!2sin!4v1682591356908!5m2!1sen!2sin"

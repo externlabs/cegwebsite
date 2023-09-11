@@ -1,14 +1,14 @@
-
+<?php $website_data = $this->db->get('websetting')->result_array();?>
 <footer>
     <div class="container-box">      
         <ul class="footer-row">
             <li> 
-                <h2> Centre for Electronic Governance</h2>
-                <p>Near R. C. Khaitan Polytechnic </p>
-                <p> College, Jhalana Doongri,  Jaipur </p>
-                <p> (Rajasthan)-302004 </p>
-                <p> Phone No. : <a href="tel:01412702344">0141-2702344</a> </p>
-                <p> Email: <a href="mailto:directorceg@rajasthan.gov.in">directorceg@rajasthan.gov.in</a>
+                <?php foreach($website_data as $data){?>
+                <h2> <?php echo $data['web_name']?></h2>
+                <p><?php echo $data['address']?> </p>
+                <p> Phone No. : <a href="tel:<?php echo $data['contact']?>"><?php echo $data['contact']?></a> </p>
+                <p> Email: <a href="<?php echo $data['email']?>"><?php echo $data['email']?></a>
+                <?php }?>
             </li>
             <li class="quicklink"> 
                 <h2> Quick Link </h2>

@@ -206,6 +206,21 @@ $parts = basename($url);
             </div>
           </div>
         </li>
+
+        <li class="nav-item ">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#websetting" aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Web Settings</span>
+          </a>
+          <div id="websetting" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="py-2 collapse-inner rounded">
+              <a class="collapse-item " href="<?php echo base_url(); ?>admin/websetting" style="font-size:1.3rem; ">Website Setting</a>
+              <a class="collapse-item " href="<?php echo base_url(); ?>admin/paymentgetway" style="font-size:1.3rem; ">Payment Getway Setting</a>
+              <!-- <a class="collapse-item " href="<?php echo base_url(); ?>admin/student/studentqulification" style="font-size:1.3rem; ">Student Qualification</a> -->
+              <div class="collapse-divider"></div>
+            </div>
+          </div>
+        </li>
      
         <!-- <li class="nav-item ">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#course" aria-expanded="true" aria-controls="collapsePages">
