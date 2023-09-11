@@ -29,7 +29,6 @@ class Edit extends CI_controller
         $this->form_validation->set_rules('email', 'Email', 'required');
         $this->form_validation->set_rules('number', 'number', 'required');
         $this->form_validation->set_rules('landline', 'number', 'required');
-        // $this->form_validation->set_rules('fax', 'number', 'required');
         $this->form_validation->set_rules('address', 'Subject', 'required');
         $this->form_validation->set_rules('city', 'Message', 'required');
         $this->form_validation->set_rules('desc', 'Message', 'required');

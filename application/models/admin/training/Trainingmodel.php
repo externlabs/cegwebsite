@@ -53,6 +53,12 @@ function update_course_status($datas, $id){
   $this->db->update('course');
 }
 
+function update_traning_status($datas, $id){
+  $this->db->set($datas);
+  $this->db->where('training_id',$id);
+  $this->db->update('training');
+}
+
   public function delete_training($data){
       $explodData = explode(',',$data);
       $this->db->where_in('training_id',$explodData);

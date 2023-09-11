@@ -53,10 +53,10 @@
       <td><?php if($value['form_amount'] == null){echo '0';}else{echo $value['form_amount'];}?></td>
       <td><?php if($value['course_amount'] == null){echo '0';}else{echo $value['course_amount'];}?></td>
       <?php foreach($training_data as $training){?>
-        <td><?php echo $training['start_date']?></td>
-        <td><?php echo $training['end_date']?></td>
+        <td style="width:100px;"><?php echo $training['start_date']?></td>
+        <td style="width:100px;"><?php echo $training['end_date']?></td>
         <td><?php echo $training['registration_last_date']?></td>
-        <td><a href="<?php echo base_url()?>training/<?php echo $training['training_link']?>/<?php echo $value['course_id']?>"  ><button>View Details & apply</button></a></td>
+        <td><a href="<?php echo base_url()?>training/<?php echo $training['training_link']?>/<?php echo $value['course_id']?>" class="btn text-primary">View Details & apply</a></td>
       <?php }?>
     </tr>
   <?php }$i++;}?>

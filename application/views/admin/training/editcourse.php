@@ -103,7 +103,7 @@
         <div class="col-md-12">
           <div class="box">
             <label for="name" class="form-label">Select Training <span style="color:red;">*</span></label>
-            <select name="training_id" id="">
+            <select name="training_id" id="" disabled>
               <option value="">Select Training</option>
               <?php foreach($training_data as $value){?>
               <option value="<?php echo $value['training_id']?>" <?php if($value['training_id'] == $course['training_id']){echo "selected";}else{echo "";}?>>

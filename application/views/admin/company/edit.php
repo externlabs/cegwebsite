@@ -118,15 +118,11 @@
                         <input type="text" name="address" maxlength="255" placeholder="Enter Company Address" value="<?php echo $value['company_address']?>" required>
 
                         <label class="form-label">Pincode <span style="color:red;">*</span></label>
-                        <input type="text" name="pincode" placeholder="Enter Pincode"  class="num"  id="pincode" value="<?php echo $value['pincode']?>" required maxlength="6" minlength="6">
-                        <p id="errorMsg" style="color:red; font-style:italic;font-size:10px;"></p>
+                        <input type="text" name="pincode" placeholder="Enter Pincode"  class="num"   value="<?php echo $value['pincode']?>" required maxlength="6" minlength="6">
+                        <!-- <p id="errorMsg" style="color:red; font-style:italic;font-size:10px;"></p> -->
 
                         <label class="form-label">City / Village / B.O <span style="color:red;">*</span></label>
                         <input type="text" name="city" placeholder="Enter City / Village / B.O" value="<?php echo $value['company_city']?>" required> 
-                        <!-- <label class="form-label">City / Village / B.O <span style="color:red;">*</span></label>
-                        <select name="city" id="cityinput" required>
-                            <option value="">Select An Option</option>
-                        </select> -->
 
                         <label class="form-label">District <span style="color:red;">*</span></label>
                         <input type="text" name="district" id="district"  placeholder="Enter District" value="<?php echo $value['district']?>" required>

@@ -157,17 +157,16 @@
 
             <div class="form-group">
                 <label for="name" class="form-label">Height<span style="color:red;">*</span></label>
-                <input type="text" name="height" id="height"  class="form-control" placeholder="height" value="<?php echo $value['height']?>">
+                <input type="number" name="height" id="height"  class="form-control" placeholder="height" value="<?php echo $value['height']?>">
             </div>
 
             <div class="form-group">
                 <label for="name" class="form-label">Weight <span style="color:red;">*</span></label>
-                <input type="text" name="weight" id="weight"  class="form-control" placeholder="weight" value="<?php echo $value['weight']?>">
+                <input type="number" name="weight" id="weight"  class="form-control" placeholder="weight" value="<?php echo $value['weight']?>">
             </div>
 
             <div class="form-group">
                 <label for="name" class="form-label">Bloodgroup <span style="color:red;">*</span></label>
-                <!-- <input type="text" name="weight" id="weightr"  class="form-control" placeholder="weight"> -->
                 <select name="bloodgroup" class="form-control <?php echo (form_error('bloodgroup') != "") ? 'is-invalid' : '';?>">
                                             <option value="">Please select one…</option>
                                             <option value="A+" <?php if($value['bloodgroup'] == "A+"){echo "selected";}else{echo "";}?>>A+</option>
@@ -209,7 +208,6 @@
 
             <div class="form-group">
                 <label for="name" class="form-label">Old Resume </label>
-                <!-- <a href="<?php echo base_url()?>upload/resume/<?php echo $value['resume']?>" target="_blank">View Resume</a> -->
                   
                 <?php if($value['resume'] == ''){?>
                 <a href="" >View Resume</a>

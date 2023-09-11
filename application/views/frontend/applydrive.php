@@ -53,7 +53,7 @@
         <input type="hidden" name="drive_id" value="<?php echo $driveId?>" required>
         <input type="hidden" name="student_id" value="<?php echo $_SESSION['user_id']?>" required>
 
-        <button>Apply Now</button>
+        <button class="btn btn-primary mt-4">Apply Now</button>
     </form>
     
 

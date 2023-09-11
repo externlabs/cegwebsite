@@ -35,7 +35,6 @@ class Faculity extends CI_controller
                 break;
             }
         }
-
         if ($login_success == 1) {
             redirect(base_url() . 'user/dashboard');
         } else {

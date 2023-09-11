@@ -1,0 +1,102 @@
+
+.maincontent_box {
+    width: 100%;
+    height: calc(100vh - 148px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.topbar.navbar-light .navbar-nav .nav-item .nav-link {
+    color: #000;
+}
+
+
+.changepassword .register,
+.forgotpassword .register {
+    box-shadow: 0 0 1px #828282;
+    margin: 50px 0;
+    border-radius: 10px;
+}
+
+
+.forgotpassword form {
+    max-width: 420px;
+}
+
+
+.changepassword .register h3,
+.forgotpassword .register h3 { 
+    font-size: 25px;
+    color: #000;
+    font-weight: bold;
+    margin: 0 0 25px ;
+}
+
+.qualifications_page,
+.subscriptions_page,
+.pendingdrives_page,
+.rejecteddrives_page,
+.upcommingongoingdrives,
+.completeddrives,
+.canceldrives,
+.driveapplications,
+.myprofileupdate-page,
+.stprofileupdate-page,
+.faprofileupdate-page {
+    margin: 0px 0px 10px;
+    padding: 40px 15px;
+    height: calc(100vh - 157px);
+    overflow: auto;
+}
+
+.stprofileupdate-page {
+    padding:40px 25px;
+}
+
+.qualifications_page h1,
+.subscriptions_page h1,
+.pendingdrives_page h1,
+.rejecteddrives_page h1,
+.upcommingongoingdrives h1,
+.completeddrives h1,
+.canceldrives h1,
+.driveapplications h1,
+.myprofileupdate-page h1,
+.stprofileupdate-page h2,
+.faprofileupdate-page h1 {
+    color: #000;
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.qualifications_page .edit-btn {
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.driveapplications .table td {
+    font-size: 14px;
+}
+
+
+.myprofileupdate_data {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

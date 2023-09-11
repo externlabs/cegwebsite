@@ -6,12 +6,13 @@
 
 .sidebar {
     background-color: #BF8040;
+    transition: all .3s ease;
 }
 .sidebar .sidebar-brand {
     height: auto;
     display: block;
 }
-
+ 
 .navbar-search .btn  {
     background-color: #BF8040;
 }

@@ -89,8 +89,8 @@
                                 <th>Student Address	</th>
                                 <th>Height</th>
                                 <th>Weight</th>
-                                <th>bloodgroup</th>
-                                <th>option</th>
+                                <th>Bloodgroup</th>
+                                <th>Option</th>
                                 <th>Change button</th>
                                 <th>Action</th>
                 </tr>

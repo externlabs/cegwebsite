@@ -45,7 +45,7 @@
         <input type="checkbox" name="agree" id="" required> I have agree with all the term & conditions.
         <input type="hidden" name="student_id" value="<?php echo $_SESSION['user_id']?>">
         <input type="hidden" name="course_id" value="<?php echo $value['course_id']?>">
-        <br><br><button>Apply Now</button>
+        <br><br><button class="btn btn-primary mt-2">Apply Now</button>
     </form>
     <?php }?>
 </div>

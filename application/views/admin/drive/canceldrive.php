@@ -48,6 +48,12 @@
     width: 70px;
     height: 70px;
   }
+
+  table.dataTable thead th, table.dataTable thead td ,
+  table.dataTable tbody th, table.dataTable tbody td {
+    padding: 5px;
+    font-size: 14px;
+  }
 </style>
 
 <div class="all_post">
@@ -100,15 +106,14 @@
                     <?php }?>
                       <td><?php echo $value['designation']; ?></td>
                       <td><?php echo $value['post_no']; ?></td>
-                      <td><?php echo $value['vanue']; ?></td>
+                      <td style="width:110px;"><?php echo $value['vanue']; ?></td>
                       <td><?php echo $value['job_location']; ?></td>
                       <td><?php echo $value['drive_method']; ?></td>
-
-                      <td><?php echo $value['drive_date']; ?></td>
+                      <td style="width:150px;"><?php echo $value['drive_date']; ?></td>
                       <td><?php echo $value['salary']; ?></td>
-                      <td><?php echo $value['department']; ?></td>
+                      <td style="width:110px;"><?php echo $value['department']; ?></td>
                       <td><?php echo $value['created_at']; ?></td>
-                      <td><a href="<?php echo base_url()?>drive/<?php echo $value['drive_id']?>" target="_blank"><button>View Drive Details</button></a></td>
+                      <td><a href="<?php echo base_url()?>drive/<?php echo $value['drive_id']?>" target="_blank" class="btn text-primary p-1">View Drive Details</a></td>
                      
                   </tr>
                 <?php }$i++; } ?>

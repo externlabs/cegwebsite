@@ -93,15 +93,17 @@
 
               </thead>
               <tbody>
-
-                <?php $i=1; foreach ($drive_details as $value) { if($value['status'] == "approve"){ 
-                    $company_data = $this->db->where('company_id',$value['company_id'])->get('company')->result_array();    
+                <?php  $i=1; foreach ($drive_details as $value) { if($value['status'] == "approve"){ 
+                    $company_data = $this->db->where('company_id',$value['company_id'])->get('company')->result_array();   
                 ?>
+
                   <tr>
                     <td><?php echo $i; ?></td>
-                    <?php foreach($company_data as $company){?>
+                   
+                    <?php  foreach($company_data as $company){?>
                       <td><?php echo $company['company_name']; ?></td>
                     <?php }?>
+                   
                       <td><?php echo $value['designation']; ?></td>
                       <td><?php echo $value['post_no']; ?></td>
                       <td><?php echo $value['vanue']; ?></td>
@@ -112,7 +114,7 @@
                       <td><?php echo $value['salary']; ?></td>
                       <td><?php echo $value['department']; ?></td>
                       <td><?php echo $value['created_at']; ?></td>
-                      <td><a href="<?php echo base_url()?>drive/<?php echo $value['drive_id']?>" target="_blank"><button>View Drive Details</button></a></td>
+                      <td><a href="<?php echo base_url()?>drive/<?php echo $value['drive_id']?>" target="_blank" class="btn text-primary">View Drive Details</a></td>
                      
                       <form action="<?php echo base_url()?>admin/drive/upcommingdrive/update_drive" method="post">
                       <td>

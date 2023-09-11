@@ -21,9 +21,6 @@ class Applications extends CI_controller
   }
 
 
-//   public function update_result(){
-
-//   }
 
   public function update_result(){
 

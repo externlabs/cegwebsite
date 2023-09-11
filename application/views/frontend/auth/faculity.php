@@ -10,18 +10,18 @@
         ?>
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="pills-Registration-tab" data-bs-toggle="pill" data-bs-target="#pills-Registration" type="button" role="tab" aria-controls="pills-Registration"
+                    <button class="nav-link" id="pills-Registration-tab" data-bs-toggle="pill" data-bs-target="#pills-Registration" type="button" role="tab" aria-controls="pills-Registration"
                     aria-selected="true">Faculity Registration</button>
                 </li>
         
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-login-tab" data-bs-toggle="pill" data-bs-target="#pills-login" type="button" role="tab" aria-controls="pills-login"
+                    <button class="nav-link active" id="pills-login-tab" data-bs-toggle="pill" data-bs-target="#pills-login" type="button" role="tab" aria-controls="pills-login"
                     aria-selected="false">login</button>
                 </li>
             </ul>
 
             <div class="tab-content student-tabbar" id="myTabContent">
-                <div class="tab-pane fade show active" id="pills-Registration" role="tabpanel" aria-labelledby="pills-Registration-tab">
+                <div class="tab-pane fade" id="pills-Registration" role="tabpanel" aria-labelledby="pills-Registration-tab">
                     
                             <div class="card-header">
                             <h3 class="text-center mt-3"> Faculity Register Here </h3>
@@ -93,7 +93,7 @@
                                     
                                     <div class="form-group">
                                         <label for="name" class="form-label">Mobile No.(Whatsapp) <span style="color:red;">*</span> </label>
-                                        <input type="text" name="phone" id="phone" class="form-control <?php echo (form_error('phone') != "") ? 'is-invalid' : '';?>" placeholder="">
+                                        <input type="number" name="phone" id="phone" maxlength="10" class="form-control num <?php echo (form_error('phone') != "") ? 'is-invalid' : '';?>" placeholder="">
                                         <p class="invalid-feedback"><?php echo strip_tags(form_error('phone'));?></p>
                                     </div>
                                     
@@ -126,7 +126,7 @@
                             </form>
                         
                     </div>
-                    <div class="tab-pane fade" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
+                    <div class="tab-pane show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
                         <div class="card-header">
                         <h3 class="text-center mt-3">Login Here </h3>
                         </div>
@@ -156,3 +156,16 @@
         </div>
     </div>
 </div>
+
+<script src="<?php echo base_url('admin/assets/js/jquery/jquery.min.js')?>"></script>
+<script src="<?php echo base_url('admin/assets/js/jquery/jquery-3.6.0.min.js')?>"></script>
+
+<script>
+    $(document).ready(function() {
+        $(".num").keypress(function() {
+            if ($(this).val().length == $(this).attr("maxlength")) {
+                return false;
+            }
+        });
+    });
+    </script>

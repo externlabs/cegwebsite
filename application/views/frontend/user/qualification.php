@@ -41,64 +41,64 @@
                 <div class="card-body register">
                     <p class="card-text">Please fill with your details</p>
                     <div class="form-group">
-                        <label for="faculity" class="form-label">Select Class</label>
+                        <label for="faculity" class="form-label">Select Class <span style="color:red;">*</span></label>
                         <?php echo $select_box?>
                     </div>
                     <div class="form-group" id="course_name">
-                        <label for="name">Course Name</label>
+                        <label for="name">Course Name <span style="color:red;">*</span></label>
                         <input type="text" name="course_name" id="course_name" value="" class="form-control <?php echo (form_error('course_name') != "") ? 'is-invalid' : '';?>"
                             placeholder="">
                         <p class="invalid-feedback"><?php echo strip_tags(form_error('course_name'));?></p>    
                     </div> 
                     <div class="form-group">
-                        <label for="name">Name of Institute</label>
+                        <label for="name">Name of Institute <span style="color:red;">*</span></label>
                         <input type="text" name="university_name" id="university_name" value="" class="form-control <?php echo (form_error('university_name') != "") ? 'is-invalid' : '';?>"
                             placeholder="">
                         <p class="invalid-feedback"><?php echo strip_tags(form_error('university_name'));?></p>    
                     </div>     
                     <div class="form-group">
-                        <label for="faculity" class="form-label">Type of institute</label>
+                        <label for="faculity" class="form-label">Type of institute <span style="color:red;">*</span></label>
                         <select name="institute_type" class="form-control ">
                             <option value="">Please Select Class</option>
                             <option value="private">Private</option>
                             <option value="goverment">Goverment</option>
                         </select>   
                     </div>
-                    <div class="form-groups">State of study</label>
+                    <div class="form-groups">State of study <span style="color:red;">*</span></label>
                         <input type="text" name="state" id="university_name" value="" class="form-control <?php echo (form_error('university_name') != "") ? 'is-invalid' : '';?>"
                             placeholder="">
                         <p class="invalid-feedback"><?php echo strip_tags(form_error('university_name'));?></p>    
                     </div>
                     <div class="form-group" id="startYear">
-                        <label for="name">Admission Year</label>
-                        <input type="text" name="start_year" id="start_year" value="" min="1900" max="<?= date('Y') ?>" class="form-control <?php echo (form_error('start_year') != "") ? 'is-invalid' : '';?>"
+                        <label for="name">Admission Year <span style="color:red;">*</span></label>
+                        <input type="number" name="start_year" id="start_year" value="" min="1900" max="<?= date('Y') ?>" class="form-control <?php echo (form_error('start_year') != "") ? 'is-invalid' : '';?>"
                             placeholder="">
                         <p class="invalid-feedback"><?php echo strip_tags(form_error('start_year'));?></p>
                     </div>
                     <div class="form-group" id="passingYear">
-                        <label for="name">Passing Year</label>
-                        <input type="text" name="passing_year" id="passing_year" value="" min="start_year" max="<?= date('Y') ?>" class="form-control <?php echo (form_error('passing_year') != "") ? 'is-invalid' : '';?>"
+                        <label for="name">Passing Year <span style="color:red;">*</span></label>
+                        <input type="number" name="passing_year" id="passing_year" value="" min="start_year" max="<?= date('Y') ?>" class="form-control <?php echo (form_error('passing_year') != "") ? 'is-invalid' : '';?>"
                             placeholder="">
                         <p class="invalid-feedback"><?php echo strip_tags(form_error('passing_year'));?></p>
                     </div>
-                    <div class="form-groups" id="branch"><label>Branch / Subject</label>
+                    <div class="form-groups" id="branch"><label>Branch / Subject <span style="color:red;">*</span></label>
                         <input type="text" name="branch" id="branch" value="" class="form-control <?php echo (form_error('university_name') != "") ? 'is-invalid' : '';?>"
                             placeholder="">
                         <p class="invalid-feedback"><?php echo strip_tags(form_error('university_name'));?></p>    
                     </div>
                     <div class="form-group" id="marks">
-                        <label for="name">Percentage</label>
-                        <input type="text" name="percentage" id="percentage" value="" class="form-control <?php echo (form_error('percentage') != "") ? 'is-invalid' : '';?>"
+                        <label for="name">Percentage <span style="color:red;">*</span></label>
+                        <input type="number" name="percentage" id="percentage" value="" class="form-control <?php echo (form_error('percentage') != "") ? 'is-invalid' : '';?>"
                             placeholder="">
                         <p class="invalid-feedback"><?php echo strip_tags(form_error('percentage'));?></p>    
                     </div>
                     
                     <div class="form-group" id="backlog">
-                        <label for="faculity" class="form-label">No backlog and Compartment</label>
-                        <input type="text" name="backlog" id="backlog" value=""  class = "form-control">
+                        <label for="faculity" class="form-label">No backlog and Compartment <span style="color:red;">*</span></label>
+                        <input type="number" name="backlog" id="backlog" value=""  class = "form-control">
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-block btn-primary">SUBMIT</button>
+                        <button class="btn btn-block btn-primary mt-4">SUBMIT</button>
                     </div>
                 </div>
             </form>
@@ -160,3 +160,13 @@
     }
     
 </script>
+
+<script>
+    $(document).ready(function() {
+        $(".num").keypress(function() {
+            if ($(this).val().length == $(this).attr("maxlength")) {
+                return false;
+            }
+        });
+    });
+    </script>

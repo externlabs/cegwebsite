@@ -28,38 +28,38 @@
                             <div class="card-body register">
                                 <p class="card-text">Please fill with your details</p>
                                 <div class="form-group">
-                                    <label for="name" class="form-label">Post / Designation</label>
-                                    <input type="text" name="designation" class="form-control" placeholder="Enter Designation">   
+                                    <label for="name" class="form-label">Post / Designation <span style="color:red;">*</span></label>
+                                    <input type="text" name="designation" maxlength="100" class="form-control num" placeholder="Enter Designation">   
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="name" class="form-label">No. Of Post</label>
-                                    <input type="text" name="post_no" class="form-control" placeholder="Enter No. Of Post">   
+                                    <label for="name" class="form-label">No. Of Post <span style="color:red;">*</span></label>
+                                    <input type="number" name="post_no" class="form-control"  maxlength="3" placeholder="Enter No. Of Post">   
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="name" class="form-label">Vanue / Location</label>
-                                    <input type="text" name="vanue" class="form-control" placeholder="Enter Vanue">   
+                                    <label for="name" class="form-label">Vanue / Location <span style="color:red;">*</span></label>
+                                    <input type="text" name="vanue" class="form-control" maxlength="255" placeholder="Enter Vanue">   
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="name" class="form-label">Job Location</label>
-                                    <input type="text" name="job_location" class="form-control" placeholder="Enter Job Location">   
+                                    <label for="name" class="form-label">Job Location <span style="color:red;">*</span></label>
+                                    <input type="text" name="job_location"  maxlength="255" class="form-control" placeholder="Enter Job Location">   
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="name" class="form-label">Eligibility</label>
+                                    <label for="name" class="form-label">Eligibility <span style="color:red;">*</span></label>
                                     <textarea name="eligibility"  id="" cols="30" rows="5" class="form-control"></textarea>
                                   
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="name" class="form-label">Job Description</label>
+                                    <label for="name" class="form-label">Job Description <span style="color:red;">*</span></label>
                                     <textarea name="job_desc" id="" cols="30" rows="5" class="form-control"></textarea>
                                      
                                 </div>
                                 <div class="form-group">
-                                    <label for="name" class="form-label">Drive Method</label>
+                                    <label for="name" class="form-label">Drive Method <span style="color:red;">*</span></label>
                                     <select name="drive_method" id="" class="form-control">
                                         <option value="">Select Drive Method</option>
                                         <option value="online">Online</option>
@@ -68,21 +68,21 @@
                                   
                                 </div>
                                 <div class="form-group">
-                                    <label for="name" class="form-label">Drive Date</label>
+                                    <label for="name" class="form-label">Drive Date <span style="color:red;">*</span></label>
                                     
                                     <input type="date" name="drive_date" class="form-control" min="<?php echo date('Y-m-d');?>" placeholder="Enter Designation"> 
                                     
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="name" class="form-label">Start Date to apply</label>
+                                    <label for="name" class="form-label">Start Date to apply <span style="color:red;">*</span></label>
                                     
                                     <input type="date" name="start_date" class="form-control" min="<?php echo date('Y-m-d');?>"  placeholder="Enter Designation">
                                     
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="name" class="form-label">Last Date to apply</label>
+                                    <label for="name" class="form-label">Last Date to apply <span style="color:red;">*</span></label>
                                     <input type="date" name="last_date" class="form-control" min="<?php echo date('Y-m-d');?>"  placeholder="Enter Designation">
                                     
                                      
@@ -90,24 +90,24 @@
 
 
                                 <div class="form-group">
-                                    <label for="name" class="form-label">Salary</label>
+                                    <label for="name" class="form-label">Salary <span style="color:red;">*</span></label>
                                     <textarea name="salary" id="" cols="30" rows="5"  class="form-control"></textarea>
                                
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="name" class="form-label">Department</label>
-                                    <input type="text" name="department" class="form-control" placeholder="Enter Department">   
+                                    <label for="name" class="form-label">Department <span style="color:red;">*</span></label>
+                                    <input type="text" name="department" class="form-control"  maxlength="50"  placeholder="Enter Department">   
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="name" class="form-label">Benefits</label>
+                                    <label for="name" class="form-label">Benefits <span style="color:red;">*</span></label>
                                     <textarea name="benefits" id="" cols="30" rows="5" class="form-control"></textarea>
                                  
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="name" class="form-label">Selection Process</label>
+                                    <label for="name" class="form-label">Selection Process <span style="color:red;">*</span></label>
                                     <textarea name="selection_process" id="" cols="30" rows="5" class="form-control"></textarea>
                                    
                                 </div>

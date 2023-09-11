@@ -110,7 +110,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="name" class="form-label">Pincode <span style="color:red;">*</span></label>
-                                        <input type="text" name="pincode" id="pincode" class="form-control <?php echo (form_error('pincode') != "") ? 'is-invalid' : '';?>" placeholder="pincode">
+                                        <input type="number" name="pincode" id="pincode"  maxlength="6" class="form-control num <?php echo (form_error('pincode') != "") ? 'is-invalid' : '';?>" placeholder="pincode">
                                         <p class="invalid-feedback"><?php echo strip_tags(form_error('pincode'));?></p>
                                     </div>
                                     

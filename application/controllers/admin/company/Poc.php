@@ -43,7 +43,9 @@ class Poc extends CI_controller
 
             $student_data = $this->db->where('student_email',$email)->get('student')->result_array(); 
             $company_data = $this->db->where('poc_email',$email)->get('company_poc')->result_array(); 
-            $faculity_data = $this->db->where('faculity_email',$email)->get('faculity')->result_array(); 
+            $faculity_data = $this->db->where('faculity_email',$email)->get('faculity')->result_array();
+            $company_details = $this->db->where('company_email',$email)->get('company')->result_array();
+
 
             $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
             $randomPassword = '';
@@ -67,6 +69,7 @@ class Poc extends CI_controller
             if($student_data == Array()){
                 if($company_data == Array()){
                     if($faculity_data == Array()){
+                        if($company_details == Array()){
                         $datas = array(
                             'company_id' => $this->input->post('company_id'),
                             'poc_email' => $this->input->post('email'),
@@ -90,13 +93,17 @@ class Poc extends CI_controller
                         redirect(base_url() . 'admin/company/poc');
                     }
                 }else{
-                    $this->session->set_flashdata('error', 'PEmail Already Registered');
+                    $this->session->set_flashdata('error', 'Email Already Registered');
                     redirect(base_url() . 'admin/company/poc');
                 }
             }else{
                 $this->session->set_flashdata('error', 'Email Already Registered');
                 redirect(base_url() . 'admin/company/poc');
             }
+        }else{
+            $this->session->set_flashdata('error', 'Email Already Registered');
+            redirect(base_url() . 'admin/company/poc');
+        }
         } else {
             $this->session->set_flashdata('error', 'Please Fill All The Fields or company Already Registered!');
             redirect(base_url() . 'admin/company/poc');

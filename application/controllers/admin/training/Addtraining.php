@@ -32,7 +32,6 @@ class Addtraining extends CI_controller
     $this->input->post('formSubmit');
 
     $this->form_validation->set_rules('training_name', 'Name', 'required');
-    // $this->form_validation->set_rules('training_link', 'Name', 'required');
     $this->form_validation->set_rules('registration_last_date', 'Name', 'required');
     $this->form_validation->set_rules('start_date', 'Name', 'required');
     $this->form_validation->set_rules('end_date', 'Name', 'required');
@@ -71,10 +70,6 @@ class Addtraining extends CI_controller
               $this->session->set_flashdata('error', 'Last Date always be a future date of start date!');
               redirect(base_url() . 'admin/training/addtraining');
           }
-     
-
-
-        
     } else {
         $this->session->set_flashdata('error', 'Please Fill All The Fields or company Already Registered!');
         redirect(base_url() . 'admin/training/addtraining');

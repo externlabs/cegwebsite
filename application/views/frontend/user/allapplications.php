@@ -9,9 +9,9 @@
 
 ?>
 
-<div class="container-fluid">
+<div class="driveapplications">
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Drive Applications</h1>
+    <h1 class="">Drive Applications</h1>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-body">
@@ -43,15 +43,15 @@
                                 <td><?php echo $student['student_name']?></td>
                                 <td><?php echo $student['student_email']?></td>
                                 <td><?php echo $student['student_number']?></td>
-                                <td><?php echo $student['student_dob']?></td>
+                                <td style="width:130px;"><?php echo $student['student_dob']?></td>
                                 <td><?php echo $student['student_gender']?></td>
-                                <td><a href="<?php echo base_url()?>upload/student/<?php echo $student['resume']?>" target="_blank">View Resume</a></td>
+                                <td style="width:130px;"><a href="<?php echo base_url()?>upload/student/<?php echo $student['resume']?>" target="_blank">View Resume</a></td>
                             <?php }?>
                             <?php foreach($drive_data as $value){if($value['company_id'] == $company_id){?>
                             <td><?php echo $value['designation']?></td>
-                            <td><?php echo $value['drive_date']?></td>
+                            <td style="width:130px;"><?php echo $value['drive_date']?></td>
                             <td><?php echo $value['department']?></td>
-                            <td><a href="<?php echo base_url()?>drive/<?php echo $drive['drive_id']?>" target="_blank"><button>View Drive</button></a></td>
+                            <td style="width:150px;"><a href="<?php echo base_url()?>drive/<?php echo $drive['drive_id']?>" target="_blank" class="btn text-primary">View Drive</a></td>
                             <?php }}?>
                         </tr>
                         <?php $i++;}?>

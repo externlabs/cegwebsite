@@ -100,8 +100,7 @@
                     <?php  foreach($poc_data as $value){?>
                     <div class="box">
                         <label for="browser" class="form-label">Select Company <span style="color:red;">*</span></label>
-                        
-                        <select name="company_id" id="" required>
+                        <select name="company_id" id="" disabled>
                             <option value="">Please Select Company</option>
                             <?php foreach($company_list as $comapny){?>
                                 <option value="<?php echo $comapny['company_id']?>" <?php if($value['company_id'] == $comapny['company_id']){ echo "selected";}else{echo '';}?>><?php echo $comapny['company_name']?></option>

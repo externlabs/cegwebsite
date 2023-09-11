@@ -103,9 +103,13 @@
                       <td><?php echo $value['start_date'];?></td>
                       <td><?php echo $value['end_date'];?></td>
                       <td><?php echo $value['registration_last_date'];?></td>
+                      <td><a href="<?php echo base_url()?>admin/training/edittraining?id=<?php echo $value['training_id']?>"><i
+                      class="fas fa-edit" style="color: #009cff !important;cursor: pointer; margin-right:10px;"></i></a>
+                      <a class="delete_sliders" data-id="<?php echo $value['training_id']?>"  style="color: red;cursor: pointer;" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                      </td>
                     
-                      <td><a class="delete_sliders" data-id="<?php echo $value['training_id']?>"  style="color: red;cursor: pointer;" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-                    </form>
+                     
+                    </form> 
                   </tr>
                 <?php $i++; } ?>
               </tbody>

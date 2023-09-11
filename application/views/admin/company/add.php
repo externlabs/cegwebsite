@@ -108,7 +108,7 @@
                         </div>
                         <div class="form-group">
                             <label class="pincode">Pincode <span style="color:red;">*</span></label>
-                            <input type="number" name="pincode" class="num"   placeholder="Enter Pincode" required maxlength="6" minlength="6">
+                            <input type="number" name="pincode" class="num"   placeholder="Enter Pincode"  required maxlength="6" minlength="6">
                             <p id="errorMsg" style="color:red; font-style:italic;font-size:10px;"></p>
                         </div>
                         <div class="form-group">

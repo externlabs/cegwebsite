@@ -95,6 +95,20 @@ class Add extends CI_controller
                     $imageurl =  $dataimage_return['file_name'];
                 }
             }
+
+            $email = $this->input->post('email');
+            $student_data = $this->db->where('student_email',$email)->get('student')->result_array(); 
+            $company_data = $this->db->where('poc_email',$email)->get('company_poc')->result_array(); 
+            $faculity_data = $this->db->where('faculity_email',$email)->get('faculity')->result_array();
+            $company_details = $this->db->where('company_email',$email)->get('company')->result_array();
+
+            if($student_data == Array()){
+                if($company_data == Array()){
+                    if($faculity_data == Array()){
+                        if($company_details == Array()){
+
+
+
             $data = array(
                 'company_name' => $this->input->post('name'),
                 'company_email' => $this->input->post('email'),
@@ -120,11 +134,28 @@ class Add extends CI_controller
                 $this->session->set_flashdata('error', 'Error In Submission');
                 redirect(base_url() . 'admin/company/add');
             }
-        } else {
-            $this->session->set_flashdata('error', 'Please Fill All The Fields or company Already Registered!');
+        }else{
+            $this->session->set_flashdata('error', 'Email Already Registered');
             redirect(base_url() . 'admin/company/add');
         }
-    }
+
+        }else{
+        $this->session->set_flashdata('error', 'Email Already Registered');
+        redirect(base_url() . 'admin/company/add');
+        }
+        }else{
+        $this->session->set_flashdata('error', 'Email Already Registered');
+        redirect(base_url() . 'admin/company/add');
+        }
+        }else{
+        $this->session->set_flashdata('error', 'Email Already Registered');
+        redirect(base_url() . 'admin/company/add');
+        }
+        } else {
+        $this->session->set_flashdata('error', 'Please Fill All The Fields or company Already Registered!');
+        redirect(base_url() . 'admin/company/add');
+        }
+        }
 
 
 

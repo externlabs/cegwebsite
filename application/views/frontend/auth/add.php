@@ -30,12 +30,6 @@
                             <form action="<?php echo base_url().'frontend/auth/student/add_create'?>" method="post" enctype="multipart/form-data">
                                 <div class="card-body register">
                                     <h4 class="card-text text-center mb-3">Please fill with your details</h4>
-                                
-                                    <!-- <div class="form-group">
-                                    <label for="name">Uplode your resume </label>
-                                    <input type="file" id="myFile" name="re" class="form-control" required>
-                                    <p>format allowed pdf,docs</p>
-                                    </div> -->
 
                                     <div class="form-group">
                                         <label for="name">Uplode Photo <span style="color:red;">*</span></label>
@@ -58,12 +52,12 @@
                         
                                     <div class="form-group">
                                         <label for="name" class="form-label">Height <span style="color:red;">*</span></label>
-                                        <input type="text" name="height" id="height" maxlength="5"class="form-control <?php echo (form_error('height') != "") ? 'is-invalid' : '';?>" placeholder="height">
+                                        <input type="number" name="height" id="height" maxlength="5"class="form-control <?php echo (form_error('height') != "") ? 'is-invalid' : '';?>" placeholder="height">
                                         <p class="invalid-feedback"><?php echo strip_tags(form_error('height'));?></p>
                                     </div>
                                     <div class="form-group">
                                         <label for="name" class="form-label">Weight <span style="color:red;">*</span></label>
-                                        <input type="text" name="weight" id="weight"  maxlength="3" class="form-control <?php echo (form_error('weight') != "") ? 'is-invalid' : '';?>" placeholder="weight">
+                                        <input type="number" name="weight" id="weight"  maxlength="3" class="form-control <?php echo (form_error('weight') != "") ? 'is-invalid' : '';?>" placeholder="weight">
                                         <p class="invalid-feedback"><?php echo strip_tags(form_error('weight'));?></p>
                                     </div>
                                 
@@ -124,3 +118,16 @@
         </div>
     </div>
 </div>
+
+<script src="<?php echo base_url('admin/assets/js/jquery/jquery.min.js')?>"></script>
+<script src="<?php echo base_url('admin/assets/js/jquery/jquery-3.6.0.min.js')?>"></script>
+
+<script>
+    $(document).ready(function() {
+        $(".num").keypress(function() {
+            if ($(this).val().length == $(this).attr("maxlength")) {
+                return false;
+            }
+        });
+    });
+    </script>

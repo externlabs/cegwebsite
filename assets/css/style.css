@@ -442,8 +442,7 @@ img {
 
 .aboutinfo-part .news-part marquee {
     width: 100%;
-    /* height: 200px; */
-    height: 220px;
+    height: calc(100% - 72px);
 }
 
 .aboutinfo-part .news-part h3 {
@@ -804,6 +803,12 @@ footer .container-box h2 {
     color: #fff;
 }
 
+
+/* ============== Sidebar   ======================= */
+
+#content .navbar.topbar .nav-item .nav-link {
+    color: #000 !important;  
+}
 
 
 /****** Responsive css  *****/

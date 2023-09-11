@@ -13,9 +13,8 @@ class Alltraining extends CI_controller
 
   public function index()
   {
-
-
-    // $data['list']=$this->Careermodel->fetchinventory_api();
+   
+   
     $this->load->view('admin/template/header');
     $this->load->view('admin/template/sidebar');
     $this->load->view('admin/template/topbar');

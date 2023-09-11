@@ -23,7 +23,7 @@
     <!-- Custom styles for this template-->
     <link href="<?php echo base_url()?>assets/theme/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="<?php echo base_url()?>assets/theme/css/student_style.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/style_front.css">
 </head>
 
 <body id="page-top">

@@ -10,7 +10,7 @@
   <h2 class="text-center ">Apply for Upcoming Campus</h2>
   <table class="table table-bordered mt-3">
     <tr>
-      <!-- <th>Sr. no.</th> -->
+      <th>Sr. no.</th>
       <th>Company name</th>
       <th>Designation</th>
       <th>Vanue</th>
@@ -26,7 +26,7 @@
       if($drive['start_date'] <= date("Y-m-d")  && $drive['last_date'] >= date("Y-m-d")){
       ?>
     <tr>
-      <!-- <td><?php echo $i;?></td> -->
+      <td><?php echo $i;?></td>
       <?php foreach($company_data as $company){ if($drive['company_id'] == $company['company_id']){?>
       <td><?php echo $company['company_name']?></td>
       <?php }}?>
@@ -35,19 +35,19 @@
       <td><?php echo $drive['job_location']?></td>
       <td><?php echo $drive['eligibility']?></td>
       <td><?php echo $drive['drive_method']?></td>
-      <td><?php echo $drive['drive_date']?></td>
-      <td><a href="<?php echo base_url()?>drive/<?php echo $drive['drive_id']?>" target="_blank"><button>View drive</button></a></td>
+      <td style="width:100px;"><?php echo $drive['drive_date']?></td>
+      <td style="width:150px;"><a href="<?php echo base_url()?>drive/<?php echo $drive['drive_id']?>" target="_blank" class="btn text-primary">View drive</a></td>
       <td>
-        <?php 
+         <?php 
           if(isset($_SESSION['user_id'])){
             $user_type=$_SESSION['profile_type'];
             if($user_type == "student" || $user_type == "faculity"){
-              echo '<a href="'.base_url().'apply/'.$drive['drive_id'].'"><button>Apply Now</button></a>';
+              echo '<a href="'.base_url().'apply/'.$drive['drive_id'].'"><button class="btn text-primary">Apply Now</button></a>';
             }else if($user_type == "company"){
               echo '';
             }
           }else{
-            echo '<a href="'.base_url().'auth/student?id=apply"><button>Apply Now</button></a>';
+            echo '<a href="'.base_url().'auth/student?id=apply"><button class="btn text-primary">Apply Now</button></a>';
           }
         ?>
         </td>

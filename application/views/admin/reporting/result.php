@@ -52,7 +52,7 @@
 
 <div class="all_post">
   <div class="container">
-    <h3>Upcomming / Ongoing Drives</h3>
+    <h3>Ongoing Drives</h3>
     <hr>
 
     <?php

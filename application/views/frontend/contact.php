@@ -22,28 +22,27 @@
                 <form action="<?php echo base_url()?>frontend/contact/insert" method="post">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="md-form ">                                
-                                <input type="text" id="name" name="name" class="form-control" placeholder="Name">
+                            <div class="md-form "> 
+                                                         
+                                <input type="text" id="name" name="name" class="form-control" placeholder="Name" require>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="md-form ">
-                                <input type="text" id="email" name="email" class="form-control" placeholder="Email">
+                                <input type="text" id="email" name="email" class="form-control" placeholder="Email" require>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="md-form ">
-                                <input type="text" id="subject" name="subject" class="form-control"
-                                    placeholder="Subject">
+                            <div class="md-form">
+                                <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject"  require>
 
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="md-form ">
-                                <input type="text" id="phoneNo" name="number" class="form-control"
-                                    placeholder="Mob No">
+                                <input type="number" id="phoneNo" name="number" class="form-control" placeholder="Mob No" require>
 
                             </div>
                         </div>
@@ -52,7 +51,7 @@
                         <div class="col-md-12">
                             <div class="md-form">
                                 <textarea type="text" id="message" name="msg" cols="8" rows="5"
-                                    class="form-control md-textarea" placeholder="Message"></textarea>
+                                    class="form-control md-textarea" placeholder="Message" require></textarea>
 
                             </div>
 

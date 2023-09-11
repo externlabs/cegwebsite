@@ -7,9 +7,9 @@
     $drive_data = $this->db->where('company_id',$company_id)->where('status',"reject")->get('drive')->result_array();
 ?>
 
-<div class="container-fluid">
+<div class="rejecteddrives_page">
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Rejected Drives</h1>
+    <h1 class="">Rejected Drives</h1>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-body">
@@ -42,8 +42,8 @@
                             <td><?php echo $drive['drive_date']?></td>
                             <td><?php echo $drive['salary']?></td>
                             <td><?php echo $drive['department']?></td>
-                            <td><a href="<?php echo base_url()?>drive/<?php echo $drive['drive_id']?>" target="_blank"><button>View Drive</button></a></td>
-                            <td><a href="<?php echo base_url()?>user/drives/<?php echo $drive['drive_id']?>"><button>Update Drive</button></a></td>
+                            <td><a href="<?php echo base_url()?>drive/<?php echo $drive['drive_id']?>" target="_blank" class="btn text-primary">View Drive</a></td>
+                            <td><a href="<?php echo base_url()?>user/drives/<?php echo $drive['drive_id']?>"><button class="btn text-primary">Update Drive</button></a></td>
                         </tr>
                         <?php $i++;}?>
                     </tbody>

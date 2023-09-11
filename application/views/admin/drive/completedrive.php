@@ -89,8 +89,8 @@
                   <th>Department</th>
                   <th>Created Date</th>
                   <th>View Drive</th>
-                  <th>Choose Action</th>
-                  <th>Change Status</th>
+                  <!-- <th>Choose Action</th>
+                  <th>Change Status</th> -->
                   
                 </tr>
 
@@ -115,17 +115,9 @@
                       <td><?php echo $value['salary']; ?></td>
                       <td><?php echo $value['department']; ?></td>
                       <td><?php echo $value['created_at']; ?></td>
-                      <td><a href="<?php echo base_url()?>drive/<?php echo $value['drive_id']?>" target="_blank"><button>View Drive Details</button></a></td>
+                      <td><a href="<?php echo base_url()?>drive/<?php echo $value['drive_id']?>" target="_blank" class="btn text-primary">View Drive Details</a></td>
                       <form action="<?php echo base_url()?>admin/drive/completedrive/update_drive" method="post">
-                      <td>
-                        <select name="option" id="" required>
-                            <option value="">Please select an option</option>
-                            <option value="pass">Pass</option>
-                            <option value="fail">Fail</option>
-                        </select>
-                      </td>
-                      <input type="hidden" name="drive_id" value="<?php echo $value['drive_id']?>" required>
-                      <td><button>Change Status</button></td>
+                     
                     </form>
                   </tr>
                 <?php }$i++; } ?>

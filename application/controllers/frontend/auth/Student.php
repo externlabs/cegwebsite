@@ -75,35 +75,6 @@ class Student extends CI_controller
         if ($this->form_validation->run() == true) {
             if($this->input->post('password') == $this->input->post('confirm_password')){
 
-                // $gallrayarray = ['photo','aadhar','signature'];
-
-                // for($i=0; $i<3; $i++){
-                //     $inputname = $gallrayarray[$i];
-                //     // echo $inputname;
-                //     $File_name = '';
-                //     $config['upload_path'] = APPPATH . '../upload/'.$inputname.'/';
-                //     $config['file_name'] = $File_name;
-                //     $config['overwrite'] = false;
-                //     $config["allowed_types"] = 'jpg|jpeg|png|pdf';
-                //     $config["max_size"] = '6144';
-                //     $this->load->library('upload', $config);
-                //     if (!empty($_FILES[$inputname]['name'])) {
-                //         if (!$this->upload->do_upload($inputname)) {
-                //             $this->data['error'] = $this->upload->display_errors();
-                //             $this->session->set_flashdata('error', $this->upload->display_errors());
-                //             redirect(base_url().'auth/student/add');
-                //         } else {
-                //             $dataimage_return = $this->upload->data();
-                //             $photo_.$inputname = $dataimage_return['file_name'];
-                //         }
-                //     }
-                // }
-
-                // echo $photo_photo;
-                // echo $photo_aadhar;
-                // echo $photo_signature;
-
-                // die;
 
                 if (!empty($_FILES['photo']['name'])) {
                     $File_name = '';

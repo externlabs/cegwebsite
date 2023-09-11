@@ -46,15 +46,17 @@ class Forgetpassword extends CI_controller
                 $table_name = "student";
                 $colom_name =  "student_id";
                 $colom_pass = "password";
-            }else if($user_type == "faculty"){
+            }else if($user_type == "faculity"){
                 $id = $user_id;
                 $table_name = "faculity";
                 $colom_name =  "faculity_id";
                 $colom_pass = "password";
+            
             }else{
                 redirect(base_url());
-
             }
+
+            
             $student_data = $this->Studentmodel->getcurrpassword($id,$table_name,$colom_name);
           
             if($student_data->$colom_pass == md5($curr_password)){

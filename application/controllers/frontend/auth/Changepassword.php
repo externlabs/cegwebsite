@@ -5,11 +5,6 @@ class Changepassword extends CI_controller
     {
         parent::__construct();
         $this->load->model('frontend/Studentmodel');
-
-        // if(!isset($_SESSION['verification_email'])){
-        //     redirect(base_url());
-        // }
-        
     }
     public function index(){
        
@@ -57,7 +52,8 @@ class Changepassword extends CI_controller
                     $table_name = "student";
                     $colom_name =  "student_id";
                     $colom_pass = "password";
-                }else if($user_type == "faculty"){
+                    
+                }else if($user_type == "faculity"){
                     $faculity_data = $this->db->where('faculity_email',$user_email)->get('faculity')->result_array();
                     foreach($faculity_data as $faculity){
                         $id = $faculity['faculity_id'];
@@ -66,20 +62,22 @@ class Changepassword extends CI_controller
                     $table_name = "faculity";
                     $colom_name =  "faculity_id";
                     $colom_pass = "password";
+
                 }else{
                     $this->session->set_flashdata('error', 'Invalid Profile Type!');
                     redirect(base_url() . 'auth/changepassword');
+
                 }
 
                 
 
                 if($this->Studentmodel->updatepassword($new_password,$id,$table_name,$colom_name,$colom_pass)){
-                    $this->session->set_flashdata('error', 'failed to Change password!');
+                    $this->session->set_flashdata('error', 'Failed to Change password!');
                     redirect(base_url() . 'auth/changepassword');
                 }
                 else{
                   
-                    $this->session->set_flashdata('success', 'password Changed sussfully! You Can login now using new password');
+                    $this->session->set_flashdata('success', 'Password Changed Sussfully! You Can login now using new password');
                     redirect(base_url() . 'auth/changepassword');
                 }
 

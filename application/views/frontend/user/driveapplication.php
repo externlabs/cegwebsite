@@ -2,9 +2,9 @@
     $drive_application = $this->db->where('student_id',$_SESSION['user_id'])->get('drive_application')->result_array();
 ?>
 
-<div class="container-fluid">
+<div class="subscriptions_page">
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">My Subscriptions</h1>
+    <h1 class="">My Subscriptions</h1>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-body">
@@ -44,7 +44,8 @@
                             <td><?php echo $value['drive_date']?></td>
                             <td><?php echo $value['salary']?></td>
                             <td><?php echo $value['department']?></td>
-                            <td><a href="<?php echo base_url()?>drive/<?php echo $drive['drive_id']?>" target="_blank"><button>View Drive</button></a></td>
+                            <td><a href="<?php echo base_url()?>drive/<?php echo $drive['drive_id']?>" target="_blank">View Drive</a></td>
+                            
                         </tr>
                         <?php }$i++;}?>
                     </tbody>
