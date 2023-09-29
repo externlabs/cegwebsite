@@ -17,6 +17,20 @@
     }
 
     $training_data = $this->db->where('training_id',$training_id)->get('training')->result_array();
+
+    if($_SESSION['profile_type'] == "company"){
+        $checkBox = ''  ;
+        $applYbutton = ''; 
+    }else{
+        if(isset($_SESSION['user_id'])){
+
+        }else{
+
+        }
+    }
+
+
+    
 ?>
 
 
@@ -41,10 +55,14 @@
 
 
 
-    <form action="" method="post">
+    <form action="<?php echo base_url()?>registertraining/makepayment" method="post">
         <input type="checkbox" name="agree" id="" required> I have agree with all the term & conditions.
-        <input type="hidden" name="student_id" value="<?php echo $_SESSION['user_id']?>">
-        <input type="hidden" name="course_id" value="<?php echo $value['course_id']?>">
+        <input type="" name="customer_id" value="<?php echo $_SESSION['user_id']?>">
+        <input type="" name="customer_type" value="<?php echo $_SESSION['profile_type']?>">
+
+        <input type="" name="course_id" value="<?php echo $value['course_id']?>">
+        <input type="" name="form_amount" value="<?php echo $value['form_amount']?>">
+        <input type="" name="course_amount" value="<?php echo $value['course_amount']?>">
         <br><br><button class="btn btn-primary mt-2">Apply Now</button>
     </form>
     <?php }?>

@@ -16,19 +16,34 @@ class Registertraining extends CI_controller
             $paymentURL = $webData['payment_url'];
         }
 
+        $customerId = $this->input->post('customer_id');
+        $courseId = $this->input->post('course_id');
+        $formamount = $this->input->post('form_amount');
+        $courseAmount = $this->input->post('course_amount');
+        $customerType = $this->input->post('customer_type');
+        $finalAmount = $formamount + $courseAmount;
+
+        $orderNo = $customerType.''.rand(10,100000);
+
         $operationMode = "DOM";
         $merchantCountry = "IN";
         $merchantCurrency = "INR";
-        $amount = "100";
+        $amount = $finalAmount;
         $otherDetails = "NA";
         $SuccessUrl = base_url().'registertraining/success';
         $failUrl = base_url().'registertraining/fail';
         $aggregatorId = 'SBIEPAY';
-        $merchantCustomerId = "4";
+        $merchantCustomerId = $customerId;
         $payMode = "NB";
         $accessMedium = "ONLINE";
         $transactionSource = "ONLINE";
-        $merchantOrderNo = "14Testorder";
+        $merchantOrderNo = $orderNo;
+
+        $_SESSION['amount'] = $finalAmount;
+        $_SESSION['customer_id'] = $customerId;
+        $_SESSION['customer_type'] = $customerType;
+        $_SESSION['course_id'] = $courseId;
+        $_SESSION['order_id'] = $merchantOrderNo;
 
         $requestParameter  = "$merchantID|$operationMode|$merchantCountry|$merchantCurrency|$amount|$otherDetails|$SuccessUrl|$failUrl|$aggregatorId|$merchantOrderNo|$merchantCustomerId|$payMode|$accessMedium|$transactionSource";
 
@@ -83,11 +98,31 @@ class Registertraining extends CI_controller
 
 
     public function paymentresponse(){
-        echo "hiii";
+
+        
     }
 
     public function success(){
-        print_r("success");
+
+        $data = array(
+            'user_id' => $_SESSION['customer_id'],
+            'user_type' => $_SESSION['customer_type'],
+            'amount' => $_SESSION['amount'],
+            'transaction_id' => $_SESSION['order_id'],
+            'course_id' =>  $_SESSION['course_id'],
+            'status' => 'Success'
+        );
+
+        print_r($data);
+        die;
+
+        $creaTransaction = $this->db->insert('transactions', $data);
+
+        if($creaTransaction){
+            echo "done";
+        }else{
+            echo "error";
+        }
     }
 
     public function fail(){

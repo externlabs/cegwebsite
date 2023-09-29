@@ -97,13 +97,8 @@ $route['user/drives/(:any)'] = 'frontend/user/drives/updatedrive/index/$1';
 $route['drive/(:any)'] = 'frontend/drivedetails/index/$1';
 $route['apply/(:any)'] = 'frontend/applydrive/index/$1';
 $route['training/(:any)'] = 'frontend/courses/index/$1';
+$route['ml-training'] = 'frontend/mltraining';
 $route['training/(:any)/(:any)'] = 'frontend/regular_training/index/$1/$2';
-
-
-
-
-
-
 
 
 $route['contact-us'] = 'frontend/contact';

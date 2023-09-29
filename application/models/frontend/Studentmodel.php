@@ -87,6 +87,12 @@ class Studentmodel extends CI_Model
   }
 
 
+
+  function apply_ml_training($datas){
+    return  $this->db->insert('ml_training', $datas);
+  }
+
+
 }
 
 
