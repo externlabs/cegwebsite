@@ -47,15 +47,19 @@ class Registertraining extends CI_controller
 
         $requestParameter  = "$merchantID|$operationMode|$merchantCountry|$merchantCurrency|$amount|$otherDetails|$SuccessUrl|$failUrl|$aggregatorId|$merchantOrderNo|$merchantCustomerId|$payMode|$accessMedium|$transactionSource";
 
-        echo '<b>Requestparameter:-</b> '.$requestParameter.'<br/><br/>';
+        // echo '<b>Requestparameter:-</b> '.$requestParameter.'<br/><br/>';
         $EncryptTrans = $this->encrypt($requestParameter,$merchantKey);
-        echo '<b>Encrypted EncryptTrans:-</b>'.$EncryptTrans.'<br/><br/>';
+        // echo '<b>Encrypted EncryptTrans:-</b>'.$EncryptTrans.'<br/><br/>';
 
-        echo '<form name="ecomStatus" method="post" action="'.$paymentURL.'">
-                <input type="text" name="EncryptTrans" value="'.$EncryptTrans.'">
-                <input type="text" name="merchIdVal" value ="'.$merchantID.'"/>
-                <input type="submit" name="submit" value="Submit">
-            </form>';
+        $paymentData['payment_data'] = array(
+            'payement_url' => $paymentURL,
+            'merchante_id' =>$merchantID,
+            'EncryptTrans' => $EncryptTrans
+        );
+
+        $this->load->view('paymentgetway', $paymentData);
+
+        
     
     }
     
@@ -65,7 +69,7 @@ class Registertraining extends CI_controller
         $algo='aes-128-cbc';
      
         $iv=substr($key, 0, 16);
-        echo $iv;
+        // echo $iv;
         $cipherText = openssl_encrypt(
             $data,
                $algo,
@@ -82,7 +86,7 @@ class Registertraining extends CI_controller
         $algo='aes-128-cbc';
 
         $iv=substr($key, 0, 16);
-                echo $iv;
+                // echo $iv;
         $cipherText = base64_decode($cipherText);
                     
                     $plaintext = openssl_decrypt(
@@ -113,20 +117,36 @@ class Registertraining extends CI_controller
             'status' => 'Success'
         );
 
-        print_r($data);
-        die;
-
         $creaTransaction = $this->db->insert('transactions', $data);
 
         if($creaTransaction){
-            echo "done";
+            $this->session->set_flashdata('success', 'Applied Successfully For Training');
+            redirect(base_url() . 'user/trainingapplication');
         }else{
-            echo "error";
+            $this->session->set_flashdata('error', 'Error in Submission!');
+            redirect(base_url() . 'user/trainingapplication');
         }
     }
 
     public function fail(){
-        print_r("fail");
+        $data = array(
+            'user_id' => $_SESSION['customer_id'],
+            'user_type' => $_SESSION['customer_type'],
+            'amount' => $_SESSION['amount'],
+            'transaction_id' => $_SESSION['order_id'],
+            'course_id' =>  $_SESSION['course_id'],
+            'status' => 'Fail'
+        );
+        
+        $creaTransaction = $this->db->insert('transactions', $data);
+
+        if($creaTransaction){
+            $this->session->set_flashdata('success', 'Transaction Could Not be Completed Please Try Again Later');
+            redirect(base_url() . 'user/trainingapplication');
+        }else{
+            $this->session->set_flashdata('error', 'Error in Submission!');
+            redirect(base_url() . 'user/trainingapplication');
+        }
     }
     
 }

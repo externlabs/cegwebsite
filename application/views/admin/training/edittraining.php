@@ -105,7 +105,7 @@
                     <input type="date" name="end_date" class="form-control" placeholder="e.g: industrial-training"  value="<?php echo $value['end_date']?>" required min="<?php echo date('Y-m-d');?>"> 
                     <label for="name" class="form-label">Training Description <span style="color:red;">*</span></label>
                     <textarea name="training_desc" id="" class="form-control" cols="30" rows="10" placeholder="Enter Training Description" value="<?php echo $value['training_desc']?>"></textarea>
-                    <input type="hidden" name="training_id " value="<?php echo $value['training_id ']?>">
+                    <input type="hidden" name="training_id" value="<?php echo $value['training_id']?>">
                     <button name="formSubmit">Update Training</button>
 
                     </div>

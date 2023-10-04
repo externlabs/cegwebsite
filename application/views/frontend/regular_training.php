@@ -19,13 +19,15 @@
     $training_data = $this->db->where('training_id',$training_id)->get('training')->result_array();
 
     if($_SESSION['profile_type'] == "company"){
-        $checkBox = ''  ;
+        $checkBox = '';
         $applYbutton = ''; 
     }else{
         if(isset($_SESSION['user_id'])){
-
+            $checkBox = '<input type="checkbox" name="agree" id="" required> I have agree with all the term & conditions.';
+            $applYbutton = '<button class="btn btn-primary mt-2">Apply Now</button>'; 
         }else{
-
+            $checkBox = '';
+            $applYbutton = ''; 
         }
     }
 
@@ -56,14 +58,15 @@
 
 
     <form action="<?php echo base_url()?>registertraining/makepayment" method="post">
-        <input type="checkbox" name="agree" id="" required> I have agree with all the term & conditions.
+        <?php echo $checkBox?>
         <input type="" name="customer_id" value="<?php echo $_SESSION['user_id']?>">
         <input type="" name="customer_type" value="<?php echo $_SESSION['profile_type']?>">
 
         <input type="" name="course_id" value="<?php echo $value['course_id']?>">
         <input type="" name="form_amount" value="<?php echo $value['form_amount']?>">
         <input type="" name="course_amount" value="<?php echo $value['course_amount']?>">
-        <br><br><button class="btn btn-primary mt-2">Apply Now</button>
+        <br><br>
+        <?php echo $applYbutton?>
     </form>
     <?php }?>
 </div>

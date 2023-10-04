@@ -29,6 +29,7 @@ class Edittraining extends CI_controller
     $this->form_validation->set_rules('registration_last_date', 'Name', 'required');
     $this->form_validation->set_rules('start_date', 'Name', 'required');
     $this->form_validation->set_rules('end_date', 'Name', 'required');
+    $this->form_validation->set_rules('training_id', 'Name', 'required');
     
     
     if($this->form_validation->run()){
@@ -45,8 +46,9 @@ class Edittraining extends CI_controller
                   'registration_last_date' => $this->input->post('registration_last_date'),
                   'end_date' => $this->input->post('end_date'),
           );
+          
           $id = $this->input->post('training_id');
-    
+
           if ($this->Trainingmodel->update_traning_status($datas, $id)) {
               $this->session->set_flashdata('error', 'Error In Submission');
               redirect(base_url() . 'admin/training/edittraining');

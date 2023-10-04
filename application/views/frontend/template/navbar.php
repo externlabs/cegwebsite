@@ -78,10 +78,10 @@
                 <li><a href="<?php echo base_url()?>">Home</a></li>
                 <li class="dropdown">Training <i class="fa-solid fa-angle-down"></i>
                     <ul class="dropdown-menu">
-                        <!-- <?php foreach($training_data as $training){?>
+                        <?php foreach($training_data as $training){?>
                         <li><a href="<?php echo base_url()?>training/<?php echo $training['training_link']?>"><?php echo $training['training_name']?></a></li>
-                        <?php }?> -->
-                        <li  class="dropdown"><a href="<?php echo base_url()?>ml-training">AI/ML/DS Training Registration</a></li>
+                        <?php }?>
+                        <!-- <li  class="dropdown"><a href="<?php echo base_url()?>ml-training">AI/ML/DS Training Registration</a></li> -->
                     </ul>
                 </li>
                 <!--<i class=""></i> <class="fa-solid fa-angle-down"> -->
@@ -111,7 +111,7 @@
                 <!-- <li><a href="<?php echo base_url()?>billdesk">Payment</a></li> -->
                 <li><a href="<?php echo base_url()?>contact">Contact Us</a></li>
                 
-                <!-- <?php echo $login?> -->
+                <?php echo $login?>
             </ul>
         </div>
     </header>
