@@ -72,8 +72,10 @@
         <?php
         if ($this->session->flashdata('success')) {
             echo '<div class="alert alert-success">' . $this->session->flashdata('success') . '</div>';
+            unset($_SESSION['success']);
         } else if ($this->session->flashdata('error')) {
             echo '<div class="alert alert-danger">' . $this->session->flashdata('error') . '</div>';
+            unset($_SESSION['error']);
         }
         ?>
         <h3>Add News</h3>
@@ -81,20 +83,12 @@
             <div class="row">
                 <div class="col-md-12">
                          <div class="form-group">
-                        <label for="name">Add News Image <span style="color:red;">*</span></label>
+                        <label for="name">Add News File <span style="color:red;">*</span></label>
                         <input type="file" id="myFile" name="images" class="form-control" required>
                         </div>
                         <div class="form-group">
                         <label class="form-label">Title<span style="color:red;">*</span></label>
                         <input type="text" name="title" maxlength="50" placeholder="Enter Title" required>
-                        </div>
-                        <div class="form-group">
-                        <label class="form-label">Description <span style="color:red;">*</span></label>
-                        <textarea name="description" id="" cols="30" rows="5" placeholder="Enter Description" required></textarea>
-                        </div>
-                        <div class="form-group">
-                        <label class="form-label">Website Link <span style="color:red;">*</span></label>
-                        <input type="text" name="link" placeholder="Enter Website Link (Eg: https://domainname.com/)" required>
                         </div>
                         <button name="formSubmit">Add</button>
                     </div>

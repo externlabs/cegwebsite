@@ -50,10 +50,12 @@
         if($this->session->flashdata('error'))
         {
                 echo "<div class='alert alert-danger'>".$this->session->flashdata('error')."</div>";
+                unset($_SESSION['error']);
         }
         if($this->session->flashdata('success'))
         {
                 echo "<div class='alert alert-success'>".$this->session->flashdata('success')."</div>";
+            unset($_SESSION['success']);
         }
         ?>
         <?php echo form_open(base_url( 'admin/Login' ),  array( 'method' => 'post', 'class' => 'form-horizontal','id'=>"loginForm" ));?>

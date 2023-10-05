@@ -66,8 +66,10 @@
     <?php
         if ($this->session->flashdata('success')) {
             echo '<div class="alert alert-success">' . $this->session->flashdata('success') . '</div>';
+            unset($_SESSION['success']);
         } else if ($this->session->flashdata('error')) {
             echo '<div class="alert alert-danger">' . $this->session->flashdata('error') . '</div>';
+            unset($_SESSION['error']);
         }
     ?>
     
@@ -81,10 +83,8 @@
                 <tr>
 
                   <th>Sr. No.</th>
-                  <th>News Image</th>
+                  <th>News File</th>
                   <th>News Title</th>
-                  <th>News Description</th>
-                  <th>News Link</th>
                   <th>Option</th>
                   <th>Change button</th>
                   <th>Action</th>

@@ -64,8 +64,10 @@
     <?php
         if ($this->session->flashdata('success')) {
             echo '<div class="alert alert-success">' . $this->session->flashdata('success') . '</div>';
+            unset($_SESSION['success']);
         } else if ($this->session->flashdata('error')) {
             echo '<div class="alert alert-danger">' . $this->session->flashdata('error') . '</div>';
+            unset($_SESSION['error']);
         }
     ?>
     
