@@ -50,6 +50,18 @@
     width: 70px;
     height: 70px;
   }
+
+  .submit_btn{
+        width: 11rem;
+        background: #68d331;
+        color: white;
+        outline: none;
+        border: none;
+        border-radius: 4px;
+        margin-top:1rem;
+        padding:1rem;
+        font-size:12px;
+    }
 </style>
 
 <div class="all_post">
@@ -127,7 +139,7 @@
                         </select>
                       </td>
                       <input type="hidden" name="drive_id" value="<?php echo $value['drive_id']?>" required>
-                      <td><button>Change Status</button></td>
+                      <td><button class="submit_btn">Change Status</button></td>
                     </form>
                   </tr>
                 <?php }$i++; } ?>

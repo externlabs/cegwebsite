@@ -53,6 +53,17 @@
     width: 70px;
     height: 70px;
   }
+  .submit_btn{
+        width: 11rem;
+        background: #68d331;
+        color: white;
+        outline: none;
+        border: none;
+        border-radius: 4px;
+        margin-top:1rem;
+        padding:1rem;
+        font-size:12px;
+    }
 </style>
 
 <div class="all_post">

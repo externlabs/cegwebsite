@@ -56,6 +56,17 @@
     width: 70px;
     height: 70px;
   }
+  .submit_btn{
+        width: 11rem;
+        background: #68d331;
+        color: white;
+        outline: none;
+        border: none;
+        border-radius: 4px;
+        margin-top:1rem;
+        padding:1rem;
+        font-size:12px;
+    }
 </style>
 
 <div class="all_post">
@@ -97,10 +108,8 @@
                 <tr>
                    
                    <td><?php echo $i; ?></td>
-                       <td><img src="<?php echo base_url()?>upload/news/<?php echo $value['cover']?>" width="100px"></td>
+                       <td><a href="<?php echo base_url()?>upload/news/<?php echo $value['cover']?>" target="_blank">View File</a></td>
                        <td><?php echo $value['title']; ?></td>
-                       <td><?php echo $value['description']; ?></td>
-                       <td><a href="<?php echo base_url()?>home" target="_blank">View News</a></td>
  
                        <form action="<?php echo base_url()?>admin/news/allnews/update_news" method="post">
                        <td>
@@ -112,10 +121,9 @@
                        <input type="hidden" name="news_id" value="<?php echo $value['news_id']?>" required>
  
                        </td>
-                       <td><button>Change Status</button></td>
+                       <td><button class="submit_btn">Change Status</button></td>
                       </form>
-                      <td><a href="<?php echo base_url()?>admin/news/editnews?id=<?php echo $value['news_id']?>"><i
-                      class="fas fa-edit" style="color: #009cff !important;cursor: pointer; margin-right:10px;"></i></a>
+                      <td>
                       <a class="delete_sliders" data-id="<?php echo $value['news_id']?>"  style="color: red;cursor: pointer;" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
                 </td>
                    </tr>

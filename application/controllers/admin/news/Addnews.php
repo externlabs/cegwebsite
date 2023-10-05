@@ -26,10 +26,8 @@ public function add_news(){
     $this->load->model('admin/news/Newsmodel');
     $this->input->post('formSubmit');
 
-   
-    $this->form_validation->set_rules('description', 'number', 'required');
     $this->form_validation->set_rules('title', 'number', 'required');
-    $this->form_validation->set_rules('link', 'Message', 'required');
+
     if ($this->form_validation->run()) {
         if (!empty($_FILES['images']['name'])) {
             $File_name = '';
@@ -50,11 +48,8 @@ public function add_news(){
         }
         $data = array(
             'title' => $this->input->post('title'),
-            'description' => $this->input->post('description'),
-            'link' => $this->input->post('link'),
             'cover' => $imageurl,
             'news_status' => 1,
-            
         );
 
         if ($this->Newsmodel->add_news($data)) {

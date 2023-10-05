@@ -121,16 +121,16 @@
             <li class="news-part">
                 <div class="news-header">
                     <h3>Latest News</h3>
-                    <button>Know More</button>
+                    <!-- <button>Know More</button> -->
                 </div>
                 <marquee onMouseOver="this.stop()" onMouseOut="this.start()" direction="up" scrolldelay="10">
                     <ul>
                     <?php
-                    foreach($news_details as $value){
+                    foreach($news_details as $value){ if($value['news_status']== 1){
                     ?>
-                    <li> <a href="<?php echo $value['link']?>"><?php echo $value['title']?></a></li>
+                    <li> <a href="<?php echo base_url()?>upload/news/<?php echo $value['cover']?>" target="_blank"><?php echo $value['title']?></a></li>
 
-                    <?php } ?>
+                    <?php }} ?>
                         
                     </ul>
                 </marquee>

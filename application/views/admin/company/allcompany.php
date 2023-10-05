@@ -27,9 +27,29 @@
     .ad:hover{
         opacity:.7;
     }
+    .submit_btn{
+        width: 11rem;
+        background: #68d331;
+        color: white;
+        outline: none;
+        border: none;
+        border-radius: 4px;
+        margin-top:1rem;
+        padding:1rem;
+        font-size:12px;
+    }
 </style>
 <div class="all_post">
     <div class="container">
+    <?php
+            if ($this->session->flashdata('success')) {
+                echo '<div class="alert alert-success">' . $this->session->flashdata('success') . '</div>';
+                unset($_SESSION['success']);
+            } else if ($this->session->flashdata('error')) {
+                echo '<div class="alert alert-danger">' . $this->session->flashdata('error') . '</div>';
+                unset($_SESSION['error']);
+            }
+        ?>
         <div class="row">
             <div class="col-md-6">
                 <h3>All Company</h3>

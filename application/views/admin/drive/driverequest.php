@@ -48,6 +48,17 @@
     width: 70px;
     height: 70px;
   }
+  .submit_btn{
+        width: 11rem;
+        background: #68d331;
+        color: white;
+        outline: none;
+        border: none;
+        border-radius: 4px;
+        margin-top:1rem;
+        padding:1rem;
+        font-size:12px;
+    }
 </style>
 
 <div class="all_post">
@@ -113,7 +124,7 @@
                       <td><?php echo $value['salary']; ?></td>
                       <td><?php echo $value['department']; ?></td>
                       <td><?php echo $value['created_at']; ?></td>
-                      <td><a href="<?php echo base_url()?>drive/<?php echo $value['drive_id']?>" target="_blank"><button>View Drive Details</button></a></td>
+                      <td><a href="<?php echo base_url()?>drive/<?php echo $value['drive_id']?>" target="_blank">View Drive Details</a></td>
                      
                       <form action="<?php echo base_url()?>admin/drive/driverequest/update_drive" method="post">
                       <td>
@@ -124,7 +135,7 @@
                         </select>
                       </td>
                       <input type="hidden" name="drive_id" value="<?php echo $value['drive_id']?>" required>
-                      <td><button>Change Status</button></td>
+                      <td><button class="submit_btn">Change Status</button></td>
                     </form>
                   </tr>
                 <?php }$i++; } ?>

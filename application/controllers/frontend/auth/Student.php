@@ -54,7 +54,7 @@ class Student extends CI_controller
             if($explode_url[1] == "apply"){
                 redirect(base_url().'upcoming-drives'); 
             }else{
-                redirect(base_url().'user/dashboard');
+                redirect(base_url().'user/my-profile');
             }
         } else {
             $this->session->set_flashdata('error', 'Wrong Email Or Password');

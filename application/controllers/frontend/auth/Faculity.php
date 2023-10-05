@@ -36,7 +36,7 @@ class Faculity extends CI_controller
             }
         }
         if ($login_success == 1) {
-            redirect(base_url() . 'user/dashboard');
+            redirect(base_url() . 'user/my-profile');
         } else {
             $this->session->set_flashdata('error', 'Wrong Email Or Password');
             redirect(base_url().'auth/faculity');

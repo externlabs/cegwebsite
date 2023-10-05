@@ -19,10 +19,15 @@
             foreach($user_details as $value){
                 $name = $value['student_name'];
             }
+        }else if($user_type =="faculity"){
+            $user_details = $this->db->where('faculity_id',$user_id)->get('faculity')->result_array();
+            foreach($user_details as $value){
+                $name = $value['faculity_name'];
+            }
         }
         $login = '<li class="dropdown">'.$name.' <i class="fa-solid fa-angle-down"></i>
         <ul class="dropdown-menu">
-            <li><a href="'.base_url().'user/dashboard">My Dashboard </a></li>
+            <li><a href="'.base_url().'user/my-profile">My Profile </a></li>
             <li><a href="'.base_url().'frontend/logout">logout</a></li>
         </ul>
     </li>';

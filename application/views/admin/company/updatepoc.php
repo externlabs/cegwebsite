@@ -65,6 +65,7 @@
         font-weight: 300;
         font-style: italic;
     }
+    
 </style>
 <?php if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'ON'){
                     $url = "https://";
@@ -118,7 +119,7 @@
                         <input type="number" name="alternate_no" class="num" maxlength="10" placeholder="Enter Alternate Mobile No." value="<?php echo $value['alternate_no']?>">
                         <label class="form-label">Email <span style="color:red;">*</span></label>
                         <input type="email" name="email" maxlength="50" placeholder="Enter Email" required value="<?php echo $value['poc_email']?>" readonly>
-                        <input type="" name="poc_id" value="<?php echo $value['poc_id']?>" required>
+                        <input type="hidden" name="poc_id" value="<?php echo $value['poc_id']?>" required>
                         <button name="formSubmit">Update Poc</button>
                     </div>
                     <?php }?>
