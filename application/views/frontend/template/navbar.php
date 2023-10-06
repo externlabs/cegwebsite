@@ -83,9 +83,9 @@
                 <li><a href="<?php echo base_url()?>">Home</a></li>
                 <li class="dropdown">Training <i class="fa-solid fa-angle-down"></i>
                     <ul class="dropdown-menu">
-                        <?php foreach($training_data as $training){?>
+                        <?php foreach($training_data as $training){ if($training['status'] == 1){?>
                         <li><a href="<?php echo base_url()?>training/<?php echo $training['training_link']?>"><?php echo $training['training_name']?></a></li>
-                        <?php }?>
+                        <?php }}?>
                         <!-- <li  class="dropdown"><a href="<?php echo base_url()?>ml-training">AI/ML/DS Training Registration</a></li> -->
                     </ul>
                 </li>

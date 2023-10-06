@@ -38,13 +38,22 @@ class Addcourse extends CI_controller
 
     
     if ($this->form_validation->run()) {
+
+      if( $this->input->post('course_type') == "paid"){
+        $course_amount = $this->input->post('course_amount');
+        $form_amount = $this->input->post('form_amount');
+      }else{
+        $course_amount = 0;
+        $form_amount =0;
+      }
+
         $datas = array(
             'training_id' => $this->input->post('training_id'),
             'course_name' => $this->input->post('course_name'),
             'course_desc' => $this->input->post('course_desc'),
             'course_type' => $this->input->post('course_type'),
-            'course_amount' => $this->input->post('course_amount'),
-            'form_amount' => $this->input->post('form_amount'),
+            'course_amount' => $course_amount,
+            'form_amount' => $form_amount,
             'course_status' => 1,
         );
         

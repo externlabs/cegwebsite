@@ -51,6 +51,7 @@ class Addtraining extends CI_controller
             'start_date' => $this->input->post('start_date'),
             'registration_last_date' => $this->input->post('registration_last_date'),
             'end_date' => $this->input->post('end_date'),
+            'status' => 1
         );
 
         $start_date = $this->input->post('start_date');
@@ -74,5 +75,36 @@ class Addtraining extends CI_controller
         $this->session->set_flashdata('error', 'Please Fill All The Fields or company Already Registered!');
         redirect(base_url() . 'admin/training/addtraining');
     }
+}
+
+
+
+
+
+public function update_training_status(){
+
+  $this->load->model('admin/training/Trainingmodel');
+  $this->input->post('formSubmit');
+
+  $this->form_validation->set_rules('status', 'Name', 'required');
+  $this->form_validation->set_rules('training_id', 'Message', 'required');
+
+  if ($this->form_validation->run()){
+      $datas = array(
+          'status' => $this->input->post('status'),
+      );
+      $id = $this->input->post('training_id');
+
+      if ($this->Trainingmodel->update_traning_status($datas, $id)) {
+          $this->session->set_flashdata('error', 'Error In Submission');
+          redirect(base_url() . 'admin/training/alltraining');
+      } else {
+          $this->session->set_flashdata('success', 'Training Status Updated Successfully!');
+          redirect(base_url() . 'admin/training/alltraining');
+      }
+  } else {
+      $this->session->set_flashdata('error', 'Please Fill All The Fields!');
+      redirect(base_url() . 'admin/training/alltraining');
+  }
 }
 }

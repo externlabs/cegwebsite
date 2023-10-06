@@ -39,7 +39,7 @@
       <th>View Details</th>
     </tr>
 <?php $i=1; foreach($course_data as $value){
-  
+    if($value['course_status'] == 1){
   if($regsitartion_last_date >= date("Y-m-d")){
 
   ?>
@@ -59,7 +59,7 @@
         <td><a href="<?php echo base_url()?>training/<?php echo $training['training_link']?>/<?php echo $value['course_id']?>" class="btn text-primary">View Details & apply</a></td>
       <?php }?>
     </tr>
-  <?php }$i++;}?>
+  <?php } }$i++;}?>
   </table>
 </div>
 

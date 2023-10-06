@@ -4,7 +4,7 @@
 
 <div class="subscriptions_page">
     <!-- Page Heading -->
-    <h1 class="">My Subscriptions</h1>
+    <h1 class="">My Drive Applications</h1>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-body">

@@ -16,19 +16,24 @@ class Registertraining extends CI_controller
             $paymentURL = $webData['payment_url'];
         }
 
+        $getCourseData = $this->db->where('course_id', $this->input->post('course_id'))->get('course')->result_array(); 
+
+        foreach($getCourseData as $course){
+            $formAmounts = $course['form_amount'];
+            $courseAmounts = $course['course_amount'];
+            $course_type = $course['course_type'];
+        }
+
         $customerId = $this->input->post('customer_id');
         $courseId = $this->input->post('course_id');
-        $formamount = $this->input->post('form_amount');
-        $courseAmount = $this->input->post('course_amount');
         $customerType = $this->input->post('customer_type');
-        $finalAmount = $formamount + $courseAmount;
+
 
         $orderNo = $customerType.''.rand(10,100000);
 
         $operationMode = "DOM";
         $merchantCountry = "IN";
         $merchantCurrency = "INR";
-        $amount = $finalAmount;
         $otherDetails = "NA";
         $SuccessUrl = base_url().'registertraining/success';
         $failUrl = base_url().'registertraining/fail';
@@ -39,13 +44,23 @@ class Registertraining extends CI_controller
         $transactionSource = "ONLINE";
         $merchantOrderNo = $orderNo;
 
-        $_SESSION['amount'] = $finalAmount;
-        $_SESSION['customer_id'] = $customerId;
-        $_SESSION['customer_type'] = $customerType;
-        $_SESSION['course_id'] = $courseId;
-        $_SESSION['order_id'] = $merchantOrderNo;
 
-        $requestParameter  = "$merchantID|$operationMode|$merchantCountry|$merchantCurrency|$amount|$otherDetails|$SuccessUrl|$failUrl|$aggregatorId|$merchantOrderNo|$merchantCustomerId|$payMode|$accessMedium|$transactionSource";
+
+        if($course_type == "free"){
+            $finalAmount = 0;
+            $_SESSION['amount'] = $finalAmount;
+            $_SESSION['customer_id'] = $customerId;
+            $_SESSION['customer_type'] = $customerType;
+            $_SESSION['course_id'] = $courseId;
+            $_SESSION['order_id'] = $merchantOrderNo;
+
+            $this->success();
+
+        }else{
+            $finalAmount = $courseAmounts + $formAmounts;
+        }
+
+        $requestParameter  = "$merchantID|$operationMode|$merchantCountry|$merchantCurrency|$finalAmount|$otherDetails|$SuccessUrl|$failUrl|$aggregatorId|$merchantOrderNo|$merchantCustomerId|$payMode|$accessMedium|$transactionSource";
 
         // echo '<b>Requestparameter:-</b> '.$requestParameter.'<br/><br/>';
         $EncryptTrans = $this->encrypt($requestParameter,$merchantKey);

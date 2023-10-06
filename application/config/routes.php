@@ -70,6 +70,7 @@ $route['auth/student'] = 'frontend/auth/student';
 $route['auth/faculity'] = 'frontend/auth/faculity';
 $route['user/dashboard'] = 'frontend/user/dashboard';
 $route['user/driveapplication'] = 'frontend/user/driveapplication';
+$route['user/trainingapplication'] = 'frontend/user/trainingapplication';
 $route['user/student-application'] = 'frontend/user/allapplications';
 $route['user/my-profile'] = 'frontend/user/myprofile';
 $route['user/edit-profile'] = 'frontend/user/editprofile';

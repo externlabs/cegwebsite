@@ -102,7 +102,15 @@
 <li class="nav-item">
     <a class="nav-link collapsed" href="<?php echo base_url()?>user/driveapplication">
         <i class="fas fa-fw fa-wrench"></i>
-        <span>Subscription</span>
+        <span>Drive Application</span>
+    </a>
+   
+</li>
+
+<li class="nav-item">
+    <a class="nav-link collapsed" href="<?php echo base_url()?>user/trainingapplication">
+        <i class="fas fa-fw fa-wrench"></i>
+        <span>Training Application</span>
     </a>
    
 </li>
@@ -127,15 +135,15 @@
 </li>
 
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#">
+    <a class="nav-link collapsed" href="<?php echo base_url()?>user/trainingapplication">
         <i class="fas fa-fw fa-wrench"></i>
-        <span>Subscription</span>
+        <span>Training Application</span>
     </a>
    
 </li>
 
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#">
+    <a class="nav-link collapsed" href="<?php echo base_url()?>user/driveapplication">
         <i class="fas fa-fw fa-wrench"></i>
         <span>Drive Application</span>
     </a>
