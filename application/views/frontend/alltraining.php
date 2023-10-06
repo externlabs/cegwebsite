@@ -6,6 +6,15 @@
 
 
 <div class="container campus-page my-md-5 my-3">
+
+      <?php
+        if ($this->session->flashdata('payment_error')) {
+            echo '<div class="alert alert-danger">' . $this->session->flashdata('payment_error') . '</div>';
+            unset($_SESSION['payment_error']);
+        }
+        ?>
+
+
   <h2 class="text-center ">Apply for Upcoming Training</h2>
   <table class="table table-bordered mt-3">
     <tr>

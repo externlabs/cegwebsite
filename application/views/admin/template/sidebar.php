@@ -236,6 +236,9 @@ $parts = basename($url);
             </div>
           </div>
         </li>
+        <li class="nav-item <?php echo ($parts == 'trainingapplication') ? "active" : "" ?>">
+          <a class="nav-link " href="<?php echo base_url(); ?>admin/trainingapplication"><i class="fas fa-fw fa-table"></i><span>Training Applications</span></a>
+</li>
      
         <!-- <li class="nav-item ">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#course" aria-expanded="true" aria-controls="collapsePages">

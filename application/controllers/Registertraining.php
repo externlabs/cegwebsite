@@ -8,6 +8,21 @@ class Registertraining extends CI_controller
    
    
      public function makepayment(){
+
+        $courseid =$this->input->post('course_id');
+        $userType = $this->input->post('customer_type');
+        $userid = $this->input->post('customer_id');
+
+
+        $getTransactionData = $this->db->where('user_type', $userType)->where('user_id', $userid)->where('course_id', $courseid)->where('status', 'Success')->get('transactions')->result_array();
+        
+        if(count($getTransactionData)>0){
+            $this->session->set_flashdata('payment_error', 'You Have Already Applied For this Course!');
+            redirect(base_url(). 'alltraining');
+        }
+
+
+
         $website_data = $this->db->get('websetting')->result_array();
 
         foreach($website_data as $webData){
@@ -58,6 +73,11 @@ class Registertraining extends CI_controller
 
         }else{
             $finalAmount = $courseAmounts + $formAmounts;
+            $_SESSION['amount'] = $finalAmount;
+            $_SESSION['customer_id'] = $customerId;
+            $_SESSION['customer_type'] = $customerType;
+            $_SESSION['course_id'] = $courseId;
+            $_SESSION['order_id'] = $merchantOrderNo;
         }
 
         $requestParameter  = "$merchantID|$operationMode|$merchantCountry|$merchantCurrency|$finalAmount|$otherDetails|$SuccessUrl|$failUrl|$aggregatorId|$merchantOrderNo|$merchantCustomerId|$payMode|$accessMedium|$transactionSource";
@@ -73,8 +93,6 @@ class Registertraining extends CI_controller
         );
 
         $this->load->view('paymentgetway', $paymentData);
-
-        
     
     }
     
@@ -132,6 +150,12 @@ class Registertraining extends CI_controller
             'status' => 'Success'
         );
 
+        if(!isset($_SESSION['customer_id']) || !isset($_SESSION['customer_type']) || !isset($_SESSION['amount']) || !isset($_SESSION['order_id']) || !isset($_SESSION['course_id'])){
+            $this->session->set_flashdata('payment_error', 'Something Wend Wrong Please Try Again Later!');
+            redirect(base_url(). 'alltraining');
+        }
+
+
         $creaTransaction = $this->db->insert('transactions', $data);
 
         if($creaTransaction){
@@ -152,6 +176,11 @@ class Registertraining extends CI_controller
             'course_id' =>  $_SESSION['course_id'],
             'status' => 'Fail'
         );
+
+        if(!isset($_SESSION['customer_id']) || !isset($_SESSION['customer_type']) || !isset($_SESSION['amount']) || !isset($_SESSION['order_id']) || !isset($_SESSION['course_id'])){
+            $this->session->set_flashdata('payment_error', 'Something Wend Wrong Please Try Again Later!');
+            redirect(base_url(). 'alltraining');
+        }
         
         $creaTransaction = $this->db->insert('transactions', $data);
 

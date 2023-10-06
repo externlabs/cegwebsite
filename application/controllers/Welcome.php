@@ -5,7 +5,7 @@ class Welcome extends CI_controller
     {
         parent::__construct();
         if (!$this->session->userdata('vendorAuth')) {
-            redirect('login');
+            redirect('admin/login');
         }
     }
     public function index()
