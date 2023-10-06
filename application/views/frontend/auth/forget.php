@@ -18,7 +18,7 @@
                             <label class="inputLabel mb-1" for="password">Email <span style="color:red">*</span></label>
                             <input type="text" id="email" class="form-control" name="email" Placeholder="Enter Email" required>
                             <p id="errormsg" style="color:red;font-size:12px;font-style:italic;"></p>
-                            <p id="successmsg"></p>
+                            <p id="successmsg" style="color:green;font-size:12px;font-style:italic;"></p>
                         </div>
                         <div class="col-md-2 mt-4">
                             <input type="submit" name="formSubmit" id="sendotpbtn"  class="btn btn-block btn-primary"  value="Send OTP"/>

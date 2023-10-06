@@ -37,12 +37,14 @@
                     <label for="name" class="form-label">Select Class<span style="color:red;">*</span></label>
                     <input type="text" name="class"  class="form-control" placeholder="" value="<?php echo $value['class']?>" readonly>  
                     </div>
+                    <?php if($value['class'] == "other"){?>
                     <div class="form-group" id="course_name">
                         <label for="name">Course Name  <span style="color:red;">*</span></label>
                         <input type="text" name="course_name" id="course_name" value="<?php echo $value['course_name']?>" class="form-control <?php echo (form_error('course_name') != "") ? 'is-invalid' : '';?>"
                             placeholder="">
                         <p class="invalid-feedback"><?php echo strip_tags(form_error('course_name'));?></p>    
                     </div> 
+                    <?php }?>
                     <div class="form-group">
                         <label for="name">Name of Institute   <span style="color:red;">*</span></label>
                         <input type="text" name="university_name" id="university_name" value="<?php echo $value['university_name']?>" class="form-control <?php echo (form_error('university_name') != "") ? 'is-invalid' : '';?>"
@@ -102,51 +104,7 @@
 </div>
 
 
-<script>
-    document.getElementById("marks").style.display = 'none';
-    document.getElementById("backlog").style.display = 'none';
-    document.getElementById("startYear").style.display = 'none';
-    document.getElementById("branch").style.display = 'none';
-    document.getElementById("course_name").style.display = 'none';
 
-    document.getElementById('classGrade').onchange = function() {
-        var classvalue = this.value;
-        if(classvalue == "10th"){
-            document.getElementById("marks").style.display = 'block';
-            document.getElementById("backlog").style.display = 'block';
-            document.getElementById("startYear").style.display = 'block';
-            document.getElementById("branch").style.display = 'block';
-            document.getElementById("course_name").style.display = 'none';
-
-        }else if(classvalue == "12th"){
-            document.getElementById("marks").style.display = 'block';
-            document.getElementById("backlog").style.display = 'block';
-            document.getElementById("startYear").style.display = 'block';
-            document.getElementById("branch").style.display = 'block';
-            document.getElementById("course_name").style.display = 'none';
-        }else if(classvalue == "ITI" || classvalue == "diploma" || classvalue == "UG" || classvalue == "pg"){
-            document.getElementById("marks").style.display = 'block';
-            document.getElementById("backlog").style.display = 'block';
-            document.getElementById("startYear").style.display = 'block';
-            document.getElementById("branch").style.display = 'block';
-            document.getElementById("course_name").style.display = 'none';
-
-        }else if(classvalue == "other"){
-            document.getElementById("marks").style.display = 'block';
-            document.getElementById("backlog").style.display = 'block';
-            document.getElementById("startYear").style.display = 'block';
-            document.getElementById("branch").style.display = 'block';
-            document.getElementById("course_name").style.display = 'block';
-        }        
-        else{
-            document.getElementById("marks").style.display = 'none';
-            document.getElementById("backlog").style.display = 'none';
-            document.getElementById("startYear").style.display = 'none';
-            document.getElementById("branch").style.display = 'none';
-        }
-    }
-    
-</script>
 
 <script>
     $(document).ready(function() {
@@ -157,3 +115,9 @@
         });
     });
     </script>
+
+
+
+
+
+

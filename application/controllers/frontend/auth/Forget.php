@@ -20,12 +20,10 @@ class Forget extends CI_controller
         $this->load->model('frontend/Studentmodel');
 
         $verification_code = $this->input->post('verification_code');
-        // $email= $_SESSION['verification_email'];
-        // $type = $_SESSION['verification_type'];
 
 
-        $email = 'himanshugoyal1011@gmail.com';
-        $type = "company";
+        $email = $_SESSION['forgot_email'];
+        $type = $_SESSION['forgot_type'];
 
         if($type == "company"){
             $poc_data = $this->db->where('poc_email',$email)->get('company_poc')->result_array();
@@ -151,6 +149,9 @@ class Forget extends CI_controller
             );
 
             if($id){
+
+                $_SESSION['forgot_email'] = $email;
+                $_SESSION['forgot_type'] = $type;
                 
                 if($this->Studentmodel->update_verification_code($data,$tablename,$coloumn_name,$id)){
                     $array = array(

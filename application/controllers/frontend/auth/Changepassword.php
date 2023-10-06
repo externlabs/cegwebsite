@@ -27,10 +27,8 @@ class Changepassword extends CI_controller
 
             if($new_password == $cofirm_password){
 
-                // $user_email = $_SESSION['verification_email'];
-                // $user_type = $_SESSION['verification_type'];
-                $user_email = "himanshugoyal1011@gmail.com";
-                $user_type = "company";
+                $user_email = $_SESSION['forgot_email'];
+                $user_type = $_SESSION['forgot_type'];
 
 
                 if($user_type == "company"){
@@ -72,11 +70,14 @@ class Changepassword extends CI_controller
                 
 
                 if($this->Studentmodel->updatepassword($new_password,$id,$table_name,$colom_name,$colom_pass)){
+                    unset( $_SESSION['forgot_email']);
+                    unset($_SESSION['forgot_type']);
                     $this->session->set_flashdata('error', 'Failed to Change password!');
                     redirect(base_url() . 'auth/changepassword');
                 }
                 else{
-                  
+                    unset( $_SESSION['forgot_email']);
+                    unset($_SESSION['forgot_type']);
                     $this->session->set_flashdata('success', 'Password Changed Sussfully! You Can login now using new password');
                     redirect(base_url() . 'auth/changepassword');
                 }
