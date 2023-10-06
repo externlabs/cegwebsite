@@ -161,7 +161,7 @@
                       <td id="fourth_result"><?php if($value['round_4'] == 1){echo "Pass";}else{echo 'Fail / Result Pending';}?></td>
                       <td><input type="checkbox" name="" id="five" <?php if($value['round_5'] == 1){echo "checked";}else{echo '';}?>></td>
                       <td id="five_result"><?php if($value['round_5'] == 1){echo "Pass";}else{echo 'Fail / Result Pending';}?></td>
-                      <td><?php if($value['round_1'] == 1 && $value['round_2'] == 1 && $value['round_3'] == 1 && $value['round_4'] == 1 && $value['round_5'] == 1){echo "Hired";}else{echo "Not Hired";}?></td>
+                      <td id="final_result"><?php if($value['round_1'] == 1 && $value['round_2'] == 1 && $value['round_3'] == 1 && $value['round_4'] == 1 && $value['round_5'] == 1){echo "Hired";}else{echo "Not Hired";}?></td>
                   </tr>
                 <?php $i++; } ?>
               </tbody>
@@ -438,6 +438,7 @@
                   if(round_number[0] == "round_5"){
                     if(result_value[0] == 0){
                       $('#five_result').html("Fail / Result Pending");
+                      // $('final_result').html("Hired");
                     }
                   }
                 },

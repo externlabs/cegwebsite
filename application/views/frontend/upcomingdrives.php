@@ -41,9 +41,9 @@
          <?php 
           if(isset($_SESSION['user_id'])){
             $user_type=$_SESSION['profile_type'];
-            if($user_type == "student" || $user_type == "faculity"){
+            if($user_type == "student" ){
               echo '<a href="'.base_url().'apply/'.$drive['drive_id'].'"><button class="btn text-primary">Apply Now</button></a>';
-            }else if($user_type == "company"){
+            }else if($user_type == "company" || $user_type == "faculity"){
               echo '';
             }
           }else{

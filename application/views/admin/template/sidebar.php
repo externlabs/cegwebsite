@@ -144,6 +144,7 @@ $parts = basename($url);
           <div id="reporting" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="py-2 collapse-inner rounded">
               <a class="collapse-item " href="<?php echo base_url(); ?>admin/reporting/result" style="font-size:1.3rem; ">Ongoin Drives</a>
+              <a class="collapse-item " href="<?php echo base_url(); ?>admin/reporting/completedresult" style="font-size:1.3rem; ">Completed Drives</a>
               <div class="collapse-divider"></div>
             </div>
           </div>
