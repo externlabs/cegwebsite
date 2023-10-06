@@ -32,7 +32,6 @@ class Editcourse extends CI_controller
 
     $this->form_validation->set_rules('training_id', 'Name', 'required');
     $this->form_validation->set_rules('course_name', 'Name', 'required');
-
     $this->form_validation->set_rules('course_desc', 'Name', 'required');
     $this->form_validation->set_rules('course_type', 'Name', 'required');
 
@@ -64,31 +63,31 @@ class Editcourse extends CI_controller
 
 public function update_course(){
 
-  $this->load->model('admin/training/Trainingmodel');
-  $this->input->post('formSubmit');
-
-  $this->form_validation->set_rules('training_id', 'Name', 'required');
+    $this->load->model('admin/training/Trainingmodel');
+    $this->input->post('formSubmit');
     $this->form_validation->set_rules('course_name', 'Name', 'required');
-
     $this->form_validation->set_rules('course_desc', 'Name', 'required');
     $this->form_validation->set_rules('course_type', 'Name', 'required');
-
     $this->form_validation->set_rules('course_id', 'Message', 'required');
 
   if ($this->form_validation->run()){
+
+    if( $this->input->post('course_type') == "paid"){
+      $course_amount = $this->input->post('course_amount');
+      $form_amount = $this->input->post('form_amount');
+    }else{
+      $course_amount = 0;
+      $form_amount =0;
+    }
+
     $datas = array(
-        'training_id' => $this->input->post('training_id'),
         'course_name' => $this->input->post('course_name'),
         'course_desc' => $this->input->post('course_desc'),
         'course_type' => $this->input->post('course_type'),
-        'course_amount' => $this->input->post('course_amount'),
-        'form_amount' => $this->input->post('form_amount'), 
-        // 'start_date' => $this->input->post('start_date'),
-        // 'end_date' => $this->input->post('end_date'),
-        // 'course_status' => 1,
+        'course_amount' => $course_amount,
+        'form_amount' => $form_amount, 
     );
       $id = $this->input->post('course_id');
-
       if ($this->Trainingmodel->update_course_status($datas, $id)) {
           $this->session->set_flashdata('error', 'Error In Submission');
           redirect(base_url() . 'admin/training/addcourse');

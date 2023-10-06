@@ -25,6 +25,14 @@ class Alltraining extends CI_controller
   public function deletecontactdetail(){
     if ($this->input->post('deletesliderId')) {
       $this->form_validation->set_rules('deletesliderId', 'text', 'required');
+
+      $getCourses = $this->db->where('training_id', $this->input->post('deletesliderId'))->get('course')->result_array();
+
+      if(count($getCourses) > 0){
+        $this->session->set_flashdata('error', 'Please Delete Linked Courses with this Training');
+        redirect(base_url() . "admin/training/alltraining");
+      }
+
       if ($this->form_validation->run() == true) {
         $getDeleteStatus = $this->Trainingmodel->delete_training($this->input->post('deletesliderId'));
         if ($getDeleteStatus['message'] == 'yes') {

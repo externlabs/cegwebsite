@@ -69,6 +69,19 @@
     font-weight: 300;
     font-style: italic;
   }
+
+
+  .submit_btn{
+        width: 11rem;
+        background: #68d331;
+        color: white;
+        outline: none;
+        border: none;
+        border-radius: 4px;
+        margin-top:1rem;
+        padding:1rem;
+        font-size:12px;
+    }
 </style>
 
 <?php 
@@ -152,6 +165,7 @@
                 <th>Course Type</th>
                 <th>Rregistration Fees</th>
                 <th>Course fees</th> 
+                <th>Status</th>
                 <th>Choose Action</th>
                 <th>Change Status</th>
                 <th>Action</th>
@@ -160,7 +174,14 @@
             </thead>
             <tbody>
 
-              <?php $i=1; foreach($course_data as $value){   ?>
+              <?php $i=1; foreach($course_data as $value){   
+                
+                if($value['course_status'] == 0){
+                  $course_status = '<span class="badge badge-pill badge-warning " style="font-size:14px">Disabled</span>';
+              }else if($value['course_status'] == 1){
+                  $course_status = '<span class="badge badge-pill badge-success" style="font-size:14px">Enabled</span>';
+              }
+                ?>
               <tr>
                 <td>
                   <?php echo $i; ?>
@@ -187,18 +208,18 @@
                   <?php  if($value['course_amount'] == null){ echo "0";}else{ echo $value['course_amount'];}?>
                 </td>
 
+                <td><?php echo $course_status?></td>
+
                 <form action="<?php echo base_url()?>admin/training/addcourse/update_course" method="post">
                   <td>
                     <select name="course_status" id="" required>
                       <option value="">Please select an option</option>
-                      <option value="1" <?php if($value['course_status']==1){echo "selected disabled" ;}else{echo ""
-                        ;}?>>Enable</option>
-                      <option value="0" <?php if($value['course_status']==0){echo "selected disabled" ;}else{echo ""
-                        ;}?>>Disable</option>
+                      <option value="1" >Enable</option>
+                      <option value="0" >Disable</option>
                     </select>
                   </td>
                   <input type="hidden" name="course_id" value="<?php echo $value['course_id']?>" required>
-                  <td><button>Change Status</button></td>
+                  <td><button class="submit_btn">Change Status</button></td>
                 </form>
                 <td><a href="<?php echo base_url()?>admin/training/editcourse?id=<?php echo $value['course_id']?>"><i
                       class="fas fa-edit" style="color: #009cff !important;cursor: pointer; margin-right:10px;"></i></a>

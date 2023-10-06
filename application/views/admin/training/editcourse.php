@@ -140,7 +140,7 @@
         </div>
       </div>
     </form>
-    <?php }?>
+   
   </div>
 </div>
 
@@ -148,11 +148,15 @@
 
 <script>
   document.getElementById("amount").style.display = 'none';
-
+  var course_type = "<?php echo $course['course_type']?>";
+  if (course_type == "paid") {
+      document.getElementById("amount").style.display = 'block';
+    } else {
+      document.getElementById("amount").style.display = 'none';
+    }
   document.getElementById('course_type').onchange = function () {
-    var course_type = this.value;
-
-    if (course_type == "paid") {
+    var course_types = this.value;
+    if (course_types == "paid") {
       document.getElementById("amount").style.display = 'block';
     } else {
       document.getElementById("amount").style.display = 'none';
@@ -160,7 +164,7 @@
   }
 
 </script>
-
+<?php }?>
 <script>
   $(document).ready(function () {
     $(".num").keypress(function () {
