@@ -50,6 +50,18 @@ class Studentinfomation extends CI_controller
   public function delete_student(){ 
     if($this->input->post('deletesliderId')){
         $this->form_validation->set_rules('deletesliderId','text','required');
+
+        $getQualification = $this->db->where('user_type','student')->where('student_id',$this->input->post('deletesliderId'))->get('qualification')->result_array();
+
+       
+
+        if(count($getQualification) > 0){
+          $this->session->set_flashdata('error','Please Delete Qualification Of This User to delete!');
+          redirect(base_url()."admin/student/studentinfomation");
+        }
+
+
+
         if($this->form_validation->run() == true){
             $getDeleteStatus = $this->Studentmodel->delete_student($this->input->post('deletesliderId'));
             if($getDeleteStatus['message'] == 'yes'){

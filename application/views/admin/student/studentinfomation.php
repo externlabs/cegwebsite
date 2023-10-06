@@ -48,6 +48,18 @@
     width: 70px;
     height: 70px;
   }
+
+  .submit_btn{
+        width: 11rem;
+        background: #68d331;
+        color: white;
+        outline: none;
+        border: none;
+        border-radius: 4px;
+        margin-top:1rem;
+        padding:1rem;
+        font-size:12px;
+    }
 </style>
 
 <div class="all_post">
@@ -94,13 +106,21 @@
                                 <th>Height</th>
                                 <th>Weight</th>
                                 <th>Bloodgroup</th>
+                                <th>Status</th>
                                 <th>Option</th>
                                 <th>Change button</th>
                                 <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-              <?php $i=1; foreach($student_details as $value){ ?>
+              <?php $i=1; foreach($student_details as $value){ 
+                if($value['student_status'] == 0){
+                  $student_status = '<span class="badge badge-pill badge-warning " style="font-size:14px">Disabled</span>';
+              }else if($value['student_status'] == 1){
+                  $student_status = '<span class="badge badge-pill badge-success" style="font-size:14px">Enabled</span>';
+              }
+                
+                ?>
                   <tr>
                    
                   <td><?php echo $i; ?></td>
@@ -122,18 +142,19 @@
                       <td><?php echo $value['height']; ?></td>
                       <td><?php echo $value['weight']; ?></td>
                       <td><?php echo $value['bloodgroup']; ?></td>
+                      <td><?php echo $student_status?></td>
 
                       <form action="<?php echo base_url()?>admin/student/studentinfomation/update_student" method="post">
                       <td>
                         <select name="student_status" id="" required>
                             <option value="">Please select an option</option>
-                            <option value="1" <?php if($value['student_status'] == 1){echo "selected disabled";}else{echo "";}?>>Enable</option>
-                            <option value="0" <?php if($value['student_status'] == 0){echo "selected disabled";}else{echo "";}?>>Disable</option>
+                            <option value="1" >Enable</option>
+                            <option value="0" >Disable</option>
                         </select>
                       <input type="hidden" name="student_id" value="<?php echo $value['student_id']?>" required>
 
                       </td>
-                      <td><button>Change Status</button></td>
+                      <td><button class="submit_btn">Change Status</button></td>
                      </form>
                      
                       <td><a class="delete_sliders" data-id="<?php echo $value['student_id']?>" style="color: red;cursor: pointer;" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a></td>

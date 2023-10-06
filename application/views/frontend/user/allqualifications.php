@@ -1,7 +1,7 @@
 <?php
     $qualification = $this->db->where('student_id',$_SESSION['user_id'])->get('qualification')->result_array();
 
-    if($_SESSION['user_type'] == "student"){
+    if($_SESSION['profile_type'] == "student"){
         $user_type = 'student';
     }else{
         $user_type = 'faculity';
