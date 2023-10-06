@@ -1,5 +1,11 @@
 <?php
     $qualification = $this->db->where('student_id',$_SESSION['user_id'])->get('qualification')->result_array();
+
+    if($_SESSION['user_type'] == "student"){
+        $user_type = 'student';
+    }else{
+        $user_type = 'faculity';
+    }
 ?>
 
     <div class="qualifications_page">
@@ -24,7 +30,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $i=1; foreach($qualification as $value){ ?>
+                            <?php $i=1; foreach($qualification as $value){ if($user_type == $value['user_type']){?>
                             <tr>
                                 <td><?php echo $i;?></td>
                                 <td><?php echo $value['class']?></td>
@@ -38,7 +44,7 @@
                                 <td><?php echo $value['backlog']?></td>
                                 <td><a href="<?php echo base_url()?>user/editqualification?id=<?php echo $value['qualification_id']?>"><button type="button" class="fas fa-edit edit-btn"></button></a></td>
                             </tr>
-                            <?php $i++;}?>
+                            <?php }$i++;}?>
                         </tbody>
                     </table>
                 </div>

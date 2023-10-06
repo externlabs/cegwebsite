@@ -50,7 +50,11 @@ class Qualification extends CI_controller
             $start_year = $this->input->post('start_year');
             $passing_year = $this->input->post('passing_year');
 
-
+            if($_SESSION['user_type'] == 'student'){
+                $user_type = "student";
+            }else{
+                $user_type = "faculity";
+            }
 
 
             $student_id = $_SESSION['user_id'];
@@ -66,6 +70,7 @@ class Qualification extends CI_controller
                 'backlog' => $this->input->post('backlog'),
                 'start_year' => $this->input->post('start_year'),
                 'student_id' => $student_id,
+                'user_type' => $user_type,
                 'course_name' => $this->input->post('course_name'),
             );
 

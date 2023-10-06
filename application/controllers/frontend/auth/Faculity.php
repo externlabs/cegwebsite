@@ -29,14 +29,23 @@ class Faculity extends CI_controller
 
         foreach ($model_data as $value) {
             if ((strtolower($value['faculity_email']) == strtolower($user_data['email'])) && ($value['password'] == md5($user_data['password']))) {
-                $_SESSION["user_id"] = $value["faculity_id"];
-                $_SESSION['profile_type'] = "faculity";
-                $login_success = 1;
-                break;
+                if($value['status'] == 1){
+                    $_SESSION["user_id"] = $value["faculity_id"];
+                    $_SESSION['profile_type'] = "faculity";
+                    $login_success = 1;
+                    break;
+                }else{
+                    $login_success = 2;
+                    break;
+                }
+                
             }
         }
         if ($login_success == 1) {
             redirect(base_url() . 'user/my-profile');
+        }elseif($login_success == 2){
+            $this->session->set_flashdata('error', 'Your Account is disabled. Please Connect Administrator!');
+            redirect(base_url().'auth/faculity');
         } else {
             $this->session->set_flashdata('error', 'Wrong Email Or Password');
             redirect(base_url().'auth/faculity');
@@ -89,6 +98,7 @@ class Faculity extends CI_controller
                                 'faculity' => $this->input->post('faculity'),
                                 'accommodation' => $this->input->post('accommodation'),
                                 'password' => md5($this->input->post('password')),
+                                'status' => 1
                             );
                             if ($this->Faculitymodel->create_faculity($datas)) {
                                 $this->session->set_flashdata('success', 'Account has been created successfully!');
