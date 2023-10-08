@@ -22,6 +22,15 @@ class Result extends CI_controller
 
   
 
+  public function addinventory_api(){
+      
+    $postData = $this->input->post();
+    // Get data
+    $data = $this->Drivemodel->fetch_ucoming_drive_result_data($postData);
+    echo json_encode($data);
+  }
+
+
  
  
 }

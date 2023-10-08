@@ -55,6 +55,63 @@
     width: 70px;
     height: 70px;
   }
+
+
+  
+  .date_filter{
+    width:100%;
+    height:auto;
+  }
+  .date_filter .flex{
+    display:flex;
+  }
+  .date_filter .flex .card{
+    width:50%;
+    margin-bottom:2rem; 
+  }
+  .date_filter .flex .card .date_class{
+    width:100%;
+    height:auto;
+    padding:1rem;
+    border:#cdcdcd;
+    outline:none;
+   
+  }
+
+  .buttons-excel {
+    border:none !important;
+    outline:none !important;
+    background:#1D6F42 !important;
+    color:white !important;
+    border-radius:6px !important;
+    margin-bottom:.5rem !important;
+  }
+
+  .btn{
+    margin:0px !important;
+  }
+
+  .buttons-csv{
+    border:none !important;
+    outline:none !important;
+    background:#33ba70 !important;
+    color:white !important;
+    border-radius:6px !important;
+    margin-bottom:.5rem !important;
+  }
+
+  #change_status{
+    width:20rem;
+    height:auto;
+    padding:.5rem;
+    border:1px solid #cdcdcd;
+    border-radius:6px;
+    outline:none;
+  }
+
+  #lowinventory_filter{
+    display: none;
+  }
 </style>
 
 <?php if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'ON'){
@@ -71,14 +128,7 @@
                 
             ?>
 
-<?php
 
-    $drive_applications = $this->db->where('drive_id',$rerfe[1])->get('drive_application')->result_array();
-
-    // $student_info = $this->db->get('student')->result_array();
-
-
-?>
 
 <div class="all_post">
   <div class="container">
@@ -131,40 +181,6 @@
 
               </thead>
               <tbody>
-
-                <?php $i=1; foreach ($drive_applications as $value) { $drive_application_id = $value['application_id'];
-                    $student_info = $this->db->where('student_id',$value['student_id'])->get('student')->result_array();    
-                ?>
-                  <tr>
-                    <td><?php echo $i; ?></td>
-                    <?php foreach($student_info as $student){?>
-                      <td><?php echo $student['student_name']; ?></td>
-                      <td><?php echo $student['father_name']; ?></td>
-                      <td><?php echo $student['mother_name']; ?></td>
-                      <td><?php echo $student['student_dob']; ?></td>
-                      <td><?php echo $student['student_email']; ?></td>
-                      <td><?php echo $student['student_gender']; ?></td>
-                      <td><?php echo $student['student_number']; ?></td>
-                      <td><?php echo $student['city']; ?></td>
-                      <td><?php echo $student['district']; ?></td>
-                      <td><?php echo $student['state']; ?></td>
-                      <td><?php echo $student['pincode']; ?></td>
-                      <td><?php echo $student['student_aadhar']; ?></td>
-                    <?php }?>
-                      <td><input type="checkbox" name="" id="first" <?php if($value['round_1'] == 1){echo "checked";}else{echo '';}?> disabled></td>
-                      <td id="first_result"><?php if($value['round_1'] == 1){echo "Pass";}else{echo 'Fail / Result Pending';}?></td>
-
-                      <td><input type="checkbox" name="" id="second" <?php if($value['round_2'] == 1){echo "checked";}else{echo '';}?> disabled></td>
-                      <td id="second_result"><?php if($value['round_2'] == 1){echo "Pass";}else{echo 'Fail / Result Pending';}?></td>
-                      <td><input type="checkbox" name="" id="third" <?php if($value['round_3'] == 1){echo "checked";}else{echo '';}?> disabled></td>
-                      <td id="third_result"><?php if($value['round_3'] == 1){echo "Pass";}else{echo 'Fail / Result Pending';}?></td>
-                      <td><input type="checkbox" name="" id="fourth" <?php if($value['round_4'] == 1){echo "checked";}else{echo '';}?> disabled></td>
-                      <td id="fourth_result"><?php if($value['round_4'] == 1){echo "Pass";}else{echo 'Fail / Result Pending';}?></td>
-                      <td><input type="checkbox" name="" id="five" <?php if($value['round_5'] == 1){echo "checked";}else{echo '';}?> disabled></td>
-                      <td id="five_result"><?php if($value['round_5'] == 1){echo "Pass";}else{echo 'Fail / Result Pending';}?></td>
-                      <td><?php if($value['round_1'] == 1 && $value['round_2'] == 1 && $value['round_3'] == 1 && $value['round_4'] == 1 && $value['round_5'] == 1){echo "Hired";}else{echo "Not Hired";}?></td>
-                  </tr>
-                <?php $i++; } ?>
               </tbody>
             </table>
           </div>
@@ -212,248 +228,19 @@
 <script>
   $(document).ready(function() {
 
-    $('#first').click(function() {
-        if(this.checked){
-            var application_id = <?php echo $drive_application_id;?>;
-            var round_no = 1;
-            var result = 'pass';
-            $.ajax({
-                type: "POST",
-                url: '<?php echo base_url()?>admin/reporting/applications/update_result',
-                data: {application_id: application_id, round_no:round_no, result:result}, //--> send id of checked checkbox on other page
-                success: function(data) {
-                  var parseData = JSON.parse(data);
-                  var resultobj = parseData.result;
-                  var round_number = Object.keys(resultobj);
-                  var result_value = Object.values(resultobj);
-
-                  if(round_number[0] == "round_1"){
-                    if(result_value[0] == 1){
-                      $('#first_result').html("Pass");
-                    }
-                  }
-                },
-            });
-        }else{
-            var application_id = <?php echo $drive_application_id;?>;
-            var round_no = 1;
-            var result = 'fail';
-            $.ajax({
-                type: "POST",
-                url: '<?php echo base_url()?>admin/reporting/applications/update_result',
-                data: {application_id: application_id, round_no:round_no, result:result}, //--> send id of checked checkbox on other page
-                success: function(data) {
-                  var parseData = JSON.parse(data);
-                  var resultobj = parseData.result;
-                  var round_number = Object.keys(resultobj);
-                  var result_value = Object.values(resultobj);
-
-                  if(round_number[0] == "round_1"){
-                    if(result_value[0] == 0){
-                      $('#first_result').html("Fail / Result Pending");
-                    }
-                  }
-                },
-            });
-        }
-      });
-
-
-      $('#second').click(function() {
-        if(this.checked){
-            var application_id = <?php echo $drive_application_id;?>;
-            var round_no = 2;
-            var result = 'pass';
-            $.ajax({
-                type: "POST",
-                url: '<?php echo base_url()?>admin/reporting/applications/update_result',
-                data: {application_id: application_id, round_no:round_no, result:result}, //--> send id of checked checkbox on other page
-                success: function(data) {
-                  var parseData = JSON.parse(data);
-                  var resultobj = parseData.result;
-                  var round_number = Object.keys(resultobj);
-                  var result_value = Object.values(resultobj);
-
-                  if(round_number[0] == "round_2"){
-                    if(result_value[0] == 1){
-                      $('#second_result').html("Pass");
-                    }
-                  }
-                },
-            });
-        }else{
-            var application_id = <?php echo $drive_application_id;?>;
-            var round_no = 2;
-            var result = 'fail';
-            $.ajax({
-                type: "POST",
-                url: '<?php echo base_url()?>admin/reporting/applications/update_result',
-                data: {application_id: application_id, round_no:round_no, result:result}, //--> send id of checked checkbox on other page
-                success: function(data) {
-                  var parseData = JSON.parse(data);
-                  var resultobj = parseData.result;
-                  var round_number = Object.keys(resultobj);
-                  var result_value = Object.values(resultobj);
-
-                  if(round_number[0] == "round_2"){
-                    if(result_value[0] == 0){
-                      $('#second_result').html("Fail / Result Pending");
-                    }
-                  }
-                },
-            });
-        }
-      });
-
-
-      $('#third').click(function() {
-        if(this.checked){
-            var application_id = <?php echo $drive_application_id;?>;
-            var round_no = 3;
-            var result = 'pass';
-            $.ajax({
-                type: "POST",
-                url: '<?php echo base_url()?>admin/reporting/applications/update_result',
-                data: {application_id: application_id, round_no:round_no, result:result}, //--> send id of checked checkbox on other page
-                success: function(data) {
-                  var parseData = JSON.parse(data);
-                  var resultobj = parseData.result;
-                  var round_number = Object.keys(resultobj);
-                  var result_value = Object.values(resultobj);
-
-                  if(round_number[0] == "round_3"){
-                    if(result_value[0] == 1){
-                      $('#third_result').html("Pass");
-                    }
-                  }
-                },
-            });
-        }else{
-            var application_id = <?php echo $drive_application_id;?>;
-            var round_no = 3;
-            var result = 'fail';
-            $.ajax({
-                type: "POST",
-                url: '<?php echo base_url()?>admin/reporting/applications/update_result',
-                data: {application_id: application_id, round_no:round_no, result:result}, //--> send id of checked checkbox on other page
-                success: function(data) {
-                  var parseData = JSON.parse(data);
-                  var resultobj = parseData.result;
-                  var round_number = Object.keys(resultobj);
-                  var result_value = Object.values(resultobj);
-
-                  if(round_number[0] == "round_3"){
-                    if(result_value[0] == 0){
-                      $('#third_result').html("Fail / Result Pending");
-                    }
-                  }
-                },
-            });
-        }
-      });
-
-
-      $('#fourth').click(function() {
-        if(this.checked){
-            var application_id = <?php echo $drive_application_id;?>;
-            var round_no = 4;
-            var result = 'pass';
-            $.ajax({
-                type: "POST",
-                url: '<?php echo base_url()?>admin/reporting/applications/update_result',
-                data: {application_id: application_id, round_no:round_no, result:result}, //--> send id of checked checkbox on other page
-                success: function(data) {
-                  var parseData = JSON.parse(data);
-                  var resultobj = parseData.result;
-                  var round_number = Object.keys(resultobj);
-                  var result_value = Object.values(resultobj);
-
-                  if(round_number[0] == "round_4"){
-                    if(result_value[0] == 1){
-                      $('#fourth_result').html("Pass");
-                    }
-                  }
-                },
-            });
-        }else{
-            var application_id = <?php echo $drive_application_id;?>;
-            var round_no = 4;
-            var result = 'fail';
-            $.ajax({
-                type: "POST",
-                url: '<?php echo base_url()?>admin/reporting/applications/update_result',
-                data: {application_id: application_id, round_no:round_no, result:result}, //--> send id of checked checkbox on other page
-                success: function(data) {
-                  var parseData = JSON.parse(data);
-                  var resultobj = parseData.result;
-                  var round_number = Object.keys(resultobj);
-                  var result_value = Object.values(resultobj);
-
-                  if(round_number[0] == "round_4"){
-                    if(result_value[0] == 0){
-                      $('#fourth_result').html("Fail / Result Pending");
-                    }
-                  }
-                },
-            });
-        }
-      });
-
-
-      $('#five').click(function() {
-        if(this.checked){
-            var application_id = <?php echo $drive_application_id;?>;
-            var round_no = 5;
-            var result = 'pass';
-            $.ajax({
-                type: "POST",
-                url: '<?php echo base_url()?>admin/reporting/applications/update_result',
-                data: {application_id: application_id, round_no:round_no, result:result}, //--> send id of checked checkbox on other page
-                success: function(data) {
-                  var parseData = JSON.parse(data);
-                  var resultobj = parseData.result;
-                  var round_number = Object.keys(resultobj);
-                  var result_value = Object.values(resultobj);
-
-                  if(round_number[0] == "round_5"){
-                    if(result_value[0] == 1){
-                      $('#five_result').html("Pass");
-                    }
-                  }
-                },
-            });
-        }else{
-            var application_id = <?php echo $drive_application_id;?>;
-            var round_no = 5;
-            var result = 'fail';
-            $.ajax({
-                type: "POST",
-                url: '<?php echo base_url()?>admin/reporting/applications/update_result',
-                data: {application_id: application_id, round_no:round_no, result:result}, //--> send id of checked checkbox on other page
-                success: function(data) {
-                  var parseData = JSON.parse(data);
-                  var resultobj = parseData.result;
-                  var round_number = Object.keys(resultobj);
-                  var result_value = Object.values(resultobj);
-
-                  if(round_number[0] == "round_5"){
-                    if(result_value[0] == 0){
-                      $('#five_result').html("Fail / Result Pending");
-                    }
-                  }
-                },
-            });
-        }
-      });
-
       
-
-    $('#lowinventory').DataTable({
-      dom: 'Bfrtip',
-              buttons: [
-            'csv', 'excel', 'pdf'
-        ]
-    });
+    var buttonCommon = {
+        exportOptions: {
+            format: {
+                body: function ( data, row, column, node ) {
+                    // Strip $ from salary column to make it numeric
+                    return column === 5 ?
+                        data.replace( /[$,]/g, '' ) :
+                        data;
+                }
+            }
+        }
+    };
 
 
     $(document).on('click', '.delete_sliders', function() {
@@ -464,4 +251,101 @@
     });
 
   });
+</script>
+
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+	   	var userDataTable = $('#lowinventory').DataTable({
+	      	'processing': true,
+	      	'serverSide': true,
+	      	'serverMethod': 'post',
+	      	'pageLength':25,
+	      	'ajax': {
+	          'url':'<?=base_url()?>admin/reporting/completedapplication/addinventory_api',
+	          'data': function(data){
+	          		data.driveId = '<?php echo $rerfe[1];?>';
+	          }
+	      	},
+	      	dom: 'Bfrtip',
+            "buttons": [
+                {
+                    "extend": 'excel',
+                    "text": '<button class="excel_button btn" style="color:white;">Excel</button>',
+                    "titleAttr": 'Excel',
+                    "action": newexportaction,
+                    "exportOptions": {
+                        columns: ':not(:last-child)',
+                    },
+                    "filename": function () {
+                        return 'Complete drives Applications';
+                    },
+                },
+                            
+                {
+                    "extend": 'csv',
+                    "text": '<button class="btn"  style="color:white;">Csv</button>',
+                    "titleAttr": 'Csv',
+                    "action": newexportaction,
+                    "exportOptions": {
+                        columns: ':not(:last-child)',
+                    },
+                    "filename": function () {
+                        return 'Complete Drive Applications';
+                    },
+                }
+            ],
+	      	
+	   	});
+
+	   	$('#min,#max').change(function(){
+	   		userDataTable.draw();
+	   	});
+	   	
+	   	
+	   	function newexportaction(e, dt, button, config) {
+            var self = this;
+            var oldStart = dt.settings()[0]._iDisplayStart;
+            dt.one('preXhr', function (e, s, data) {
+                // Just this once, load all data from the server...
+                data.start = 0;
+                data.length = 2147483647;
+                dt.one('preDraw', function (e, settings) {
+                    // Call the original action function
+                    if (button[0].className.indexOf('buttons-copy') >= 0) {
+                        $.fn.dataTable.ext.buttons.copyHtml5.action.call(self, e, dt, button, config);
+                    } else if (button[0].className.indexOf('buttons-excel') >= 0) {
+                        $.fn.dataTable.ext.buttons.excelHtml5.available(dt, config) ?
+                        $.fn.dataTable.ext.buttons.excelHtml5.action.call(self, e, dt, button, config) :
+                        $.fn.dataTable.ext.buttons.excelFlash.action.call(self, e, dt, button, config);
+                    } else if (button[0].className.indexOf('buttons-csv') >= 0) {
+                        $.fn.dataTable.ext.buttons.csvHtml5.available(dt, config) ?
+                        $.fn.dataTable.ext.buttons.csvHtml5.action.call(self, e, dt, button, config) :
+                        $.fn.dataTable.ext.buttons.csvFlash.action.call(self, e, dt, button, config);
+                    } else if (button[0].className.indexOf('buttons-pdf') >= 0) {
+                        $.fn.dataTable.ext.buttons.pdfHtml5.available(dt, config) ?
+                        $.fn.dataTable.ext.buttons.pdfHtml5.action.call(self, e, dt, button, config) :
+                        $.fn.dataTable.ext.buttons.pdfFlash.action.call(self, e, dt, button, config);
+                    } else if (button[0].className.indexOf('buttons-print') >= 0) {
+                        $.fn.dataTable.ext.buttons.print.action(e, dt, button, config);
+                    }
+                    dt.one('preXhr', function (e, s, data) {
+                        // DataTables thinks the first item displayed is index 0, but we're not drawing that.
+                        // Set the property to what it was before exporting.
+                        settings._iDisplayStart = oldStart;
+                        data.start = oldStart;
+                    });
+                    // Reload the grid with the original page. Otherwise, API functions like table.cell(this) don't work properly.
+                    setTimeout(dt.ajax.reload, 0);
+                    // Prevent rendering of the full data to the DOM
+                    return false;
+                });
+            });
+            // Requery the server with the new one-time export settings
+            dt.ajax.reload();
+        };
+	});
+
+
 </script>
