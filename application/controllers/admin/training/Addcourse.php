@@ -70,31 +70,32 @@ class Addcourse extends CI_controller
     }
 }
 
-public function update_course(){
+public function update_course_status(){
 
-  $this->load->model('admin/training/Trainingmodel');
-  $this->input->post('formSubmit');
+  $status=$this->input->post('status');
+  $id=$this->input->post('id');
+  
+  $data = array(
+    'course_status' => $status
+  );
 
-  $this->form_validation->set_rules('course_status', 'Name', 'required');
-  $this->form_validation->set_rules('course_id', 'Message', 'required');
+  $update_faculity = $this->db->set($data)->where('course_id',$id)->update('course');
 
-  if ($this->form_validation->run()){
-      $datas = array(
-          'course_status' => $this->input->post('course_status'),
-      );
-      $id = $this->input->post('course_id');
-
-      if ($this->Trainingmodel->update_course_status($datas, $id)) {
-          $this->session->set_flashdata('error', 'Error In Submission');
-          redirect(base_url() . 'admin/training/addcourse');
-      } else {
-          $this->session->set_flashdata('success', 'Course Status Updated Successfully!');
-          redirect(base_url() . 'admin/training/addcourse');
-      }
-  } else {
-      $this->session->set_flashdata('error', 'Please Fill All The Fields!');
-      redirect(base_url() . 'admin/training/addcourse');
+  if($update_faculity == true){
+    $response = array(
+      'status' => "success",
+      'result' => $data,
+      'message' => "Update Successfully!",
+    );
+ 
+  }else{
+    $response = array(
+      'status' => "error",
+      'message' => "Error In submission!",
+    );
   }
+
+echo json_encode($response);
 }
 
 
@@ -128,4 +129,20 @@ public function update_course(){
       }
     }
   }
+
+
+
+  
+
+  public function addinventory_api(){
+      
+    $postData = $this->input->post();
+    // Get data
+    $data = $this->Trainingmodel->fetch_course_data($postData);
+    echo json_encode($data);
+}
+
+
+
+
 }

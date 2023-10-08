@@ -83,28 +83,29 @@ class Addtraining extends CI_controller
 
 public function update_training_status(){
 
-  $this->load->model('admin/training/Trainingmodel');
-  $this->input->post('formSubmit');
+  $status=$this->input->post('status');
+  $id=$this->input->post('id');
+  
+  $data = array(
+    'status' => $status
+  );
 
-  $this->form_validation->set_rules('status', 'Name', 'required');
-  $this->form_validation->set_rules('training_id', 'Message', 'required');
+  $update_faculity = $this->db->set($data)->where('training_id',$id)->update('training');
 
-  if ($this->form_validation->run()){
-      $datas = array(
-          'status' => $this->input->post('status'),
-      );
-      $id = $this->input->post('training_id');
-
-      if ($this->Trainingmodel->update_traning_status($datas, $id)) {
-          $this->session->set_flashdata('error', 'Error In Submission');
-          redirect(base_url() . 'admin/training/alltraining');
-      } else {
-          $this->session->set_flashdata('success', 'Training Status Updated Successfully!');
-          redirect(base_url() . 'admin/training/alltraining');
-      }
-  } else {
-      $this->session->set_flashdata('error', 'Please Fill All The Fields!');
-      redirect(base_url() . 'admin/training/alltraining');
+  if($update_faculity == true){
+    $response = array(
+      'status' => "success",
+      'result' => $data,
+      'message' => "Update Successfully!",
+    );
+ 
+  }else{
+    $response = array(
+      'status' => "error",
+      'message' => "Error In submission!",
+    );
   }
+
+echo json_encode($response);
 }
 }

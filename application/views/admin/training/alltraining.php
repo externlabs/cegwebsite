@@ -66,6 +66,58 @@
         padding:1rem;
         font-size:12px;
     }
+
+
+    .date_filter{
+    width:100%;
+    height:auto;
+  }
+  .date_filter .flex{
+    display:flex;
+  }
+  .date_filter .flex .card{
+    width:50%;
+    margin-bottom:2rem; 
+  }
+  .date_filter .flex .card .date_class{
+    width:100%;
+    height:auto;
+    padding:1rem;
+    border:#cdcdcd;
+    outline:none;
+   
+  }
+
+  .buttons-excel {
+    border:none !important;
+    outline:none !important;
+    background:#1D6F42 !important;
+    color:white !important;
+    border-radius:6px !important;
+    margin-bottom:.5rem !important;
+  }
+
+  .btn{
+    margin:0px !important;
+  }
+
+  .buttons-csv{
+    border:none !important;
+    outline:none !important;
+    background:#33ba70 !important;
+    color:white !important;
+    border-radius:6px !important;
+    margin-bottom:.5rem !important;
+  }
+
+  #change_status{
+    width:20rem;
+    height:auto;
+    padding:.5rem;
+    border:1px solid #cdcdcd;
+    border-radius:6px;
+    outline:none;
+  }
 </style>
 
 <?php $traing_list = $this->db->get('training')->result_array()?>
@@ -86,6 +138,27 @@
             unset($_SESSION['error']);
         }
     ?>
+
+<div class="date_filter">
+            <h5>Filter By Training Start Date</h5>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="flex">
+                        <div class="card">
+                            <input type="text" class="date_class" name="min" id="min"  placeholder="Enter First date" autocomplete="off"/>
+                        </div>
+                        <div class="card">
+                            <input type="text" name="max" class="date_class" id="max" placeholder="Enter Second date" autocomplete="off"/>
+                        </div>
+                    </div>    
+                </div>
+                <div class="col-md-7">
+                    
+                </div>
+            </div>    
+          
+          
+        </div>
     
       <div class="row">
         <div class="col-md-12">
@@ -104,14 +177,14 @@
                   <th>Registration Last Date</th>
                   <th>Status</th>
                   <th>Choose Option</th>
-                  <th>Change Status</th>
+                  <!-- <th>Change Status</th> -->
                   <th>Action</th>
                 </tr>
 
               </thead>
               <tbody>
 
-                <?php $i=1; foreach($traing_list as $value){   if($value['status'] == 0){
+                <!-- <?php $i=1; foreach($traing_list as $value){   if($value['status'] == 0){
                   $status = '<span class="badge badge-pill badge-warning " style="font-size:14px">Disabled</span>';
               }else if($value['status'] == 1){
                   $status = '<span class="badge badge-pill badge-success" style="font-size:14px">Enabled</span>';
@@ -145,7 +218,7 @@
                      
                     </form> 
                   </tr>
-                <?php $i++; } ?>
+                <?php $i++; } ?> -->
               </tbody>
             </table>
           </div>
@@ -191,7 +264,18 @@
 
 <script>
   $(document).ready(function() {
-    $('#lowinventory').DataTable();
+    var buttonCommon = {
+        exportOptions: {
+            format: {
+                body: function ( data, row, column, node ) {
+                    // Strip $ from salary column to make it numeric
+                    return column === 5 ?
+                        data.replace( /[$,]/g, '' ) :
+                        data;
+                }
+            }
+        }
+    };
 
 
     $(document).on('click', '.delete_sliders', function() {
@@ -202,4 +286,164 @@
     });
 
   });
+</script>
+
+
+
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+	   	var userDataTable = $('#lowinventory').DataTable({
+	      	'processing': true,
+	      	'serverSide': true,
+	      	'serverMethod': 'post',
+	      	'pageLength':25,
+	      	'ajax': {
+	          'url':'<?=base_url()?>admin/training/alltraining/addinventory_api',
+	          'data': function(data){
+	          		data.startDate = $('#min').val();
+	          		data.endDate = $('#max').val();
+	          	// 	data.searchName = $('#searchName').val();
+	          }
+	      	},
+	      	dom: 'Bfrtip',
+            "buttons": [
+                {
+                    "extend": 'excel',
+                    "text": '<button class="excel_button btn" style="color:white;">Excel</button>',
+                    "titleAttr": 'Excel',
+                    "action": newexportaction,
+                    "exportOptions": {
+                        columns: ':not(:last-child)',
+                    },
+                    "filename": function () {
+                        return 'trainings';
+                    },
+                },
+                            
+                {
+                    "extend": 'csv',
+                    "text": '<button class="btn"  style="color:white;">Csv</button>',
+                    "titleAttr": 'Csv',
+                    "action": newexportaction,
+                    "exportOptions": {
+                        columns: ':not(:last-child)',
+                    },
+                    "filename": function () {
+                        return 'trainings';
+                    },
+                }
+            ],
+	      	
+	   	});
+
+	   	$('#min,#max').change(function(){
+	   		userDataTable.draw();
+	   	});
+	   	
+	   	
+	   	function newexportaction(e, dt, button, config) {
+            var self = this;
+            var oldStart = dt.settings()[0]._iDisplayStart;
+            dt.one('preXhr', function (e, s, data) {
+                // Just this once, load all data from the server...
+                data.start = 0;
+                data.length = 2147483647;
+                dt.one('preDraw', function (e, settings) {
+                    // Call the original action function
+                    if (button[0].className.indexOf('buttons-copy') >= 0) {
+                        $.fn.dataTable.ext.buttons.copyHtml5.action.call(self, e, dt, button, config);
+                    } else if (button[0].className.indexOf('buttons-excel') >= 0) {
+                        $.fn.dataTable.ext.buttons.excelHtml5.available(dt, config) ?
+                        $.fn.dataTable.ext.buttons.excelHtml5.action.call(self, e, dt, button, config) :
+                        $.fn.dataTable.ext.buttons.excelFlash.action.call(self, e, dt, button, config);
+                    } else if (button[0].className.indexOf('buttons-csv') >= 0) {
+                        $.fn.dataTable.ext.buttons.csvHtml5.available(dt, config) ?
+                        $.fn.dataTable.ext.buttons.csvHtml5.action.call(self, e, dt, button, config) :
+                        $.fn.dataTable.ext.buttons.csvFlash.action.call(self, e, dt, button, config);
+                    } else if (button[0].className.indexOf('buttons-pdf') >= 0) {
+                        $.fn.dataTable.ext.buttons.pdfHtml5.available(dt, config) ?
+                        $.fn.dataTable.ext.buttons.pdfHtml5.action.call(self, e, dt, button, config) :
+                        $.fn.dataTable.ext.buttons.pdfFlash.action.call(self, e, dt, button, config);
+                    } else if (button[0].className.indexOf('buttons-print') >= 0) {
+                        $.fn.dataTable.ext.buttons.print.action(e, dt, button, config);
+                    }
+                    dt.one('preXhr', function (e, s, data) {
+                        // DataTables thinks the first item displayed is index 0, but we're not drawing that.
+                        // Set the property to what it was before exporting.
+                        settings._iDisplayStart = oldStart;
+                        data.start = oldStart;
+                    });
+                    // Reload the grid with the original page. Otherwise, API functions like table.cell(this) don't work properly.
+                    setTimeout(dt.ajax.reload, 0);
+                    // Prevent rendering of the full data to the DOM
+                    return false;
+                });
+            });
+            // Requery the server with the new one-time export settings
+            dt.ajax.reload();
+        };
+	});
+
+
+
+  $(document).on('change', '#change_status', function() {
+      var status = $("#change_status").val();
+      var id = $("#training_id").val();  
+      $.ajax({  
+         type:"POST",  
+         url:'<?=base_url()?>admin/training/addtraining/update_training_status',  
+         data:{status: status, id:id},  
+         success:function(data){  
+          var parseData = JSON.parse(data);
+          
+          if(parseData.result.status == 1){
+            $('#ajax_status').html('<span class="badge badge-pill badge-success" style="font-size:14px">Enabled</span>');
+          }else{
+            $('#ajax_status').html('<span class="badge badge-pill badge-warning " style="font-size:14px">Disabled</span>');
+          }
+
+         }  
+      });
+  });
+</script>
+
+<script type="text/javascript" src="<?php echo base_url()?>assets/js/moment.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>assets/js/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/css/daterangepicker.css" />
+
+
+<script>
+$(function() {
+  $('#min').daterangepicker({
+    singleDatePicker: true,
+    showDropdowns: true,
+    minYear: 1901,
+    locale: {
+        format: 'YYYY-MM-DD'
+    }
+    // maxYear: parseInt(moment().format('YYYY'),10)
+  }, function(start, end, label) {
+    // var years = moment().diff(start, 'years');
+    // alert("You are " + years + " years old!");
+  });
+});
+</script>
+
+<script>
+$(function() {
+  $('#max').daterangepicker({
+    singleDatePicker: true,
+    showDropdowns: true,
+    minYear: 1901,
+    locale: {
+        format: 'YYYY-MM-DD'
+    }
+    // maxYear: parseInt(moment().format('YYYY'),10)
+  }, function(start, end, label) {
+    // var years = moment().diff(start, 'years');
+    // alert("You are " + years + " years old!");
+  });
+});
 </script>
