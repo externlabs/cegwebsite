@@ -171,31 +171,7 @@
                 </tr>
               </thead>
               <tbody>
-              <!-- <?php $i=1; foreach($faculityqulification_details as $value){
-                  if($value['user_type'] == 'faculity'){
-                  $faculity_details = $this->db->where('faculity_id',$value['student_id'])->get('faculity')->result_array();
-                  foreach($faculity_details as $faculity){
-                 ?>
-              
-                 
-
-                            <td><?php echo $i;?></td>
-                            
-                            <td><?php echo $faculity['faculity_name']?></td>
-                            <td><?php echo $faculity['faculity_email']?></td>
-                            
-                            <td><?php echo $value['class']?></td>
-                            <td><?php echo $value['university_name']?></td>
-                            <td><?php echo $value['institute_type']?></td>
-                            <td><?php echo $value['state']?></td>
-                            <td><?php echo $value['start_year']?></td>
-                            <td><?php echo $value['passing_year']?></td>
-                            <td><?php echo $value['percentage']?></td>
-                            <td><?php echo $value['branch']?></td>
-                            <td><?php echo $value['backlog']?></td>
-                            <td><a class="delete_sliders" data-id="<?php echo $value['qualification_id']?>"  style="color: red;cursor: pointer;" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-                  </tr>
-                  <?php }}$i++; } ?> -->
+             
               </tbody>
             </table>
           </div>

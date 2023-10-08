@@ -63,8 +63,6 @@
         <input type="" name="customer_type" value="<?php echo $_SESSION['profile_type']?>">
 
         <input type="" name="course_id" value="<?php echo $value['course_id']?>">
-        <!-- <input type="" name="form_amount" value="<?php echo $value['form_amount']?>">
-        <input type="" name="course_amount" value="<?php echo $value['course_amount']?>"> -->
         <br><br>
         <?php echo $applYbutton?>
     </form>

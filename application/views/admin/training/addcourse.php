@@ -252,60 +252,7 @@
             </thead>
             <tbody>
 
-              <!-- <?php $i=1; foreach($course_data as $value){   
-                
-                if($value['course_status'] == 0){
-                  $course_status = '<span class="badge badge-pill badge-warning " style="font-size:14px">Disabled</span>';
-              }else if($value['course_status'] == 1){
-                  $course_status = '<span class="badge badge-pill badge-success" style="font-size:14px">Enabled</span>';
-              }
-                ?>
-              <tr>
-                <td>
-                  <?php echo $i; ?>
-                </td>
-                <?php foreach($training_data as $training){if($training['training_id'] == $value['training_id']){?>
-                <td>
-                  <?php echo $training['training_name']?>
-                </td>
-                <?php }}?>
-                <td>
-                  <?php echo $value['course_name']; ?>
-                </td>
-                <td>
-                  <?php echo $value['course_desc']; ?>
-                </td>
-                <td>
-                  <?php echo $value['course_type']?>
-                </td>
-
-                <td>
-                  <?php if($value['form_amount'] == null){ echo "0";}else{ echo $value['form_amount'];} ?>
-                </td>
-                <td>
-                  <?php  if($value['course_amount'] == null){ echo "0";}else{ echo $value['course_amount'];}?>
-                </td>
-
-                <td><?php echo $course_status?></td>
-
-                <form action="<?php echo base_url()?>admin/training/addcourse/update_course" method="post">
-                  <td>
-                    <select name="course_status" id="" required>
-                      <option value="">Please select an option</option>
-                      <option value="1" >Enable</option>
-                      <option value="0" >Disable</option>
-                    </select>
-                  </td>
-                  <input type="hidden" name="course_id" value="<?php echo $value['course_id']?>" required>
-                  <td><button class="submit_btn">Change Status</button></td>
-                </form>
-                <td><a href="<?php echo base_url()?>admin/training/editcourse?id=<?php echo $value['course_id']?>"><i
-                      class="fas fa-edit" style="color: #009cff !important;cursor: pointer; margin-right:10px;"></i></a>
-                      <a class="delete_sliders" data-id="<?php echo $value['course_id']?>"  style="color: red;cursor: pointer;" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                </td>
-                </form>
-              </tr>
-              <?php $i++; } ?> -->
+              
             </tbody>
           </table>
         </div>

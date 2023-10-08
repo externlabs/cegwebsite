@@ -4,7 +4,6 @@ class Mltraining extends CI_controller
     public function __construct()
     {
         parent::__construct();
-        // $this->load->model('frontend/Careermodel');
     }
     public function index()
     {

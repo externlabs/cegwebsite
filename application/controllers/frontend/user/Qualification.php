@@ -41,12 +41,6 @@ class Qualification extends CI_controller
      
         
         if ($this->form_validation->run()){
-
-            // $qualification_data = $this->db->where('student_id',$_SESSION['user_id'])->get('qualification')->result_array();
-            // foreach($qualification_data as $value){
-            //     $student_id = $value['student_id'];
-            // }
-
             $start_year = $this->input->post('start_year');
             $passing_year = $this->input->post('passing_year');
 
@@ -73,10 +67,6 @@ class Qualification extends CI_controller
                 'user_type' => $user_type,
                 'course_name' => $this->input->post('course_name'),
             );
-
-            //  $passing_year => $this->input->post('passing_year');
-            // $start_year => $this->input->post('start_year');
-
               
             if($start_year < $passing_year){
                 if ($this->Studentmodel->add_qualification($datas)){

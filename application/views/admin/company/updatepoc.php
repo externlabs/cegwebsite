@@ -102,13 +102,7 @@
                 <div class="col-md-12">
                     <?php  foreach($poc_data as $value){?>
                     <div class="box">
-                        <!-- <label for="browser" class="form-label">Select Company <span style="color:red;">*</span></label>
-                        <select name="company_id" id="" readonly>
-                            <option value="">Please Select Company</option>
-                            <?php foreach($company_list as $comapny){?>
-                                <option value="<?php echo $comapny['company_id']?>" <?php if($value['company_id'] == $comapny['company_id']){ echo "selected";}else{echo '';}?>><?php echo $comapny['company_name']?></option>
-                            <?php }?>
-                        </select> -->
+                        
                         <label class="form-label">Name of contact person <span style="color:red;">*</span></label>
                         <input type="text" name="name" maxlength="50" placeholder="Enter Full Name" required value="<?php echo $value['poc_name']?>">
                         <label class="form-label">Designation <span style="color:red;">*</span></label>

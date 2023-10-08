@@ -149,24 +149,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- <?php $i=1; foreach($poc_data as $value){
-                                $company_data = $this->db->where('company_id',$value['company_id'])->get('company')->result_array();
-                            ?>
-                            <tr>
-                                <td><?php echo $i;?></td>
-                                <?php foreach($company_data as $company){?>
-                                <td><?php echo $company['company_name']?></td>
-                                <td><img src="<?php echo base_url()?>upload/company/<?php echo $company['company_logo']?>" width="100px"></td>
-                                <?php }?>
-                                <td><?php echo $value['poc_name']?></td>
-                                <td><?php echo $value['designation']?></td>
-                                <td><?php echo $value['phone']?></td>
-                                <td><?php echo $value['alternate_no']?></td>
-                                <td><?php echo $value['poc_email']?></td>
-                             
-                                <td><a href="<?php echo base_url()?>admin/company/updatepoc?id=<?php echo $value['poc_id']?>"  ><i class="fas fa-edit" style="color: #009cff !important;cursor: pointer; margin-right:10px;"></i></a><a class="delete_sliders" data-id="<?php echo $value['poc_id']?>"  style="color: red;cursor: pointer;" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-                            </tr>
-                            <?php $i++;}?> -->
+                            
                         </tbody>
                     </table>
                 </div>

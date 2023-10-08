@@ -168,30 +168,7 @@
                 </tr>
               </thead>
               <tbody>
-              <!-- <?php $i=1; foreach($studentqulification_details as $value){
-                $student_details = $this->db->where('student_id',$value['student_id'])->get('student')->result_array();
-                foreach($student_details as $student){
-                 ?>
-              
-                 
 
-                            <td><?php echo $i;?></td>
-                            
-                            <td><?php echo $student['student_name']?></td>
-                            <td><?php echo $student['student_email']?></td>
-                            
-                            <td><?php echo $value['class']?></td>
-                            <td><?php echo $value['university_name']?></td>
-                            <td><?php echo $value['institute_type']?></td>
-                            <td><?php echo $value['state']?></td>
-                            <td><?php echo $value['start_year']?></td>
-                            <td><?php echo $value['passing_year']?></td>
-                            <td><?php echo $value['percentage']?></td>
-                            <td><?php echo $value['branch']?></td>
-                            <td><?php echo $value['backlog']?></td>
-                            <td><a class="delete_sliders" data-id="<?php echo $value['qualification_id']?>"  style="color: red;cursor: pointer;" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-                  </tr>
-                  <?php }$i++; } ?> -->
               </tbody>
             </table>
           </div>

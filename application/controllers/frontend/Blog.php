@@ -11,7 +11,6 @@ class Blog extends CI_controller
     {
         $data['blogs'] = $this->Blogmodel->fetch();
         $this->load->view('frontend/template/header');
-       // $this->load->view('frontend/template/navbar');
         $this->load->view('frontend/blog',$data);
         $this->load->view('frontend/template/footer');
     }

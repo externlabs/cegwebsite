@@ -27,29 +27,9 @@ class Add extends CI_controller
         $pincodeData = file_get_contents('https://api.postalpincode.in/pincode/'.$pincode);
         $jsonDecodeData = json_decode($pincodeData);
 
-        // print_r($jsonDecodeData);
         echo json_encode($jsonDecodeData);
 
-        // if($jsonDecodeData[0]->Status == "Success"){
-        //     $postOffices = $jsonDecodeData[0]->PostOffice;
-        //     $District = $jsonDecodeData[0]->PostOffice[0]->District;
-        //     $State = $jsonDecodeData[0]->PostOffice[0]->State;
-
-        //     $data = array(
-        //         'status' => "Success",
-        //         'state' => $State,
-        //         'district' => $District,
-        //         'city' => $postOffices,
-                
-        //     );
-        //     echo json_encode($data);
-        // }else{
-        //     $data = array(
-        //         'status' => "error",
-        //         'message' => "Please Enter Correct Pincode!",
-        //     );
-        //     echo json_encode($data);
-        // }
+   
     }
 
         

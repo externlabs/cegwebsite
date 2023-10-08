@@ -5,11 +5,6 @@
 <script src="<?php echo base_url()?>https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="<?php echo base_url()?>https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-<!-- <link rel="stylesheet" href="<?php echo base_url()?>admin/assets/css/jquery-ui.css">
-
-<script src="<?php echo base_url()?>admin/assets/js/jquery/jquery-1.12.4.js"></script>
-<script src="<?php echo base_url()?>admin/assets/js/jquery/jquery-ui.js"></script> -->
-
 
 <div class="container mt-md-5 mt-3">
         <div class="row">
@@ -127,26 +122,7 @@
         </div>
     </div>
 </div>
-<!-- <script>
-    $(document).ready(function () {
-        var today = new Date();
-        $('.datepicker').datepicker({
-            format: 'mm-dd-yyyy',
-            autoclose:true,
-            endDate: "today",
-            maxDate: today
-        }).on('changeDate', function (ev) {
-                $(this).datepicker('hide');
-            });
 
-
-        $('.datepicker').keyup(function () {
-            if (this.value.match(/[^0-9]/g)) {
-                this.value = this.value.replace(/[^0-9^-]/g, '');
-            }
-        });
-    });
-</script> -->
 
 
 

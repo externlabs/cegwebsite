@@ -10,7 +10,6 @@ class Term extends CI_controller
     {
        
         $this->load->view('frontend/template/header');
-        //$this->load->view('frontend/template/navbar');
         $this->load->view('frontend/term');
         $this->load->view('frontend/template/footer');
     }

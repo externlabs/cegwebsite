@@ -191,53 +191,7 @@
                 </tr>
               </thead>
               <tbody>
-              <!-- <?php $i=1; foreach($student_details as $value){ 
-                if($value['student_status'] == 0){
-                  $student_status = '<span class="badge badge-pill badge-warning " style="font-size:14px">Disabled</span>';
-              }else if($value['student_status'] == 1){
-                  $student_status = '<span class="badge badge-pill badge-success" style="font-size:14px">Enabled</span>';
-              }
-                
-                ?>
-                  <tr>
-                   
-                  <td><?php echo $i; ?></td>
-                      <td><img src="<?php echo base_url()?>upload/student/<?php echo $value['photo']?>" width="100px"></td>
-                      <td><img src="<?php echo base_url()?>upload/student/<?php echo $value['aadhar_front']?>" width="100px"></td>
-                      <td><?php echo $value['student_name']; ?></td>
-                      <td><?php echo $value['father_name']; ?></td>
-                      <td><?php echo $value['mother_name']; ?></td>
-                      <td><?php echo $value['student_dob']; ?></td>
-                      <td><?php echo $value['student_email']; ?></td>
-                      <td><?php echo $value['student_gender']; ?></td>
-                      <td><?php echo $value['student_aadhar']; ?></td>
-                      <td><?php echo $value['student_number']; ?></td>
-                      <td><?php echo $value['city']; ?></td>
-                      <td><?php echo $value['district']; ?></td>
-                      <td><?php echo $value['state']; ?></td>
-                      <td><?php echo $value['pincode']; ?></td>
-                      <td><?php echo $value['student_address']; ?></td>
-                      <td><?php echo $value['height']; ?></td>
-                      <td><?php echo $value['weight']; ?></td>
-                      <td><?php echo $value['bloodgroup']; ?></td>
-                      <td><?php echo $student_status?></td>
-
-                      <form action="<?php echo base_url()?>admin/student/studentinfomation/update_student" method="post">
-                      <td>
-                        <select name="student_status" id="" required>
-                            <option value="">Please select an option</option>
-                            <option value="1" >Enable</option>
-                            <option value="0" >Disable</option>
-                        </select>
-                      <input type="hidden" name="student_id" value="<?php echo $value['student_id']?>" required>
-
-                      </td>
-                      <td><button class="submit_btn">Change Status</button></td>
-                     </form>
-                     
-                      <td><a class="delete_sliders" data-id="<?php echo $value['student_id']?>" style="color: red;cursor: pointer;" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-                  </tr>
-                  <?php $i++; } ?> -->
+             
               </tbody>
             </table>
           </div>
