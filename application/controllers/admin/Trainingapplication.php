@@ -18,4 +18,14 @@ class Trainingapplication extends CI_controller
     $this->load->view('admin/trainingapplication');
     $this->load->view('admin/template/footer');
   }
+
+  public function addinventory_api(){
+      
+    $postData = $this->input->post();
+    // Get data
+    $data = $this->Trainingmodel->fetch_training_application_data($postData);
+    echo json_encode($data);
+}
+
+
 }

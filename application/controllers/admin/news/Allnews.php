@@ -22,29 +22,32 @@ class Allnews extends CI_controller
   }
 
   public function update_news(){
-    $this->load->model('admin/news/Newsmodel');
-    $this->input->post('formSubmit');
-  
-    $this->form_validation->set_rules('news_status', 'Name', 'required');
-    $this->form_validation->set_rules('news_id', 'Message', 'required');
-  
-    if ($this->form_validation->run()){
-        $datas = array(
-            'news_status' => $this->input->post('news_status'),
-        );
-        $id = $this->input->post('news_id');
-  
-        if ($this->Newsmodel->update_news_status($datas, $id)) {
-            $this->session->set_flashdata('error', 'Error In Submission');
-            redirect(base_url() . 'admin/news/allnews');
-        } else {
-            $this->session->set_flashdata('success', 'News Status Updated Successfully!');
-            redirect(base_url() . 'admin/news/allnews');
-        }
-    } else {
-        $this->session->set_flashdata('error', 'Please Fill All The Fields!');
-        redirect(base_url() . 'admin/news/allnews');
+
+    $status=$this->input->post('status');
+    $id=$this->input->post('id');
+    
+    $data = array(
+      'news_status' => $status
+    );
+
+    $update_news = $this->db->set($data)->where('news_id',$id)->update('news');
+
+    if($update_news == true){
+      $response = array(
+        'status' => "success",
+        'result' => $data,
+        'message' => "Update Successfully!",
+      );
+   
+    }else{
+      $response = array(
+        'status' => "error",
+        'message' => "Error In submission!",
+      );
     }
+
+  echo json_encode($response);
+  
   }
 
   public function delete_news(){ 
@@ -67,5 +70,16 @@ class Allnews extends CI_controller
 
     
   }
+
+
+  public function addinventory_api(){
+      
+    $postData = $this->input->post();
+    // Get data
+    $data = $this->Newsmodel->fetch_news_data($postData);
+    echo json_encode($data);
+}
+
+
 
 }

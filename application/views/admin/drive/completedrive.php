@@ -149,13 +149,7 @@
 
 <script>
   $(document).ready(function() {
-    $('#lowinventory').DataTable({
-      dom: 'Bfrtip',
-      buttons: [
-            'csv', 'excel', 'pdf'
-        ]
-     
-    });
+    $('#lowinventory').DataTable();
 
 
     $(document).on('click', '.delete_sliders', function() {
