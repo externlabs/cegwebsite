@@ -20,6 +20,14 @@ class Canceldrive extends CI_controller
     $this->load->view('admin/template/footer');
   }
 
+  public function addinventory_api(){
+      
+    $postData = $this->input->post();
+    // Get data
+    $data = $this->Drivemodel->fetch_cancel_drive_data($postData);
+    echo json_encode($data);
+  }
+
  
  
 }

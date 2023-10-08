@@ -140,7 +140,7 @@
     ?>
 
 <div class="date_filter">
-            <h5>Filter By Training Start Date</h5>
+            <h5>Filter By Date</h5>
             <div class="row">
                 <div class="col-md-5">
                     <div class="flex">
@@ -177,48 +177,11 @@
                   <th>Registration Last Date</th>
                   <th>Status</th>
                   <th>Choose Option</th>
-                  <!-- <th>Change Status</th> -->
                   <th>Action</th>
                 </tr>
 
               </thead>
               <tbody>
-
-                <!-- <?php $i=1; foreach($traing_list as $value){   if($value['status'] == 0){
-                  $status = '<span class="badge badge-pill badge-warning " style="font-size:14px">Disabled</span>';
-              }else if($value['status'] == 1){
-                  $status = '<span class="badge badge-pill badge-success" style="font-size:14px">Enabled</span>';
-              }?>
-                  <tr>
-                    <td><?php echo $i; ?></td>
-                      <td><?php echo $value['training_name'];?></td>
-                      <td><?php echo $value['training_desc'];?></td>
-                      <td><a href="<?php echo base_url()?>training/<?php echo $value['training_link']?>" traget="_blank">View Training</a></td>
-                      <td><?php echo $value['start_date'];?></td>
-                      <td><?php echo $value['end_date'];?></td>
-                      <td><?php echo $value['registration_last_date'];?></td>
-                      <td><?php echo $status?></td>
-                      <form action="<?php echo base_url()?>admin/training/addtraining/update_training_status" method="post">
-                  <td>
-                    <select name="status" id="" required>
-                      <option value="">Please select an option</option>
-                      <option value="1" >Enable</option>
-                      <option value="0" >Disable</option>
-                    </select>
-                  </td>
-                  <input type="hidden" name="training_id" value="<?php echo $value['training_id']?>" required>
-                  <td><button class="submit_btn">Change Status</button></td>
-                </form>
-
-                      <td><a href="<?php echo base_url()?>admin/training/edittraining?id=<?php echo $value['training_id']?>"><i
-                      class="fas fa-edit" style="color: #009cff !important;cursor: pointer; margin-right:10px;"></i></a>
-                      <a class="delete_sliders" data-id="<?php echo $value['training_id']?>"  style="color: red;cursor: pointer;" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                      </td>
-                    
-                     
-                    </form> 
-                  </tr>
-                <?php $i++; } ?> -->
               </tbody>
             </table>
           </div>

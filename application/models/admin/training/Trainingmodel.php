@@ -272,10 +272,10 @@ function fetch_training_data($postData=null){
       if($startDate == $currntdate && $endDate == $currntdate){
           $getadminreferdata = $this->db->order_by('training_id','asc')->limit(1)->get('training')->result_array();
           foreach($getadminreferdata as $valll){
-              $firstdate = $valll['start_date'];
+              $firstdate = $valll['created_at'];
           }
-          
-          $startDatee = $firstdate;
+          $getStartDate = explode(' ', $firstdate);
+          $startDatee = $getStartDate[0];
           $endDatee = $currntdate;
       }else{
           $startDatee = $startDate;
@@ -283,7 +283,7 @@ function fetch_training_data($postData=null){
       }
       
       if($startDatee != '' && $endDatee != ''){
-        $search_arr[] = " str_to_date(start_date, '%Y-%m-%d') BETWEEN '".$startDatee."' and  '".$endDatee."' ";
+        $search_arr[] = " str_to_date(created_at, '%Y-%m-%d') BETWEEN '".$startDatee."' and  '".$endDatee."' ";
       }
 
       

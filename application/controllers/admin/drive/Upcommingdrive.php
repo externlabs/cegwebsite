@@ -21,30 +21,41 @@ class Upcommingdrive extends CI_controller
   }
 
   public function update_drive(){
-
-    $this->load->model('frontend/Drivemodel');
-    $this->input->post('formSubmit');
-
-    $this->form_validation->set_rules('option', 'Name', 'required');
-    $this->form_validation->set_rules('drive_id', 'Message', 'required');
-
-    if ($this->form_validation->run()) {
-        $datas = array(
-            'status' => $this->input->post('option'),
+      $status=$this->input->post('status');
+        $id=$this->input->post('id');
+        
+        $data = array(
+          'status' => $status
         );
-        $id = $this->input->post('drive_id');
-
-        if ($this->Drivemodel->update_drive_status($datas, $id)) {
-            $this->session->set_flashdata('error', 'Error In Submission');
-            redirect(base_url() . 'admin/drive/upcommingdrive');
-        } else {
-            $this->session->set_flashdata('success', 'Drive Status Updated Successfully!');
-            redirect(base_url() . 'admin/drive/upcommingdrive');
+    
+        $update_faculity = $this->db->set($data)->where('drive_id',$id)->update('drive');
+    
+        if($update_faculity == true){
+          $response = array(
+            'status' => "success",
+            'result' => $data,
+            'message' => "Update Successfully!",
+          );
+       
+        }else{
+          $response = array(
+            'status' => "error",
+            'message' => "Error In submission!",
+          );
         }
-    } else {
-        $this->session->set_flashdata('error', 'Please Fill All The Fields!');
-        redirect(base_url() . 'admin/drive/upcommingdrive');
-    }
+    
+      echo json_encode($response);
+
+  }
+
+
+public function addinventory_api(){
+      
+  $postData = $this->input->post();
+  // Get data
+  $data = $this->Drivemodel->fetch_ucoming_drive_data($postData);
+  echo json_encode($data);
 }
+
  
 }
