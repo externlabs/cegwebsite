@@ -21,38 +21,6 @@ class Allpoc extends CI_controller
         $this->load->view('admin/template/footer');
     }
 
-    public function update_status(){
-
-        $this->load->model('admin/Companymodel');
-        $this->form_validation->set_rules('company_status', 'company_status', 'required');
-        $this->form_validation->set_rules('company_id', 'company_id', 'required');
-
-        if ($this->form_validation->run()) {
-            $datas = array(
-                'company_status' => $this->input->post('company_status'),
-            );
-            $id = $this->input->post('company_id');
-    
-            if ($this->Companymodel->update_company_status($datas, $id)) {
-                $this->session->set_flashdata('error', 'Error In Submission');
-                redirect(base_url() . 'admin/company/allpoc');
-            } else {
-                $this->session->set_flashdata('success', 'Company Status Updated Successfully!');
-                redirect(base_url() . 'admin/company/allpoc');
-            }
-        } else {
-            $this->session->set_flashdata('error', 'Please Fill All The Fields!');
-            redirect(base_url() . 'admin/company/allpoc');
-        }
-
-
-    }
-
-    
-
-
-
-
   
     public function deletepost(){ 
         if($this->input->post('deletesliderId')){
@@ -71,6 +39,16 @@ class Allpoc extends CI_controller
                 redirect(base_url()."admin/company/allpoc");
             }
         }
+    }
+
+
+
+    public function addinventory_api(){
+      
+        $postData = $this->input->post();
+        // Get data
+        $data = $this->Companymodel->fetch_poc_data($postData);
+        echo json_encode($data);
     }
 
 

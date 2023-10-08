@@ -21,29 +21,32 @@ class Allcompany extends CI_controller
         $this->load->view('admin/template/footer');
     }
 
-    public function update_status(){
+    public function update_company_status(){
 
-        $this->load->model('admin/Companymodel');
-        $this->form_validation->set_rules('company_status', 'company_status', 'required');
-        $this->form_validation->set_rules('company_id', 'company_id', 'required');
-
-        if ($this->form_validation->run()) {
-            $datas = array(
-                'company_status' => $this->input->post('company_status'),
-            );
-            $id = $this->input->post('company_id');
+        $status=$this->input->post('status');
+        $id=$this->input->post('id');
+        
+        $data = array(
+          'company_status' => $status
+        );
     
-            if ($this->Companymodel->update_company_status($datas, $id)) {
-                $this->session->set_flashdata('error', 'Error In Submission');
-                redirect(base_url() . 'admin/company/allcompany');
-            } else {
-                $this->session->set_flashdata('success', 'Company Status Updated Successfully!');
-                redirect(base_url() . 'admin/company/allcompany');
-            }
-        } else {
-            $this->session->set_flashdata('error', 'Please Fill All The Fields!');
-            redirect(base_url() . 'admin/company/allcompany');
+        $update_faculity = $this->db->set($data)->where('company_id',$id)->update('company');
+    
+        if($update_faculity == true){
+          $response = array(
+            'status' => "success",
+            'result' => $data,
+            'message' => "Update Successfully!",
+          );
+       
+        }else{
+          $response = array(
+            'status' => "error",
+            'message' => "Error In submission!",
+          );
         }
+    
+      echo json_encode($response);
 
 
     }
@@ -53,22 +56,7 @@ class Allcompany extends CI_controller
 
 
 
-    public function addinventory_api(){
-        $getPurchaseData = $this->Companymodel->fetch_data();
-        $i=1;
-        foreach ($getPurchaseData as $key => $value) { 
-            if($value['company_status'] == 0){
-                $company_status = '<span class="badge badge-pill badge-warning " style="font-size:14px">Disabled</span>';
-            }else if($value['company_status'] == 1){
-                $company_status = '<span class="badge badge-pill badge-success" style="font-size:14px">Enabled</span>';
-            }
-            
-            $arrya_json[] = array($i,'<img src="'.base_url().'upload/company/'.$value['company_logo'].'" width="70px">',$value['company_name'],$value['company_email'],$value['company_number'],$value['company_address'],$value['company_city'],$value['district'],$value['state'],$value['country'],$value['pincode'],$value['groupcompany'],$value['company_desc'],'<a href="'.$value['company_website'].'" target="_blank">View company website</a>',$value['created_at'],$company_status,'<form action="'.base_url().'admin/company/allcompany/update_status" method="post"><select name="company_status" required><option value="">Select Option</option><option value="1">Enable</option><option value="0">Disable</option></select><input type="hidden" value="'.$value['company_id'].'" name="company_id"><button type="submit" class="submit_btn">Update Status</button></form>',
-           '<a href="'.base_url().'admin/company/edit?id='.$value['company_id'].'"  ><i class="fas fa-edit" style="color: #009cff !important;cursor: pointer; margin-right:10px;"></i></a><a class="delete_sliders" data-id="'.$value['company_id'].'"  style="color: red;cursor: pointer;" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a>' );
-        $i++;
-        }
-        echo json_encode(array('data'=>$arrya_json));
-    }
+    
   
     public function deletepost(){ 
         
@@ -97,6 +85,17 @@ class Allcompany extends CI_controller
                 redirect(base_url()."admin/company/allcompany");
             }
         }
+    }
+
+
+
+
+    public function addinventory_api(){
+      
+        $postData = $this->input->post();
+        // Get data
+        $data = $this->Companymodel->fetch_company_data($postData);
+        echo json_encode($data);
     }
 
 
