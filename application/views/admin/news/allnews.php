@@ -112,7 +112,7 @@
   }
 
   #change_status{
-    width:100%;
+    width:20rem;
     height:auto;
     padding:.5rem;
     border:1px solid #cdcdcd;

@@ -22,30 +22,30 @@ class Faculityinformation extends CI_controller
   }
 
   public function update_faculity(){
-    $this->load->model('frontend/Faculitymodel');
-    $this->input->post('formSubmit');
-  
-    $this->form_validation->set_rules('faculity_status', 'Name', 'required');
-    $this->form_validation->set_rules('faculity_id', 'Message', 'required');
-  
-    if ($this->form_validation->run()){
-        $datas = array(
-            'status' => $this->input->post('faculity_status'),
-        );
-        $id = $this->input->post('faculity_id');
+    $status=$this->input->post('status');
+    $id=$this->input->post('id');
+    
+    $data = array(
+      'status' => $status
+    );
 
+    $update_faculity = $this->db->set($data)->where('faculity_id',$id)->update('faculity');
 
-        if ($this->Faculitymodel->update_faculity_status($datas, $id)) {
-            $this->session->set_flashdata('error', 'Error In Submission');
-            redirect(base_url() . 'admin/faculity/faculityinformation');
-        } else {
-            $this->session->set_flashdata('success', 'Faculity Status Updated Successfully!');
-            redirect(base_url() . 'admin/faculity/faculityinformation');
-        }
-    } else {
-        $this->session->set_flashdata('error', 'Please Fill All The Fields!');
-        redirect(base_url() . 'admin/faculity/faculityinformation');
+    if($update_faculity == true){
+      $response = array(
+        'status' => "success",
+        'result' => $data,
+        'message' => "Update Successfully!",
+      );
+   
+    }else{
+      $response = array(
+        'status' => "error",
+        'message' => "Error In submission!",
+      );
     }
+
+  echo json_encode($response);
   }
 
   public function delete_faculity(){ 
@@ -77,4 +77,15 @@ class Faculityinformation extends CI_controller
         }
     }
   }
+
+
+  public function addinventory_api(){
+      
+    $postData = $this->input->post();
+    // Get data
+    $data = $this->Faculitymodel->fetch_faculity_information_data($postData);
+    echo json_encode($data);
+}
+
+
 }

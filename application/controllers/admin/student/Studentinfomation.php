@@ -22,29 +22,30 @@ class Studentinfomation extends CI_controller
   }
 
   public function update_student(){
-    $this->load->model('frontend/Studentmodel');
-    $this->input->post('formSubmit');
-  
-    $this->form_validation->set_rules('student_status', 'Name', 'required');
-    $this->form_validation->set_rules('student_id', 'Message', 'required');
-  
-    if ($this->form_validation->run()){
-        $datas = array(
-            'student_status' => $this->input->post('student_status'),
-        );
-        $id = $this->input->post('student_id');
-  
-        if ($this->Studentmodel->update_student_status($datas, $id)) {
-            $this->session->set_flashdata('error', 'Error In Submission');
-            redirect(base_url() . 'admin/student/studentinfomation');
-        } else {
-            $this->session->set_flashdata('success', 'Drive Status Updated Successfully!');
-            redirect(base_url() . 'admin/student/studentinfomation');
-        }
-    } else {
-        $this->session->set_flashdata('error', 'Please Fill All The Fields!');
-        redirect(base_url() . 'admin/student/studentinfomation');
+    $status=$this->input->post('status');
+    $id=$this->input->post('id');
+    
+    $data = array(
+      'student_status' => $status
+    );
+
+    $update_student = $this->db->set($data)->where('student_id',$id)->update('student');
+
+    if($update_student == true){
+      $response = array(
+        'status' => "success",
+        'result' => $data,
+        'message' => "Update Successfully!",
+      );
+   
+    }else{
+      $response = array(
+        'status' => "error",
+        'message' => "Error In submission!",
+      );
     }
+
+  echo json_encode($response);
   }
 
   public function delete_student(){ 
@@ -78,6 +79,15 @@ class Studentinfomation extends CI_controller
     }
   }
 
+
+
+  public function addinventory_api(){
+      
+    $postData = $this->input->post();
+    // Get data
+    $data = $this->Studentmodel->fetch_student_information_data($postData);
+    echo json_encode($data);
+}
   
 
 

@@ -40,5 +40,15 @@ class Faculityqulification extends CI_controller
     }
 
 
+    
+  public function addinventory_api(){
+      
+    $postData = $this->input->post();
+    // Get data
+    $data = $this->Faculitymodel->fetch_faculity_qualification_data($postData);
+    echo json_encode($data);
+}
+
+
   
 }

@@ -44,7 +44,7 @@ class Registertraining extends CI_controller
         $customerType = $this->input->post('customer_type');
 
 
-        $orderNo = $customerType.''.rand(10,100000);
+        $orderNo = $customerType.''.rand(1000,10000000);
 
         $operationMode = "DOM";
         $merchantCountry = "IN";
@@ -168,29 +168,15 @@ class Registertraining extends CI_controller
     }
 
     public function fail(){
-        $data = array(
-            'user_id' => $_SESSION['customer_id'],
-            'user_type' => $_SESSION['customer_type'],
-            'amount' => $_SESSION['amount'],
-            'transaction_id' => $_SESSION['order_id'],
-            'course_id' =>  $_SESSION['course_id'],
-            'status' => 'Fail'
-        );
 
-        if(!isset($_SESSION['customer_id']) || !isset($_SESSION['customer_type']) || !isset($_SESSION['amount']) || !isset($_SESSION['order_id']) || !isset($_SESSION['course_id'])){
-            $this->session->set_flashdata('payment_error', 'Something Wend Wrong Please Try Again Later!');
-            redirect(base_url(). 'alltraining');
-        }
-        
-        $creaTransaction = $this->db->insert('transactions', $data);
+        unset($_SESSION['customer_id']);
+        unset($_SESSION['customer_type']);
+        unset($_SESSION['amount']);
+        unset($_SESSION['order_id']);
+        unset($_SESSION['course_id']);
 
-        if($creaTransaction){
-            $this->session->set_flashdata('success', 'Transaction Could Not be Completed Please Try Again Later');
-            redirect(base_url() . 'user/trainingapplication');
-        }else{
-            $this->session->set_flashdata('error', 'Error in Submission!');
-            redirect(base_url() . 'user/trainingapplication');
-        }
+        $this->session->set_flashdata('error', 'Pyament Has Been Failed please try again later!');
+        redirect(base_url() . 'user/trainingapplication');
     }
     
 }
