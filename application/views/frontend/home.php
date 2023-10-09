@@ -4,7 +4,7 @@
             <div class="modal-body">
                 <button class="modal-closebtn"><i class="fa-solid fa-circle-xmark"></i></button>
                 <figure class="mb-0">
-                    <img src="<?php echo base_url()?>assets/image/modal-img.jpeg" alt="">
+                    <img src="<?php echo base_url()?>assets/image/banner.png" alt="">
                 </figure>
             </div>
         </div>
@@ -12,7 +12,7 @@
     <section class="homebanner">
         <img src="<?php echo base_url()?>assets/image/banner.png" alt="img"> 
         <ul class="info-list">
-            <li>
+            <!-- <li>
                 <img src="<?php echo base_url()?>assets/image/img1.png" alt="img">
                 <div class="text-box">
                     <h2>Hon'ble Chief Minister</h2>
@@ -27,7 +27,7 @@
                     <p>Dr. Subhash Garg </p>
                 </div>
             </li>
-        </ul>
+        </ul> -->
     </section>
 
     <section class="aboutinfo-section">
